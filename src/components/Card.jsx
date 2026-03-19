@@ -41,7 +41,7 @@ export default function Card({ property1 = 'Insta', city, country, price, img, c
       {/* Top bar */}
       <div className="relative flex items-center p-[10px] shrink-0">
         {(isInsta || isLikeShare) && (
-          <div className="bg-black/0 flex items-center justify-center overflow-clip px-4 py-3 rounded-[8px] shrink-0 size-9">
+          <div className="bg-white/10 backdrop-blur-[8px] border border-white/15 flex items-center justify-center overflow-clip px-4 py-3 rounded-[8px] shrink-0 size-9" style={{ boxShadow: 'inset 0 2px 16px rgba(0,0,0,0.03), inset 0 0 0 1px rgba(0,0,0,0.01)' }}>
             <div className="overflow-clip relative shrink-0 size-4">
               {isInsta && (
                 <div className="absolute inset-[8.33%]">
