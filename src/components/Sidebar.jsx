@@ -26,7 +26,7 @@ function NavIcon({ src, inset, extra, invert }) {
 function NavItem({ label, src, inset, extra }) {
   return (
     <div
-      className="flex items-center rounded-[22px] cursor-pointer transition-all duration-150 hover:bg-white/45 hover:backdrop-blur-[10px] hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.9)]"
+      className="flex items-center rounded-[22px] cursor-pointer transition-all duration-150 hover:bg-white/45 hover:backdrop-blur-[10px] hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.9)] hover:scale-[1.03]"
       style={{ width: '224px', padding: '12px 16px', gap: '10px' }}
     >
       <NavIcon src={src} inset={inset} extra={extra} />
