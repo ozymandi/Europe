@@ -176,7 +176,7 @@ function SavedSearchCard({ city, country, img }) {
           <p className="text-xs text-darkgray leading-normal">{country}</p>
         </div>
       </div>
-      <div className="bg-limon flex h-[44px] items-center overflow-clip p-[10px] rounded-[10px] shrink-0">
+      <div className="bg-white border border-border-gray flex h-[44px] items-center overflow-clip p-[10px] rounded-[10px] shrink-0">
         <div className="overflow-clip relative shrink-0 size-4 transition-transform duration-300 ease-out group-hover:scale-[1.15]">
           <div className="absolute inset-[20.83%]">
             <div className="absolute inset-[-5.36%]">
@@ -197,7 +197,7 @@ function BudgetTool() {
       </p>
       <div className="flex flex-wrap gap-[19px] items-center justify-between relative z-10 w-full">
         <div className="flex gap-4 items-center shrink-0">
-          <div className="bg-limon h-[77px] overflow-clip relative rounded-[4px] shrink-0 w-[78px] flex items-center justify-center">
+          <div className="bg-white border border-border-gray h-[77px] overflow-clip relative rounded-[4px] shrink-0 w-[78px] flex items-center justify-center">
             <img alt="" className="block" src={imgCalculator} />
           </div>
           <p className="text-[14px] text-dark tracking-[-0.4px] leading-snug">

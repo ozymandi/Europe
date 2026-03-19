@@ -168,7 +168,7 @@ export default function Card({ property1 = 'Insta', city, country, price, img, i
         )}
 
         {(isInsta || isLikeShare) && (
-          <div className="absolute right-1 top-1 bottom-1 bg-limon flex items-center justify-center overflow-clip px-[10px] rounded-[10px]">
+          <div className="absolute right-1 top-1 bottom-1 bg-white border border-border-gray flex items-center justify-center overflow-clip px-[10px] rounded-[10px]">
             <div className="overflow-clip relative shrink-0 size-4 transition-transform duration-300 ease-out group-hover/card:scale-[1.03]">
               <div className="absolute inset-[8.33%_12.5%]">
                 <div className="absolute inset-[-3.75%_-4.17%]">
