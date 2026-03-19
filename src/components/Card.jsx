@@ -79,7 +79,7 @@ export default function Card({ property1 = 'Insta', city, country, price, img, i
             <div key={i} className="relative h-full" style={{ width: `${100 / imgs.length}%` }}>
               <img
                 alt=""
-                className={`absolute inset-0 size-full object-cover ${!hasMultiple ? 'transition-transform duration-500 ease-in-out group-hover/card:scale-110' : ''}`}
+                className="absolute inset-0 size-full object-cover transition-transform duration-500 ease-in-out group-hover/card:scale-110"
                 src={src}
               />
             </div>
