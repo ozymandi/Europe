@@ -12,7 +12,7 @@ export default {
         'blue-1': '#b8e1f7',
       },
       fontFamily: {
-        display: ['"IvyOra Display"', 'Georgia', 'serif'],
+        display: ['"ivyora-display"', 'Georgia', 'serif'],
         sans: ['"Open Runde"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
       },
     },

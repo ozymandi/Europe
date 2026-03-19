@@ -35,11 +35,11 @@ body {
 }
 
 .font-display {
-  font-family: Georgia, 'Times New Roman', serif;
+  font-family: 'ivyora-display', Georgia, serif;
 }
 
 .font-display-italic {
-  font-family: Georgia, 'Times New Roman', serif;
+  font-family: 'ivyora-display', Georgia, serif;
   font-style: italic;
 }
 
