@@ -1,7 +1,7 @@
 import './index.css'
 import Sidebar from './components/Sidebar'
 import Dashboard from './components/Dashboard'
-import imgBg from './assets/dash_bg.webp'
+import imgBg from './assets/Dash_bg.webp'
 
 function App() {
   return (
