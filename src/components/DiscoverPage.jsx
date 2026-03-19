@@ -115,7 +115,7 @@ export default function DiscoverPage() {
   useEffect(() => {
     const el = gridRef.current
     if (!el) return
-    const update = () => setCols(Math.max(1, Math.floor(el.offsetWidth / 231)))
+    const update = () => setCols(Math.max(1, Math.floor((el.offsetWidth + 4) / 234)))
     update()
     const ro = new ResizeObserver(update)
     ro.observe(el)
