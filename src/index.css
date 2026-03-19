@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Open Runde';
+  src: local('Open Sans'), local('system-ui');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Open Runde';
+  src: local('Open Sans'), local('system-ui');
+  font-weight: 600;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  font-family: 'Open Runde', 'Open Sans', ui-sans-serif, system-ui, sans-serif;
+  background: white;
+  -webkit-font-smoothing: antialiased;
+  overflow: hidden;
+}
+
+.font-display {
+  font-family: Georgia, 'Times New Roman', serif;
+}
+
+.font-display-italic {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-style: italic;
+}
+
+.font-semibold {
+  font-weight: 600;
+}
