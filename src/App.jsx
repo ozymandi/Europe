@@ -1,8 +1,7 @@
 import './index.css'
 import Sidebar from './components/Sidebar'
 import Dashboard from './components/Dashboard'
-
-const imgBg = 'https://www.figma.com/api/mcp/asset/46b70ee9-415e-44e7-8a42-7072f552b103'
+import imgBg from './assets/dash_bg.webp'
 
 function App() {
   return (
