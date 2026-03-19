@@ -38,9 +38,11 @@ const LISTINGS = IMG_CARDS.map((img, i) => ({
   city: ['Crete', 'Santorini', 'Lot', 'Tuscany', 'Crete', 'Mallorca', 'Mykonos', 'Provence', 'Corfu'][i],
   country: ['Greece', 'Greece', 'France', 'Italy', 'Greece', 'Spain', 'Greece', 'France', 'Greece'][i],
   price: ['€119,000', '€245,000', '€189,000', '€320,000', '€98,000', '€275,000', '€310,000', '€165,000', '€142,000'][i],
-  // Cards 0 and 3 get 4 images for paginator demo
-  ...(i === 0 ? { images: [IMG_CARDS[0], IMG_CARDS[1], IMG_CARDS[2], IMG_CARDS[3]] } : {}),
-  ...(i === 3 ? { images: [IMG_CARDS[3], IMG_CARDS[4], IMG_CARDS[0], IMG_CARDS[2]] } : {}),
+  // Cards 0 and 3 get 4 images — skip immediate neighbors' images
+  // Card 0 neighbor is card 1 (IMG_CARDS[1]) → use 0,2,3,4
+  ...(i === 0 ? { images: [IMG_CARDS[0], IMG_CARDS[2], IMG_CARDS[3], IMG_CARDS[4]] } : {}),
+  // Card 3 neighbors are card 2 (IMG_CARDS[2]) and card 4 (IMG_CARDS[4]) → use 3,0,1,3
+  ...(i === 3 ? { images: [IMG_CARDS[3], IMG_CARDS[0], IMG_CARDS[1], IMG_CARDS[3]] } : {}),
   img,
 }))
 
