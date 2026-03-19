@@ -31,7 +31,7 @@ function NavItem({ label, src, inset, extra }) {
       className="flex items-center rounded-[22px] cursor-pointer"
       style={{ width: '224px', padding: '12px 16px', gap: '10px', backgroundColor: 'rgba(255,255,255,0)' }}
       whileHover={{
-        scale: 1.03,
+        scale: 1.05,
         backgroundColor: 'rgba(255,255,255,0.45)',
         backdropFilter: 'blur(10px)',
         boxShadow: 'inset 0 1px 1px rgba(255,255,255,0.9)',
