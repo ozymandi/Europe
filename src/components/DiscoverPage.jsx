@@ -128,13 +128,45 @@ export default function DiscoverPage() {
 
           {/* Listings header */}
           <div className="flex items-center justify-between shrink-0 w-full">
+            {/* Left: title + save search */}
             <div className="flex items-center gap-3">
               <p className="font-display text-lg text-dark tracking-[-0.2px] font-bold whitespace-nowrap">
                 Latest Listings
               </p>
-              <button className="border border-purple text-purple text-[9px] font-semibold uppercase tracking-[-0.16px] px-3 py-2 rounded transition-shadow duration-200 hover:shadow-[inset_0_0_0_9999px_rgba(255,255,255,0.15)]">
-                New in
+              <button className="border border-purple text-purple text-[9px] font-semibold uppercase tracking-[-0.16px] px-3 py-2 rounded transition-shadow duration-200 hover:shadow-[inset_0_0_0_9999px_rgba(139,92,246,0.08)]">
+                Save Search
               </button>
+            </div>
+            {/* Right: sort + view toggle */}
+            <div className="flex items-center gap-1">
+              {/* Sort by dropdown */}
+              <div className="flex items-center gap-2 shrink-0">
+                <span className="text-[12px] text-dark tracking-[-0.14px] whitespace-nowrap">Sort by:</span>
+                <button className="bg-white border border-border-gray flex items-center gap-10 pl-3 pr-1 py-1 rounded-full shrink-0 hover:shadow-[0_2px_8px_rgba(0,0,0,0.08)] transition-shadow duration-150">
+                  <span className="text-[12px] text-dark tracking-[-0.14px] whitespace-nowrap">Date</span>
+                  <div className="flex items-center justify-center p-1 rounded-full shrink-0">
+                    <svg viewBox="0 0 12 12" fill="none" className="size-3" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M3 4.5L6 7.5L9 4.5" stroke="#2e2e2e" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </div>
+                </button>
+              </div>
+              {/* View toggle */}
+              <div className="bg-white border border-border-gray flex items-center gap-1 p-1 rounded-full shrink-0">
+                <button className="bg-dark flex items-center justify-center p-1 rounded-full shrink-0">
+                  <svg viewBox="0 0 12 12" fill="none" className="size-3" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="1.5" y="1.5" width="3.5" height="3.5" rx="0.5" fill="white"/>
+                    <rect x="7" y="1.5" width="3.5" height="3.5" rx="0.5" fill="white"/>
+                    <rect x="1.5" y="7" width="3.5" height="3.5" rx="0.5" fill="white"/>
+                    <rect x="7" y="7" width="3.5" height="3.5" rx="0.5" fill="white"/>
+                  </svg>
+                </button>
+                <button className="flex items-center justify-center p-1 rounded-full shrink-0 hover:bg-white/50 transition-colors duration-150">
+                  <svg viewBox="0 0 12 12" fill="none" className="size-3" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1.5 3H10.5M1.5 6H10.5M1.5 9H10.5" stroke="#2e2e2e" strokeWidth="1.2" strokeLinecap="round"/>
+                  </svg>
+                </button>
+              </div>
             </div>
           </div>
 
