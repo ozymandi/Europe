@@ -87,7 +87,7 @@ function SearchBar() {
 
 function SavedSearchCard({ city, country, img }) {
   return (
-    <div className="border-[0.5px] border-border-gray flex h-[77px] items-center justify-between overflow-clip pr-4 rounded-[4px] shrink-0 w-[235.5px]">
+    <div className="border-[0.5px] border-border-gray flex flex-1 h-[77px] items-center justify-between overflow-clip pr-4 rounded-[4px]">
       <div className="flex gap-4 items-center shrink-0">
         <div className="relative rounded shrink-0 size-[77px]">
           <img
