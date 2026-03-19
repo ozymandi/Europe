@@ -90,7 +90,7 @@ function SavedSearchCard({ city, country, img }) {
     <div
       className="border-[0.5px] border-border-gray flex flex-1 h-[77px] items-center justify-between overflow-clip pr-4 rounded-[4px]"
       style={{
-        backgroundImage: 'repeating-linear-gradient(150deg, transparent 0px, transparent 4.33px, rgba(110,110,110,0.09) 4.33px, rgba(110,110,110,0.09) 4.83px)',
+        backgroundImage: 'repeating-linear-gradient(120deg, transparent 0px, transparent 4.33px, rgba(110,110,110,0.09) 4.33px, rgba(110,110,110,0.09) 4.83px)',
       }}
     >
       <div className="flex gap-4 items-center shrink-0">
