@@ -153,16 +153,16 @@ function SearchBar() {
 function SavedSearchCard({ city, country, img }) {
   return (
     <div
-      className="border-[0.5px] border-border-gray flex flex-1 h-[77px] items-center justify-between overflow-clip pr-4 rounded-[4px]"
+      className="group border-[0.5px] border-border-gray flex flex-1 h-[77px] items-center justify-between overflow-clip pr-4 rounded-[4px]"
       style={{
         backgroundImage: 'repeating-linear-gradient(120deg, transparent 0px, transparent 4.33px, rgba(110,110,110,0.09) 4.33px, rgba(110,110,110,0.09) 4.83px)',
       }}
     >
       <div className="flex gap-4 items-center shrink-0">
-        <div className="relative rounded-[4px] shrink-0 size-[77px]">
+        <div className="relative rounded-[4px] shrink-0 size-[77px] overflow-clip">
           <img
             alt={city}
-            className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[4px] size-full"
+            className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[4px] size-full transition-transform duration-500 ease-in-out group-hover:scale-110"
             src={img}
           />
         </div>
