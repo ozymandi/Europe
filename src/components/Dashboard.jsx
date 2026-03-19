@@ -106,7 +106,7 @@ function DragScroll({ className, children }) {
 
 function ViewAllBtn() {
   return (
-    <button className="border border-purple text-purple text-[9px] font-semibold uppercase tracking-[-0.16px] px-3 py-2 rounded">
+    <button className="border border-purple text-purple text-[9px] font-semibold uppercase tracking-[-0.16px] px-3 py-2 rounded transition-shadow duration-200 hover:shadow-[inset_0_0_0_9999px_rgba(255,255,255,0.15)]">
       View all
     </button>
   )
@@ -205,7 +205,7 @@ function BudgetTool() {
             <br />to see what you can afford
           </p>
         </div>
-        <button className="bg-dark flex items-center justify-center px-8 2xl:px-[68px] py-3 rounded-[22px] shrink-0">
+        <button className="bg-dark flex items-center justify-center px-8 2xl:px-[68px] py-3 rounded-[22px] shrink-0 transition-[shadow,transform] duration-200 hover:shadow-[inset_0_0_0_9999px_rgba(255,255,255,0.15)] hover:scale-[1.03]">
           <span className="text-[10px] font-semibold text-white tracking-[-0.16px] uppercase whitespace-nowrap">
             Calculate budget
           </span>
