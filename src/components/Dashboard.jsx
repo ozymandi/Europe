@@ -5,7 +5,7 @@ import Icons from './Icons'
 // Background
 const imgBg = 'https://www.figma.com/api/mcp/asset/46b70ee9-415e-44e7-8a42-7072f552b103'
 // Arrow icon for saved searches
-const imgArrowVec = 'https://www.figma.com/api/mcp/asset/45019745-ea07-4475-8d4d-13aec72e2379'
+const imgArrowVec = 'https://www.figma.com/api/mcp/asset/1e8bf52b-8193-4760-af44-4f21f23f86ba'
 // Saved search images
 const imgFrame36 = 'https://www.figma.com/api/mcp/asset/39792562-096a-463a-bfe9-099d2d6a93ce'
 const imgFrame37 = 'https://www.figma.com/api/mcp/asset/da8eefe6-152f-470a-8b99-e1eb92a18a5d'
@@ -107,10 +107,14 @@ function SavedSearchCard({ city, country, img }) {
           <p className="text-xs text-darkgray leading-normal">{country}</p>
         </div>
       </div>
-      <div className="bg-limon flex h-[44px] items-center justify-center overflow-clip p-[10px] rounded-[10px] shrink-0">
-        <svg xmlns="http://www.w3.org/2000/svg" width="5" height="8.66" viewBox="0 0 5 8.66" fill="none">
-          <path d="M0.5 0.5L4.5 4.33L0.5 8.16" stroke="#6E6E6E" strokeWidth="0.5" strokeLinecap="round" strokeLinejoin="round"/>
-        </svg>
+      <div className="bg-limon flex h-[44px] items-center overflow-clip p-[10px] rounded-[10px] shrink-0">
+        <div className="overflow-clip relative shrink-0 size-4">
+          <div className="absolute inset-[20.83%]">
+            <div className="absolute inset-[-5.36%]">
+              <img alt="" className="block max-w-none size-full" src={imgArrowVec} />
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   )
