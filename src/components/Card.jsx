@@ -19,7 +19,7 @@ function Paginator({ variant, total = 1, current = 0 }) {
   if (variant === 'Saved' || total <= 1) return null
   const dimInactive = variant === 'Like_Share'
   return (
-    <div className="-translate-x-1/2 absolute inline-flex gap-[2px] items-center left-1/2 bottom-[92px] pointer-events-none">
+    <div className="-translate-x-1/2 absolute inline-flex gap-[2px] items-center left-1/2 bottom-[87px] pointer-events-none">
       {Array.from({ length: total }, (_, i) =>
         i === current
           ? <img key={i} src={pagenActive} alt="" className="shrink-0" />
