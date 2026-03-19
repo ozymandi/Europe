@@ -101,7 +101,7 @@ export default function Card({ property1 = 'Insta', city, country, price, img, i
               )}
               {isLikeShare && (
                 <svg viewBox="0 0 16 16" fill="none" className="size-full" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M8 13.5C8 13.5 2 9.5 2 5.5C2 3.567 3.567 2 5.5 2C6.552 2 7.5 2.5 8 3.2C8.5 2.5 9.448 2 10.5 2C12.433 2 14 3.567 14 5.5C14 9.5 8 13.5 8 13.5Z" stroke="#2e2e2e" strokeWidth="1.2" strokeLinejoin="round"/>
+                  <path d="M8 13.5C8 13.5 2 9.5 2 5.5C2 3.567 3.567 2 5.5 2C6.552 2 7.5 2.5 8 3.2C8.5 2.5 9.448 2 10.5 2C12.433 2 14 3.567 14 5.5C14 9.5 8 13.5 8 13.5Z" stroke="white" strokeWidth="1.2" strokeLinejoin="round"/>
                 </svg>
               )}
             </div>
