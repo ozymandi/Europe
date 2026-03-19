@@ -190,7 +190,7 @@ export default function DiscoverPage() {
                   <div className="overflow-clip relative shrink-0 size-3">
                     <div className="absolute inset-[12.5%]">
                       <div className="absolute inset-[-5.56%]">
-                        <img alt="" className="block max-w-none size-full" src={imgIconGrid} style={{ filter: 'invert(1)' }} />
+                        <img alt="" className="block max-w-none size-full" src={imgIconGrid} style={{ filter: 'brightness(0) invert(1)' }} />
                       </div>
                     </div>
                   </div>
@@ -217,7 +217,7 @@ export default function DiscoverPage() {
             </div>
             {/* Dark Filters chip — right side */}
             <button className="bg-dark rounded-full flex items-center gap-1.5 pl-2 pr-3 py-1.5 shrink-0 transition-opacity duration-150 hover:opacity-80">
-              <Icons property1="lucide:list-filter" className="relative size-[16px]" style={{ filter: 'invert(1)' }} />
+              <Icons property1="lucide:list-filter" className="relative size-[16px]" style={{ filter: 'brightness(0) invert(1)' }} />
               <span className="text-[12px] text-white tracking-[-0.14px] leading-normal whitespace-nowrap">Filters</span>
             </button>
           </div>
