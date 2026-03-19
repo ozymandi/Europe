@@ -7,6 +7,14 @@ const imgSearchIcon = 'https://www.figma.com/api/mcp/asset/c5e4425a-dc40-43bb-af
 const imgIconGrid = 'https://www.figma.com/api/mcp/asset/6da222d7-ac17-4329-b04b-bf41752af662'
 const imgIconList = 'https://www.figma.com/api/mcp/asset/d34aa2ef-f50c-4033-bb62-61e69477dee5'
 const imgIconChevron = 'https://www.figma.com/api/mcp/asset/dd41eef0-4ada-4677-9e02-172d5464ee49'
+const imgFilterChevron = 'https://www.figma.com/api/mcp/asset/cf3a9363-c3af-4912-89a0-b11f13c9b96f'
+const imgFilterCountry = 'https://www.figma.com/api/mcp/asset/a750c69d-6777-49ab-932e-04dcb851cac0'
+const imgFilterPrice = 'https://www.figma.com/api/mcp/asset/6352d1e2-4931-439d-80e8-132a46607552'
+const imgFilterType = 'https://www.figma.com/api/mcp/asset/ca25a68c-b5ec-4f3e-98cb-75610c1baeee'
+const imgFilterBedroom = 'https://www.figma.com/api/mcp/asset/18e5cd6d-96fb-49b4-910a-78e84e7c1a2c'
+const imgFilterPool = 'https://www.figma.com/api/mcp/asset/dbafde76-4f44-43ae-a60e-f06674a369df'
+const imgFilterSeaview = 'https://www.figma.com/api/mcp/asset/b57d37c9-e1e3-4dd8-88bd-85497d0ad98a'
+const imgFilterFilters = 'https://www.figma.com/api/mcp/asset/ed2160f4-18c4-4e80-8c48-d632bd605363'
 
 const IMG_CARDS = [
   'https://www.figma.com/api/mcp/asset/28323000-3710-4618-b65e-63a09f79d88f',
@@ -38,12 +46,12 @@ const LISTINGS_DATA = [
 ]
 
 const FILTER_CHIPS = [
-  { icon: 'lucide:globe', label: 'Country' },
-  { icon: 'lucide:receipt-euro', label: 'Price' },
-  { icon: 'lucide:building-2', label: 'Type' },
-  { icon: 'lucide:bed-double', label: 'Bedroom' },
-  { icon: 'lucide:waves-ladder', label: 'Pool' },
-  { icon: 'sea', label: 'Seaview' },
+  { img: imgFilterCountry, inset: 'inset-[8.33%]', extra: 'inset-[-5%]', label: 'Country', chevron: true },
+  { img: imgFilterPrice, inset: 'inset-[8.31%_16.67%]', extra: 'inset-[-5%_-6.25%]', label: 'Price', chevron: true },
+  { img: imgFilterType, inset: 'inset-[12.5%_8.33%]', extra: 'inset-[-5.56%_-5%]', label: 'Type', chevron: true },
+  { img: imgFilterBedroom, inset: 'inset-[16.67%_8.33%]', extra: 'inset-[-6.25%_-5%]', label: 'Bedroom', chevron: true },
+  { img: imgFilterPool, inset: 'inset-[20.83%_8.33%]', extra: 'inset-[-7.14%_-5%]', label: 'Pool', chevron: false },
+  { img: imgFilterSeaview, inset: 'inset-[20.83%_8.33%]', extra: 'inset-[-7.14%_-5%]', label: 'Seaview', chevron: false },
 ]
 
 const ACTIVE_FILTERS = ['New challenge', 'Found 14', 'Luxury', 'Under 100K', 'Rental Potential']
@@ -91,12 +99,32 @@ function SearchBar() {
   )
 }
 
-function FilterChip({ icon, label }) {
+function FilterChip({ img, inset, extra, label, chevron }) {
   return (
-    <button className="bg-white rounded-full flex items-center gap-1.5 pl-2 pr-2.5 py-1.5 shrink-0 transition-shadow duration-150 hover:shadow-[0_2px_8px_rgba(0,0,0,0.1)]">
-      <Icons property1={icon} className="relative size-[16px]" />
-      <span className="text-[12px] text-dark tracking-[-0.14px] leading-normal whitespace-nowrap">{label}</span>
-      <Icons property1="Down" className="relative size-[10px]" />
+    <button className={`bg-white rounded-full flex items-center gap-5 ${chevron ? 'p-1' : 'pl-1 pr-3 py-1'} shrink-0 transition-shadow duration-150 hover:shadow-[0_2px_8px_rgba(138,56,245,0.1)]`}>
+      <div className="flex items-center gap-1">
+        <div className="flex items-center justify-center p-1 rounded-full shrink-0">
+          <div className="overflow-clip relative shrink-0 size-3">
+            <div className={`absolute ${inset}`}>
+              <div className={`absolute ${extra}`}>
+                <img alt="" className="block max-w-none size-full" src={img} />
+              </div>
+            </div>
+          </div>
+        </div>
+        <span className="text-[12px] text-dark tracking-[-0.14px] leading-normal whitespace-nowrap">{label}</span>
+      </div>
+      {chevron && (
+        <div className="flex items-center justify-center p-1 rounded-full shrink-0">
+          <div className="overflow-clip relative shrink-0 size-3">
+            <div className="absolute bottom-[37.5%] left-1/4 right-1/4 top-[37.5%]">
+              <div className="absolute inset-[-16.67%_-8.33%]">
+                <img alt="" className="block max-w-none size-full" src={imgFilterChevron} />
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </button>
   )
 }
@@ -210,14 +238,22 @@ export default function DiscoverPage() {
 
           {/* Filter chips row 1 */}
           <div className="flex items-center justify-between w-full">
-            <div className="flex items-center gap-2 flex-wrap">
+            <div className="flex items-center gap-1 flex-wrap">
               {FILTER_CHIPS.map((chip) => (
-                <FilterChip key={chip.label} icon={chip.icon} label={chip.label} />
+                <FilterChip key={chip.label} img={chip.img} inset={chip.inset} extra={chip.extra} label={chip.label} chevron={chip.chevron} />
               ))}
             </div>
             {/* Dark Filters chip — right side */}
-            <button className="bg-dark rounded-full flex items-center gap-1.5 pl-2 pr-3 py-1.5 shrink-0 transition-opacity duration-150 hover:opacity-80">
-              <Icons property1="lucide:list-filter" className="relative size-[16px]" style={{ filter: 'brightness(0) invert(1)' }} />
+            <button className="bg-dark rounded-full flex items-center gap-5 pl-1 pr-3 py-1 shrink-0 transition-opacity duration-150 hover:opacity-80">
+              <div className="flex items-center justify-center p-1 rounded-full shrink-0">
+                <div className="overflow-clip relative shrink-0 size-3">
+                  <div className="absolute inset-[20.83%_8.33%]">
+                    <div className="absolute inset-[-7.14%_-5%]">
+                      <img alt="" className="block max-w-none size-full" src={imgFilterFilters} style={{ filter: 'brightness(0) invert(1)' }} />
+                    </div>
+                  </div>
+                </div>
+              </div>
               <span className="text-[12px] text-white tracking-[-0.14px] leading-normal whitespace-nowrap">Filters</span>
             </button>
           </div>
