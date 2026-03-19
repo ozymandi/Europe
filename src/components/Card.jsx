@@ -71,7 +71,7 @@ export default function Card({ property1 = 'Insta', city, country, price, img, c
       <Paginator variant={property1} />
 
       {/* Bottom info */}
-      <div className={`group/info relative backdrop-blur-[5px] bg-white/90 flex items-start pt-1 pb-1 px-1 rounded-[12px] shrink-0 w-full transition-all duration-300 ease-out group-hover/info:pt-3 ${isSaved ? '' : 'gap-1.5'}`}>
+      <div className={`relative backdrop-blur-[5px] bg-white/90 flex items-start pt-1 pb-1 px-1 rounded-[12px] shrink-0 w-full transition-all duration-300 ease-out hover:pt-3 ${isSaved ? '' : 'gap-1.5'}`}>
         <div className={`flex flex-1 gap-2.5 items-start min-w-0 py-1.5 relative ${isSaved ? 'flex-col px-2.5' : 'pl-2.5'}`}>
           {(isInsta || isLikeShare) && (
             <>
