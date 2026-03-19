@@ -1,3 +1,5 @@
+import { motion } from 'framer-motion'
+
 const imgLogoLeft = 'https://www.figma.com/api/mcp/asset/37a85f0c-ae5c-4442-b8bc-c6796aa98120'
 const imgLogoRight = 'https://www.figma.com/api/mcp/asset/c2b86b58-5698-44a7-9e38-a9c36411ea52'
 const imgAvatar = 'https://www.figma.com/api/mcp/asset/ff1d669f-ea60-4ade-842f-f96861c43e4a'
@@ -25,15 +27,22 @@ function NavIcon({ src, inset, extra, invert }) {
 
 function NavItem({ label, src, inset, extra }) {
   return (
-    <div
-      className="flex items-center rounded-[22px] cursor-pointer transition-all duration-150 hover:bg-white/45 hover:backdrop-blur-[10px] hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.9)] hover:scale-[1.03]"
+    <motion.div
+      className="flex items-center rounded-[22px] cursor-pointer"
       style={{ width: '224px', padding: '12px 16px', gap: '10px' }}
+      whileHover={{
+        scale: 1.03,
+        backgroundColor: 'rgba(255,255,255,0.45)',
+        backdropFilter: 'blur(10px)',
+        boxShadow: 'inset 0 1px 1px rgba(255,255,255,0.9)',
+      }}
+      transition={{ type: 'spring', stiffness: 400, damping: 20 }}
     >
       <NavIcon src={src} inset={inset} extra={extra} />
       <span className="text-[14px] text-[#2e2e2e] tracking-[-0.14px] leading-[20px] whitespace-nowrap">
         {label}
       </span>
-    </div>
+    </motion.div>
   )
 }
 
