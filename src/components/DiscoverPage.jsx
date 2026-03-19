@@ -98,7 +98,7 @@ function FilterChip({ icon, label }) {
 
 function ActiveFilterPill({ label }) {
   return (
-    <div className="border border-white/50 rounded-full pl-3 pr-1 py-0.5 flex items-center gap-1 shrink-0">
+    <div className="border border-dark/10 rounded-full pl-3 pr-1 py-0.5 flex items-center gap-1 shrink-0">
       <span className="text-[10px] text-dark tracking-[-0.14px] leading-normal whitespace-nowrap">{label}</span>
       <Icons property1="x" className="relative size-[8px]" />
     </div>
@@ -110,10 +110,10 @@ export default function DiscoverPage() {
 
   return (
     <main className="flex-1 flex flex-col h-full overflow-y-auto relative min-w-0">
-      <div className="w-full max-w-[1600px] mx-auto flex flex-col gap-6 p-[70px] flex-1">
+      <div className="w-full max-w-[1600px] mx-auto flex flex-col gap-12 p-[70px] flex-1">
 
         {/* Title + Search */}
-        <div className="relative z-10 flex flex-col gap-12 items-start shrink-0">
+        <div className="relative z-10 flex flex-col gap-3 items-start shrink-0">
           <div className="flex flex-col gap-1 items-start">
             <p className="text-[42px] tracking-[-1px] leading-none">
               <span className="font-display text-dark">Find your dream home in </span>
@@ -139,11 +139,13 @@ export default function DiscoverPage() {
           </div>
 
           {/* Filter chips row 1 */}
-          <div className="flex items-center gap-2 flex-wrap">
-            {FILTER_CHIPS.map((chip) => (
-              <FilterChip key={chip.label} icon={chip.icon} label={chip.label} />
-            ))}
-            {/* Dark Filters chip */}
+          <div className="flex items-center justify-between w-full">
+            <div className="flex items-center gap-2 flex-wrap">
+              {FILTER_CHIPS.map((chip) => (
+                <FilterChip key={chip.label} icon={chip.icon} label={chip.label} />
+              ))}
+            </div>
+            {/* Dark Filters chip — right side */}
             <button className="bg-dark rounded-full flex items-center gap-1.5 pl-2 pr-3 py-1.5 shrink-0 transition-opacity duration-150 hover:opacity-80">
               <Icons property1="lucide:list-filter" className="relative size-[16px]" style={{ filter: 'invert(1)' }} />
               <span className="text-[12px] text-white tracking-[-0.14px] leading-normal whitespace-nowrap">Filters</span>
