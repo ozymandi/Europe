@@ -205,7 +205,7 @@ function BudgetTool() {
             <br />to see what you can afford
           </p>
         </div>
-        <button className="bg-dark flex items-center justify-center px-8 py-3 rounded-[22px] shrink-0">
+        <button className="bg-dark flex items-center justify-center px-8 2xl:px-[52px] py-3 rounded-[22px] shrink-0">
           <span className="text-[10px] font-semibold text-white tracking-[-0.16px] uppercase whitespace-nowrap">
             Calculate budget
           </span>
