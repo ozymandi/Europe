@@ -200,9 +200,9 @@ function BudgetTool() {
           <div className="bg-limon h-[77px] overflow-clip relative rounded-[4px] shrink-0 w-[78px] flex items-center justify-center">
             <img alt="" className="block" src={imgCalculator} />
           </div>
-          <p className="text-[14px] text-dark tracking-[-0.4px] leading-snug w-[136px]">
+          <p className="text-[14px] text-dark tracking-[-0.4px] leading-snug">
             <span className="font-semibold">Calculate your budget</span>
-            {' '}to see what you can afford
+            <br />to see what you can afford
           </p>
         </div>
         <button className="bg-dark flex items-center justify-center px-8 py-3 rounded-[22px] shrink-0">
