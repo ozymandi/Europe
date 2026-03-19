@@ -319,10 +319,10 @@ export default function DiscoverPage() {
               <button
                 key={n}
                 onClick={() => setActivePage(n)}
-                className={`px-2 py-1 rounded text-[13px] tracking-[-0.14px] transition-colors duration-150 ${
+                className={`size-6 rounded-[4px] flex items-center justify-center text-[10px] text-dark tracking-[-0.14px] transition-all duration-150 shrink-0 ${
                   activePage === n
-                    ? 'bg-dark text-white'
-                    : 'text-darkgray hover:text-dark'
+                    ? 'bg-limon'
+                    : 'bg-white border border-limon hover:bg-limon/30'
                 }`}
               >
                 {n}
