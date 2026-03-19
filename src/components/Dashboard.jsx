@@ -135,9 +135,9 @@ export default function Dashboard() {
       <div className="relative z-10 flex flex-col gap-12 items-start shrink-0">
         <div className="flex flex-col gap-1 items-start">
           <div className="flex flex-col justify-center leading-none relative shrink-0 text-[0px] text-dark tracking-[-1px] w-[466px]">
-            <p className="text-[42px]">
+            <p className="text-[42px] tracking-[-1px]">
               <span className="font-display">Good Evening, </span>
-              <span className="font-display-italic text-purple"> James P.</span>
+              <span className="font-display-italic text-purple">{'\u00A0'}James P.</span>
             </p>
           </div>
           <div className="flex items-center gap-2 shrink-0">
