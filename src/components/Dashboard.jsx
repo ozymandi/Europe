@@ -8,8 +8,6 @@ const imgArrowVec = 'https://www.figma.com/api/mcp/asset/723f1857-7b64-4217-886e
 // Saved search images
 const imgFrame36 = 'https://www.figma.com/api/mcp/asset/332da225-f401-4422-944e-6b9ed87b4764'
 const imgFrame37 = 'https://www.figma.com/api/mcp/asset/97770bff-893d-4f4a-840f-8863f814201d'
-// House icon for location
-const imgHouseIcon = 'https://www.figma.com/api/mcp/asset/75a74acc-6a9c-46df-a9bc-56880bbee19d'
 // Search icon
 const imgSearchIcon = 'https://www.figma.com/api/mcp/asset/4cea79f1-2da0-4c75-9ed1-b911fcc5e902'
 
@@ -141,13 +139,10 @@ export default function Dashboard() {
             </p>
           </div>
           <div className="flex items-center gap-2 shrink-0">
-            <div className="h-6 overflow-clip relative shrink-0 w-3">
-              <div className="absolute inset-[8.33%_12.5%_12.5%_12.5%]">
-                <div className="absolute inset-[-5.26%_-5.56%]">
-                  <img alt="" className="block max-w-none size-full" src={imgHouseIcon} />
-                </div>
-              </div>
-            </div>
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none" className="shrink-0">
+              <path d="M4.31001 6.9C4.20482 6.79033 4.12294 6.66048 4.06931 6.5183C4.01568 6.37611 3.99141 6.22454 3.99797 6.07271C4.00452 5.92089 4.04177 5.77197 4.10746 5.63494C4.17315 5.49791 4.26592 5.37561 4.38018 5.27542C4.49443 5.17523 4.6278 5.09922 4.77224 5.05199C4.91667 5.00475 5.06918 4.98727 5.22056 5.00059C5.37194 5.01392 5.51905 5.05777 5.65301 5.12951C5.78697 5.20125 5.90501 5.29939 6.00001 5.418C6.09546 5.30062 6.21361 5.20371 6.34738 5.13305C6.48115 5.06239 6.6278 5.01944 6.77855 5.00676C6.92931 4.99409 7.08107 5.01195 7.22476 5.05927C7.36846 5.1066 7.50113 5.18243 7.61484 5.28221C7.72855 5.382 7.82097 5.50369 7.88657 5.64002C7.95216 5.77634 7.98959 5.9245 7.99661 6.07562C8.00363 6.22675 7.98009 6.37773 7.92741 6.51955C7.87473 6.66137 7.79399 6.7911 7.69001 6.901L6.37701 8.329C6.33017 8.38293 6.27229 8.42618 6.20729 8.45582C6.1423 8.48546 6.07169 8.5008 6.00026 8.5008C5.92882 8.5008 5.85822 8.48546 5.79322 8.45582C5.72823 8.42618 5.67035 8.38293 5.62351 8.329L4.31001 6.9Z" stroke="#6E6E6E" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M1.5 5C1.49997 4.85453 1.53167 4.71081 1.59289 4.57885C1.65412 4.4469 1.7434 4.32989 1.8545 4.236L5.3545 1.236C5.53499 1.08345 5.76368 0.999756 6 0.999756C6.23632 0.999756 6.46501 1.08345 6.6455 1.236L10.1455 4.236C10.2566 4.32989 10.3459 4.4469 10.4071 4.57885C10.4683 4.71081 10.5 4.85453 10.5 5V9.5C10.5 9.76521 10.3946 10.0196 10.2071 10.2071C10.0196 10.3946 9.76522 10.5 9.5 10.5H2.5C2.23478 10.5 1.98043 10.3946 1.79289 10.2071C1.60536 10.0196 1.5 9.76521 1.5 9.5V5Z" stroke="#6E6E6E" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
             <p className="text-xs text-darkgray text-center tracking-[-0.2px] leading-5 whitespace-nowrap">
               You have 3 saved properties
             </p>
