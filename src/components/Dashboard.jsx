@@ -267,15 +267,15 @@ export default function Dashboard() {
         </div>
 
         {/* Listings from Instagram */}
-        <div className="bg-white/50 flex-1 flex items-start overflow-clip p-3 rounded-[28px] w-full min-h-0">
-          <div className="flex flex-col h-full w-full gap-6 p-4">
+        <div className="bg-white/50 flex-1 flex items-start p-3 rounded-[28px] w-full min-h-0">
+          <div className="flex flex-col h-full w-full gap-6 p-4 overflow-hidden">
             <div className="flex items-start justify-between pr-3 shrink-0 w-full">
               <p className="font-display text-lg text-dark tracking-[-0.2px] font-bold whitespace-nowrap">
                 Listings from Instagram
               </p>
               <ViewAllBtn />
             </div>
-            <DragScroll className="flex gap-0.5 items-stretch flex-1 min-h-0">
+            <DragScroll className="flex gap-0.5 items-stretch flex-1 min-h-0 py-3 -my-3">
               {LISTINGS.map((listing) => (
                 <motion.div
                   key={listing.id}
