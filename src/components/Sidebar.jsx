@@ -111,7 +111,7 @@ export default function Sidebar() {
             {/* Dashboard — selected */}
             <div style={{ gap: '16px' }} className="flex flex-col items-start">
               <div className="flex flex-col items-start">
-                <div
+                <motion.div
                   style={{
                     width: '224px',
                     padding: '12px 16px',
@@ -120,6 +120,8 @@ export default function Sidebar() {
                     background: '#2e2e2e',
                   }}
                   className="flex items-center cursor-pointer"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ type: 'spring', stiffness: 400, damping: 20 }}
                 >
                   <NavIcon
                     src={imgDash}
@@ -130,7 +132,7 @@ export default function Sidebar() {
                   <span className="text-[14px] text-white tracking-[-0.14px] leading-[20px] whitespace-nowrap">
                     Dashboard
                   </span>
-                </div>
+                </motion.div>
               </div>
             </div>
 
