@@ -9,7 +9,7 @@ const imgArrowVec = 'https://www.figma.com/api/mcp/asset/723f1857-7b64-4217-886e
 const imgFrame36 = 'https://www.figma.com/api/mcp/asset/332da225-f401-4422-944e-6b9ed87b4764'
 const imgFrame37 = 'https://www.figma.com/api/mcp/asset/97770bff-893d-4f4a-840f-8863f814201d'
 // Search icon
-const imgSearchIcon = 'https://www.figma.com/api/mcp/asset/4cea79f1-2da0-4c75-9ed1-b911fcc5e902'
+const imgSearchIcon = 'https://www.figma.com/api/mcp/asset/c5e4425a-dc40-43bb-af85-6c57c09fb638'
 
 // Listing card images
 const IMG_CARDS = [
@@ -43,20 +43,20 @@ function ViewAllBtn() {
 
 function SearchBar() {
   return (
-    <div className="flex items-center justify-between bg-white h-[50px] rounded-full shadow-[0px_2px_2px_0px_rgba(138,56,245,0.03)] pl-6 pr-[7px] py-4 w-full">
+    <div className="flex items-center justify-between bg-white h-[50px] rounded-[50px] shadow-[0px_2px_2px_0px_rgba(138,56,245,0.03)] pl-6 pr-[7px] py-4 w-full">
       <div className="flex items-center gap-2.5 shrink-0">
         <div className="overflow-clip relative shrink-0 size-4">
           <div className="absolute inset-[12.5%]">
-            <div className="absolute inset-[-2.78%]">
+            <div className="absolute inset-[-4.17%]">
               <img alt="" className="block max-w-none size-full" src={imgSearchIcon} />
             </div>
           </div>
         </div>
-        <span className="text-sm text-darkgray opacity-30 tracking-[-0.16px] whitespace-nowrap">
+        <span className="text-[14px] text-darkgray opacity-30 tracking-[-0.16px] whitespace-nowrap">
           Search by location, property type, or keywords...
         </span>
       </div>
-      <button className="relative bg-gradient-to-b from-[rgba(139,92,246,0.95)] to-[rgba(139,92,246,0.4)] border border-[#8b5cf6] flex items-center justify-center h-[39px] px-4 py-3 rounded-full shadow-[0px_2px_4px_0px_rgba(138,56,245,0.16)] w-[100px] shrink-0">
+      <button className="relative bg-gradient-to-b from-[rgba(139,92,246,0.95)] to-[rgba(139,92,246,0.4)] border border-[#8b5cf6] flex items-center justify-center h-[39px] px-4 py-3 rounded-[22px] shadow-[0px_2px_4px_0px_rgba(138,56,245,0.16)] w-[100px] shrink-0">
         <span className="text-[10px] font-semibold text-white uppercase tracking-[-0.16px]">
           Search
         </span>
