@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import Card from './Card'
 import Icons from './Icons'
@@ -109,6 +109,20 @@ function ActiveFilterPill({ label }) {
 
 export default function DiscoverPage() {
   const [activePage, setActivePage] = useState(1)
+  const gridRef = useRef(null)
+  const [cols, setCols] = useState(5)
+
+  useEffect(() => {
+    const el = gridRef.current
+    if (!el) return
+    const update = () => setCols(Math.max(1, Math.floor(el.offsetWidth / 231)))
+    update()
+    const ro = new ResizeObserver(update)
+    ro.observe(el)
+    return () => ro.disconnect()
+  }, [])
+
+  const visibleListings = LISTINGS_DATA.slice(0, Math.floor(LISTINGS_DATA.length / cols) * cols)
 
   return (
     <main className="flex-1 flex flex-col h-full overflow-y-auto relative min-w-0">
@@ -194,8 +208,8 @@ export default function DiscoverPage() {
           </div>
 
           {/* Card grid */}
-          <div className="grid gap-1" style={{ gridTemplateColumns: 'repeat(auto-fill, 230px)' }}>
-            {LISTINGS_DATA.map((listing, i) => (
+          <div ref={gridRef} className="grid gap-1" style={{ gridTemplateColumns: 'repeat(auto-fill, 230px)' }}>
+            {visibleListings.map((listing, i) => (
               <Card
                 key={i}
                 property1="Like_Share"
