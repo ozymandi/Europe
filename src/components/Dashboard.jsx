@@ -87,7 +87,13 @@ function SearchBar() {
 
 function SavedSearchCard({ city, country, img }) {
   return (
-    <div className="border-[0.5px] border-border-gray flex flex-1 h-[77px] items-center justify-between overflow-clip pr-4 rounded-[4px]">
+    <div
+      className="border-[0.5px] border-border-gray flex flex-1 h-[77px] items-center justify-between overflow-clip pr-4 rounded-[4px] bg-blue-1"
+      style={{
+        backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='6' height='9'%3E%3Cpath d='M5.21651 0.125L0.216507 8.78528' stroke='%236E6E6E' stroke-width='0.5'/%3E%3C/svg%3E")`,
+        backgroundRepeat: 'repeat',
+      }}
+    >
       <div className="flex gap-4 items-center shrink-0">
         <div className="relative rounded-[4px] shrink-0 size-[77px]">
           <img
@@ -101,14 +107,10 @@ function SavedSearchCard({ city, country, img }) {
           <p className="text-xs text-darkgray leading-normal">{country}</p>
         </div>
       </div>
-      <div className="bg-limon flex h-[44px] items-center overflow-clip p-[10px] rounded-[10px] shrink-0">
-        <div className="overflow-clip relative shrink-0 size-4">
-          <div className="absolute inset-[20.83%]">
-            <div className="absolute inset-[-5.36%]">
-              <img alt="" className="block max-w-none size-full" src={imgArrowVec} />
-            </div>
-          </div>
-        </div>
+      <div className="bg-limon flex h-[44px] items-center justify-center overflow-clip p-[10px] rounded-[10px] shrink-0">
+        <svg xmlns="http://www.w3.org/2000/svg" width="5" height="8.66" viewBox="0 0 5 8.66" fill="none">
+          <path d="M0.5 0.5L4.5 4.33L0.5 8.16" stroke="#6E6E6E" strokeWidth="0.5" strokeLinecap="round" strokeLinejoin="round"/>
+        </svg>
       </div>
     </div>
   )
