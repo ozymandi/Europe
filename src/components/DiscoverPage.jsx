@@ -314,7 +314,7 @@ export default function DiscoverPage() {
           </div>
 
           {/* Pagination */}
-          <div className="flex items-center justify-center gap-1 py-4">
+          <div className="flex items-center justify-center gap-1 pt-6 pb-4 mt-6">
             {[1, 2, 3, 4, 5].map((n) => (
               <button
                 key={n}
