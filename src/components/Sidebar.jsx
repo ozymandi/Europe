@@ -179,7 +179,7 @@ export default function Sidebar() {
               <div className="flex flex-col items-start">
                 <motion.div
                   style={{ width: '224px', padding: '12px 8px', gap: '10px', backgroundColor: 'rgba(255,255,255,0)' }}
-                  className="flex items-center h-[44px] rounded-[22px] cursor-pointer"
+                  className="group flex items-center h-[44px] rounded-[22px] cursor-pointer"
                   whileHover={{
                     scale: 1.05,
                     backgroundColor: 'rgba(255,255,255,0.45)',
@@ -197,7 +197,7 @@ export default function Sidebar() {
                       />
                     </div>
                   </div>
-                  <span className="text-[14px] text-[#2e2e2e] tracking-[-0.14px] leading-[20px] whitespace-nowrap">
+                  <span className="text-[14px] text-[#2e2e2e] tracking-[-0.14px] leading-[20px] whitespace-nowrap transition-colors duration-300 group-hover:text-purple">
                     James Peterson
                   </span>
                 </motion.div>
