@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion'
 import Card from './Card'
 import Icons from './Icons'
 
@@ -43,7 +44,12 @@ function ViewAllBtn() {
 
 function SearchBar() {
   return (
-    <div className="flex items-center justify-between bg-white h-[50px] rounded-[50px] shadow-[0px_2px_2px_0px_rgba(138,56,245,0.03)] pl-6 pr-[7px] py-4 w-full">
+    <motion.div
+      className="flex items-center justify-between bg-white h-[50px] rounded-[50px] pl-6 pr-[7px] py-4 w-full"
+      style={{ boxShadow: '0px 2px 2px 0px rgba(138,56,245,0.03)' }}
+      whileHover={{ boxShadow: '0px 4px 10px 0px rgba(138,56,245,0.1)' }}
+      transition={{ duration: 0.2 }}
+    >
       <div className="flex items-center gap-2.5 shrink-0">
         <div className="overflow-clip relative shrink-0 size-4">
           <div className="absolute inset-[12.5%]">
@@ -56,13 +62,24 @@ function SearchBar() {
           Search by location, property type, or keywords...
         </span>
       </div>
-      <button className="relative bg-gradient-to-b from-[rgba(139,92,246,0.95)] to-[rgba(139,92,246,0.4)] border border-[#8b5cf6] flex items-center justify-center h-[39px] px-4 py-3 rounded-[22px] shadow-[0px_2px_4px_0px_rgba(138,56,245,0.16)] w-[100px] shrink-0">
-        <span className="text-[10px] font-semibold text-white uppercase tracking-[-0.16px]">
+      <motion.button
+        className="group relative flex items-center justify-center h-[39px] px-4 py-3 rounded-[22px] shadow-[0px_2px_4px_0px_rgba(138,56,245,0.16)] w-[100px] shrink-0 border"
+        style={{
+          background: 'linear-gradient(to bottom, rgba(139,92,246,0.95), rgba(139,92,246,0.4))',
+          borderColor: '#8b5cf6',
+        }}
+        whileHover={{
+          background: 'linear-gradient(to bottom, rgba(93,51,187,0.1), rgba(184,225,247,0.04))',
+          borderColor: 'rgba(139,92,246,0.47)',
+        }}
+        transition={{ duration: 0.18 }}
+      >
+        <span className="text-[10px] font-semibold uppercase tracking-[-0.16px] text-white group-hover:text-dark transition-colors duration-150">
           Search
         </span>
         <div className="absolute inset-[-1px] pointer-events-none rounded-[inherit] shadow-[inset_0px_1px_0px_0px_#bca2f9,inset_0px_1px_5.3px_0px_rgba(245,242,252,0.61),inset_0px_2px_6px_0px_#c8b2fb]" />
-      </button>
-    </div>
+      </motion.button>
+    </motion.div>
   )
 }
 
