@@ -1,7 +1,7 @@
 import { useRef } from 'react'
 import { motion } from 'framer-motion'
 import Card from './Card'
-import Icons from './Icons'
+import imgCalculator from '../assets/calculator.svg'
 
 // Background
 const imgBg = 'https://www.figma.com/api/mcp/asset/46b70ee9-415e-44e7-8a42-7072f552b103'
@@ -10,10 +10,6 @@ const imgArrowVec = 'https://www.figma.com/api/mcp/asset/1e8bf52b-8193-4760-af44
 // Saved search images
 const imgFrame36 = 'https://www.figma.com/api/mcp/asset/39792562-096a-463a-bfe9-099d2d6a93ce'
 const imgFrame37 = 'https://www.figma.com/api/mcp/asset/da8eefe6-152f-470a-8b99-e1eb92a18a5d'
-// Budget tool decorative ellipse
-const imgEllipse = 'https://www.figma.com/api/mcp/asset/477b8733-91c0-491f-ab49-43aa0b2ec1e9'
-// Budget tool icon (financial document)
-const imgBudgetIcon = 'https://www.figma.com/api/mcp/asset/856c10a3-3d0e-48f9-a7da-52b59f90cb4d'
 // Search icon
 const imgSearchIcon = 'https://www.figma.com/api/mcp/asset/c5e4425a-dc40-43bb-af85-6c57c09fb638'
 
@@ -202,15 +198,18 @@ function BudgetTool() {
       <div className="flex gap-[19px] items-center justify-between relative z-10 w-full">
         <div className="flex gap-4 items-center shrink-0">
           <div className="bg-limon h-[77px] overflow-clip relative rounded-[4px] shrink-0 w-[78px] flex items-center justify-center">
-            <img alt="" className="size-8 object-contain" src={imgBudgetIcon} />
+            <img alt="" className="size-8 object-contain" src={imgCalculator} />
           </div>
           <p className="text-sm text-dark tracking-[-0.4px] leading-snug max-w-[136px]">
             <span className="font-semibold">Calculate your budget</span>
             {' '}to see what you can afford
           </p>
         </div>
-        <button className="bg-dark flex items-center justify-center px-8 py-3 rounded-[22px] shrink-0">
-          <span className="text-[10px] font-semibold text-white tracking-[-0.16px] uppercase whitespace-nowrap">
+        <button
+          className="flex items-center justify-center px-8 py-3 rounded-[22px] shrink-0 border border-[rgba(139,92,246,0.12)] shadow-[0px_2px_4px_0px_rgba(138,56,245,0.16)]"
+          style={{ background: 'linear-gradient(to bottom, rgba(93,51,187,0.03), rgba(184,225,247,0))' }}
+        >
+          <span className="text-[10px] font-semibold text-dark tracking-[-0.16px] uppercase whitespace-nowrap">
             Calculate budget
           </span>
         </button>
