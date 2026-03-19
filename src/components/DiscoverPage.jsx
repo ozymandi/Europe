@@ -278,7 +278,7 @@ export default function DiscoverPage() {
                 beds={2}
                 baths={2}
                 sqm={120}
-                className="relative flex flex-col h-[320px] w-full items-start justify-between p-1 rounded-2xl"
+                className="relative flex flex-col h-[360px] w-full items-start justify-between p-1 rounded-2xl"
               />
             ))}
           </div>
