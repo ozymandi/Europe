@@ -69,7 +69,7 @@ export default function Sidebar() {
     >
       {/* Inner menu frame */}
       <div
-        style={{ padding: '10px', gap: '32px', flex: '1 0 0', alignSelf: 'stretch' }}
+        style={{ padding: '10px', gap: '32px', flex: '1 0 0', alignSelf: 'stretch', boxShadow: 'inset 0 2px 16px rgba(0,0,0,0.18)' }}
         className="flex flex-col items-start rounded-[8px] overflow-clip backdrop-blur-[8px] bg-white/10 border border-white/15"
       >
         {/* Logo block */}
