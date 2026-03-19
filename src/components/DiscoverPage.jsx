@@ -250,11 +250,11 @@ export default function DiscoverPage() {
           © European Listings Ltd. 2026
         </p>
         <div className="flex gap-2.5 items-center">
-          <button className="text-xs text-purple tracking-[-0.14px] leading-normal whitespace-nowrap">
+          <button className="text-xs text-dark tracking-[-0.14px] leading-normal whitespace-nowrap">
             Terms of Service
           </button>
           <div className="bg-border-gray rounded-full shrink-0 size-[3px]" />
-          <button className="text-xs text-purple tracking-[-0.14px] leading-normal whitespace-nowrap">
+          <button className="text-xs text-dark tracking-[-0.14px] leading-normal whitespace-nowrap">
             Privacy Policy
           </button>
         </div>
