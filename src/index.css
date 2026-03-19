@@ -50,3 +50,13 @@ body {
 .overflow-x-auto::-webkit-scrollbar {
   display: none;
 }
+
+@keyframes breathe {
+  0%, 100% { transform: scale(1); }
+  50%       { transform: scale(1.04); }
+}
+
+.animate-breathe {
+  animation: breathe 6s ease-in-out infinite;
+  transform-origin: center center;
+}

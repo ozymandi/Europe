@@ -8,7 +8,7 @@ function App() {
     <div className="relative flex h-full min-w-[1440px] overflow-hidden">
       {/* Global background */}
       <div className="absolute inset-0 pointer-events-none z-0">
-        <img src={imgBg} alt="" className="absolute inset-0 w-full h-full object-cover" />
+        <img src={imgBg} alt="" className="absolute inset-0 w-full h-full object-cover animate-breathe" />
       </div>
       <Sidebar />
       <Dashboard />
