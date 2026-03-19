@@ -198,18 +198,15 @@ function BudgetTool() {
       <div className="flex gap-[19px] items-center justify-between relative z-10 w-full">
         <div className="flex gap-4 items-center shrink-0">
           <div className="bg-limon h-[77px] overflow-clip relative rounded-[4px] shrink-0 w-[78px] flex items-center justify-center">
-            <img alt="" className="size-8 object-contain" src={imgCalculator} />
+            <img alt="" className="block" src={imgCalculator} />
           </div>
-          <p className="text-sm text-dark tracking-[-0.4px] leading-snug max-w-[136px]">
+          <p className="text-[14px] text-dark tracking-[-0.4px] leading-snug w-[136px]">
             <span className="font-semibold">Calculate your budget</span>
             {' '}to see what you can afford
           </p>
         </div>
-        <button
-          className="flex items-center justify-center px-8 py-3 rounded-[22px] shrink-0 border border-[rgba(139,92,246,0.12)] shadow-[0px_2px_4px_0px_rgba(138,56,245,0.16)]"
-          style={{ background: 'linear-gradient(to bottom, rgba(93,51,187,0.03), rgba(184,225,247,0))' }}
-        >
-          <span className="text-[10px] font-semibold text-dark tracking-[-0.16px] uppercase whitespace-nowrap">
+        <button className="bg-dark flex items-center justify-center px-8 py-3 rounded-[22px] shrink-0">
+          <span className="text-[10px] font-semibold text-white tracking-[-0.16px] uppercase whitespace-nowrap">
             Calculate budget
           </span>
         </button>
