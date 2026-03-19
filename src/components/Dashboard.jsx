@@ -291,13 +291,13 @@ export default function Dashboard() {
         </div>
       </div>
 
-      {/* Footer */}
-      <div className="relative z-10 flex items-center justify-between shrink-0">
-        <div className="flex items-center justify-center p-2.5">
-          <p className="text-xs text-darkgray tracking-[-0.14px] leading-normal whitespace-nowrap">
-            © European Listings Ltd. 2026
-          </p>
-        </div>
+      </div>
+
+      {/* Footer — outside padded wrapper, aligns with Sidebar's Peterson row */}
+      <div className="relative z-10 flex items-center justify-between shrink-0 px-[70px] py-[18px]">
+        <p className="text-xs text-darkgray tracking-[-0.14px] leading-normal whitespace-nowrap">
+          © European Listings Ltd. 2026
+        </p>
         <div className="flex gap-2.5 items-center">
           <button className="text-xs text-purple tracking-[-0.14px] leading-normal whitespace-nowrap">
             Terms of Service
@@ -307,7 +307,6 @@ export default function Dashboard() {
             Privacy Policy
           </button>
         </div>
-      </div>
       </div>
     </main>
   )
