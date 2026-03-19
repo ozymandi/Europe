@@ -34,9 +34,9 @@ export default function Card({ property1 = 'Insta', city, country, price, img, c
   const isSaved = property1 === 'Saved'
 
   return (
-    <div className={className || 'relative flex flex-col h-[320px] w-[230px] items-start justify-between overflow-clip p-1 rounded-2xl shrink-0'}>
+    <div className={`group ${className || 'relative flex flex-col h-[320px] w-[230px] items-start justify-between overflow-clip p-1 rounded-2xl shrink-0'}`}>
       {/* Background image */}
-      <img alt={city} className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-2xl size-full" src={img} />
+      <img alt={city} className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-2xl size-full transition-transform duration-500 ease-in-out group-hover:scale-110" src={img} />
 
       {/* Top bar */}
       <div className="relative flex items-center p-[10px] shrink-0">

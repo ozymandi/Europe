@@ -277,14 +277,7 @@ export default function Dashboard() {
             </div>
             <DragScroll className="flex gap-0.5 items-stretch flex-1 min-h-0 py-3 -my-3">
               {LISTINGS.map((listing) => (
-                <motion.div
-                  key={listing.id}
-                  className="shrink-0 h-full"
-                  whileHover={{ scale: 1.03, transition: { ease: 'easeIn', duration: 0.12 } }}
-                  transition={{ type: 'spring', stiffness: 320, damping: 26 }}
-                >
-                  <Card {...listing} className="relative flex flex-col w-[230px] items-start justify-between overflow-clip p-1 rounded-2xl shrink-0 h-full" />
-                </motion.div>
+                <Card key={listing.id} {...listing} className="relative flex flex-col w-[230px] items-start justify-between overflow-clip p-1 rounded-2xl shrink-0 h-full" />
               ))}
             </DragScroll>
           </div>
