@@ -15,6 +15,8 @@ const imgFilterBedroom = 'https://www.figma.com/api/mcp/asset/18e5cd6d-96fb-49b4
 const imgFilterPool = 'https://www.figma.com/api/mcp/asset/dbafde76-4f44-43ae-a60e-f06674a369df'
 const imgFilterSeaview = 'https://www.figma.com/api/mcp/asset/b57d37c9-e1e3-4dd8-88bd-85497d0ad98a'
 const imgFilterFilters = 'https://www.figma.com/api/mcp/asset/ed2160f4-18c4-4e80-8c48-d632bd605363'
+const imgActivePillIcon = 'https://www.figma.com/api/mcp/asset/a67ea20f-c34e-42f6-98e9-137ed6bc805d'
+const imgActivePillX = 'https://www.figma.com/api/mcp/asset/004b774c-c850-42af-a0c1-80434245380f'
 
 const IMG_CARDS = [
   'https://www.figma.com/api/mcp/asset/28323000-3710-4618-b65e-63a09f79d88f',
@@ -54,7 +56,13 @@ const FILTER_CHIPS = [
   { img: imgFilterSeaview, inset: 'inset-[20.83%_8.33%]', extra: 'inset-[-7.14%_-5%]', label: 'Seaview', chevron: false },
 ]
 
-const ACTIVE_FILTERS = ['New challenge', 'Found 14', 'Luxury', 'Under 100K', 'Rental Potential']
+const ACTIVE_FILTERS = [
+  { label: 'New challenge', icon: true },
+  { label: 'Found 14', icon: true },
+  { label: 'Luxury', icon: false },
+  { label: 'Under 100K', icon: false },
+  { label: 'Rental Potential', icon: false },
+]
 
 function SearchBar() {
   return (
@@ -129,11 +137,30 @@ function FilterChip({ img, inset, extra, label, chevron }) {
   )
 }
 
-function ActiveFilterPill({ label }) {
+function ActiveFilterPill({ label, icon }) {
   return (
-    <div className="border border-dark/10 rounded-full pl-3 pr-1 py-0.5 flex items-center gap-1 shrink-0">
+    <div className={`border border-white rounded-full flex items-center gap-1 shrink-0 overflow-hidden ${icon ? 'px-[3px] py-[2px]' : 'pl-3 pr-[3px] py-[2px]'}`}>
+      {icon && (
+        <div className="flex items-center justify-center p-1 rounded-full shrink-0">
+          <div className="overflow-clip relative shrink-0 size-3">
+            <div className="absolute inset-[8.17%_8.17%_8.33%_8.33%]">
+              <div className="absolute inset-[-4.99%]">
+                <img alt="" className="block max-w-none size-full" src={imgActivePillIcon} />
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
       <span className="text-[10px] text-dark tracking-[-0.14px] leading-normal whitespace-nowrap">{label}</span>
-      <Icons property1="x" className="relative size-[8px]" />
+      <div className="flex items-center justify-center p-1 rounded-full shrink-0">
+        <div className="overflow-clip relative shrink-0 size-2">
+          <div className="absolute inset-1/4">
+            <div className="absolute inset-[-12.5%]">
+              <img alt="" className="block max-w-none size-full" src={imgActivePillX} />
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   )
 }
@@ -236,33 +263,36 @@ export default function DiscoverPage() {
             </div>
           </div>
 
-          {/* Filter chips row 1 */}
-          <div className="flex items-center justify-between w-full">
-            <div className="flex items-center gap-1 flex-wrap">
-              {FILTER_CHIPS.map((chip) => (
-                <FilterChip key={chip.label} img={chip.img} inset={chip.inset} extra={chip.extra} label={chip.label} chevron={chip.chevron} />
-              ))}
-            </div>
-            {/* Dark Filters chip — right side */}
-            <button className="bg-dark rounded-full flex items-center gap-5 pl-1 pr-3 py-1 shrink-0 transition-opacity duration-150 hover:opacity-80">
-              <div className="flex items-center justify-center p-1 rounded-full shrink-0">
-                <div className="overflow-clip relative shrink-0 size-3">
-                  <div className="absolute inset-[20.83%_8.33%]">
-                    <div className="absolute inset-[-7.14%_-5%]">
-                      <img alt="" className="block max-w-none size-full" src={imgFilterFilters} style={{ filter: 'brightness(0) invert(1)' }} />
+          {/* Filter chips + active filters — 12px gap between them */}
+          <div className="flex flex-col gap-3">
+            {/* Filter chips row */}
+            <div className="flex items-center justify-between w-full">
+              <div className="flex items-center gap-1 flex-wrap">
+                {FILTER_CHIPS.map((chip) => (
+                  <FilterChip key={chip.label} img={chip.img} inset={chip.inset} extra={chip.extra} label={chip.label} chevron={chip.chevron} />
+                ))}
+              </div>
+              {/* Dark Filters chip — right side */}
+              <button className="bg-dark rounded-full flex items-center gap-5 pl-1 pr-3 py-1 shrink-0 transition-opacity duration-150 hover:opacity-80">
+                <div className="flex items-center justify-center p-1 rounded-full shrink-0">
+                  <div className="overflow-clip relative shrink-0 size-3">
+                    <div className="absolute inset-[20.83%_8.33%]">
+                      <div className="absolute inset-[-7.14%_-5%]">
+                        <img alt="" className="block max-w-none size-full" src={imgFilterFilters} style={{ filter: 'brightness(0) invert(1)' }} />
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              <span className="text-[12px] text-white tracking-[-0.14px] leading-normal whitespace-nowrap">Filters</span>
-            </button>
-          </div>
+                <span className="text-[12px] text-white tracking-[-0.14px] leading-normal whitespace-nowrap">Filters</span>
+              </button>
+            </div>
 
-          {/* Filter chips row 2 — active filters */}
-          <div className="bg-white/20 rounded-full p-1 flex gap-1 flex-wrap w-fit">
-            {ACTIVE_FILTERS.map((label) => (
-              <ActiveFilterPill key={label} label={label} />
-            ))}
+            {/* Active filter pills */}
+            <div className="bg-white/20 rounded-[51px] p-1 flex gap-1 flex-wrap w-fit">
+              {ACTIVE_FILTERS.map((f) => (
+                <ActiveFilterPill key={f.label} label={f.label} icon={f.icon} />
+              ))}
+            </div>
           </div>
 
           {/* Card grid */}
