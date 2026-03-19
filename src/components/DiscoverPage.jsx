@@ -129,7 +129,7 @@ export default function DiscoverPage() {
       <div className="w-full max-w-[1600px] mx-auto flex flex-col gap-12 p-[70px] flex-1">
 
         {/* Title + Search */}
-        <div className="relative z-10 flex flex-col gap-3 items-start shrink-0">
+        <div className="relative z-10 flex flex-col gap-12 items-start shrink-0">
           <div className="flex flex-col gap-1 items-start">
             <p className="text-[42px] tracking-[-1px] leading-none">
               <span className="font-display text-dark">Find your dream home in </span>
