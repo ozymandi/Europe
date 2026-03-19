@@ -9,7 +9,7 @@ function App() {
       {/* Global background */}
       <div className="absolute inset-0 pointer-events-none z-0">
         <img src={imgBg} alt="" className="absolute inset-0 w-full h-full object-cover animate-breathe" />
-        <div className="absolute inset-0" style={{ background: 'radial-gradient(circle at center, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 70%)' }} />
+        <div className="absolute inset-0" style={{ background: 'radial-gradient(circle at top right, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 70%)' }} />
       </div>
       <Sidebar />
       <Dashboard />
