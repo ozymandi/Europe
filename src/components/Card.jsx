@@ -34,7 +34,7 @@ export default function Card({ property1 = 'Insta', city, country, price, img, c
   const isSaved = property1 === 'Saved'
 
   return (
-    <div className={`group/card ${className || 'relative flex flex-col h-[320px] w-[230px] items-start justify-between overflow-clip p-1 rounded-2xl shrink-0'}`}>
+    <div className={`group/card ${className || 'relative flex flex-col h-[320px] w-[230px] items-start justify-between p-1 rounded-2xl shrink-0'}`}>
       {/* Background image */}
       <img alt={city} className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-2xl size-full transition-transform duration-500 ease-in-out group-hover/card:scale-110" src={img} />
 
@@ -71,7 +71,7 @@ export default function Card({ property1 = 'Insta', city, country, price, img, c
       <Paginator variant={property1} />
 
       {/* Bottom info */}
-      <div className={`relative backdrop-blur-[5px] bg-white/90 flex items-start pt-1 pb-1 px-1 rounded-[12px] shrink-0 w-full transition-all duration-300 ease-out hover:pt-3 ${isSaved ? '' : 'gap-1.5'}`}>
+      <div className={`relative backdrop-blur-[5px] bg-white/90 flex items-start pt-1 pb-1 px-1 rounded-[12px] shrink-0 w-full transition-all duration-300 ease-out hover:pb-3 ${isSaved ? '' : 'gap-1.5'}`}>
         <div className={`flex flex-1 gap-2.5 items-start min-w-0 py-1.5 relative ${isSaved ? 'flex-col px-2.5' : 'pl-2.5'}`}>
           {(isInsta || isLikeShare) && (
             <>
