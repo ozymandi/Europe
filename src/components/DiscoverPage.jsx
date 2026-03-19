@@ -208,7 +208,7 @@ export default function DiscoverPage() {
           </div>
 
           {/* Card grid */}
-          <div ref={gridRef} className="grid gap-1" style={{ gridTemplateColumns: 'repeat(auto-fill, 230px)' }}>
+          <div ref={gridRef} className="grid gap-1" style={{ gridTemplateColumns: `repeat(${cols}, 230px)` }}>
             {visibleListings.map((listing, i) => (
               <Card
                 key={i}
