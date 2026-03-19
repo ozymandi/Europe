@@ -30,6 +30,8 @@ const LISTINGS_DATA = [
   { city: 'Valencia', country: 'Spain', price: '€210,000', img: IMG_CARDS[3] },
   { city: 'Cinque Terre', country: 'Italy', price: '€295,000', img: IMG_CARDS[4] },
   { city: 'Dubrovnik', country: 'Croatia', price: '€340,000', img: IMG_CARDS[0] },
+  { city: 'Limassol', country: 'Cyprus', price: '€255,000', img: IMG_CARDS[1] },
+  { city: 'Madeira', country: 'Portugal', price: '€178,000', img: IMG_CARDS[2] },
 ]
 
 const FILTER_CHIPS = [
