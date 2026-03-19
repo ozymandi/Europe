@@ -90,7 +90,7 @@ function SavedSearchCard({ city, country, img }) {
     <div
       className="border-[0.5px] border-border-gray flex flex-1 h-[77px] items-center justify-between overflow-clip pr-4 rounded-[4px] bg-blue-1"
       style={{
-        backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='6' height='9'%3E%3Cpath d='M5.21651 0.125L0.216507 8.78528' stroke='%236E6E6E' stroke-width='0.5'/%3E%3C/svg%3E")`,
+        backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='6' height='9'%3E%3Cpath d='M5.21651 0.125L0.216507 8.78528' stroke='%236E6E6E' stroke-width='0.5' opacity='0.09'/%3E%3C/svg%3E")`,
         backgroundRepeat: 'repeat',
       }}
     >
