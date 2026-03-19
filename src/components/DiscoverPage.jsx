@@ -171,7 +171,7 @@ export default function DiscoverPage() {
         </div>
 
         {/* Listings section */}
-        <div className="relative z-10 flex flex-col gap-4">
+        <div className="relative z-10 flex flex-col gap-6">
 
           {/* Listings header */}
           <div className="flex items-center justify-between shrink-0 w-full">
