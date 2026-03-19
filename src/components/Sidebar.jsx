@@ -29,7 +29,7 @@ function NavItem({ label, src, inset, extra }) {
   return (
     <motion.div
       className="flex items-center rounded-[22px] cursor-pointer"
-      style={{ width: '224px', padding: '12px 16px', gap: '10px' }}
+      style={{ width: '224px', padding: '12px 16px', gap: '10px', backgroundColor: 'rgba(255,255,255,0)' }}
       whileHover={{
         scale: 1.03,
         backgroundColor: 'rgba(255,255,255,0.45)',
