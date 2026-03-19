@@ -1,3 +1,4 @@
+import { useRef } from 'react'
 import { motion } from 'framer-motion'
 import Card from './Card'
 import Icons from './Icons'
@@ -21,6 +22,10 @@ const IMG_CARDS = [
   'https://www.figma.com/api/mcp/asset/4ea18c31-f97b-42bd-9853-fb88dfdcef57',
   'https://www.figma.com/api/mcp/asset/41835e66-0d37-48ce-9617-5421d16aba68',
   'https://www.figma.com/api/mcp/asset/7bede93e-8ff9-4a23-9440-8d882fe3ca1b',
+  'https://www.figma.com/api/mcp/asset/28323000-3710-4618-b65e-63a09f79d88f',
+  'https://www.figma.com/api/mcp/asset/4ea18c31-f97b-42bd-9853-fb88dfdcef57',
+  'https://www.figma.com/api/mcp/asset/0f0c7035-9711-486a-b9e2-fb8607cf5cc2',
+  'https://www.figma.com/api/mcp/asset/7bede93e-8ff9-4a23-9440-8d882fe3ca1b',
 ]
 
 const SAVED_SEARCHES = [
@@ -30,11 +35,53 @@ const SAVED_SEARCHES = [
 
 const LISTINGS = IMG_CARDS.map((img, i) => ({
   id: i + 1,
-  city: 'Crete',
-  country: 'Greece',
-  price: '€119,000',
+  city: ['Crete', 'Santorini', 'Lot', 'Tuscany', 'Crete', 'Mallorca', 'Mykonos', 'Provence', 'Corfu'][i],
+  country: ['Greece', 'Greece', 'France', 'Italy', 'Greece', 'Spain', 'Greece', 'France', 'Greece'][i],
+  price: ['€119,000', '€245,000', '€189,000', '€320,000', '€98,000', '€275,000', '€310,000', '€165,000', '€142,000'][i],
   img,
 }))
+
+function DragScroll({ className, children }) {
+  const ref = useRef(null)
+  const dragging = useRef(false)
+  const startX = useRef(0)
+  const scrollLeft = useRef(0)
+
+  const onMouseDown = (e) => {
+    dragging.current = true
+    startX.current = e.pageX - ref.current.offsetLeft
+    scrollLeft.current = ref.current.scrollLeft
+    ref.current.style.cursor = 'grabbing'
+  }
+  const onMouseUp = () => {
+    dragging.current = false
+    ref.current.style.cursor = 'grab'
+  }
+  const onMouseLeave = () => {
+    dragging.current = false
+    ref.current.style.cursor = 'grab'
+  }
+  const onMouseMove = (e) => {
+    if (!dragging.current) return
+    e.preventDefault()
+    const x = e.pageX - ref.current.offsetLeft
+    ref.current.scrollLeft = scrollLeft.current - (x - startX.current) * 1.2
+  }
+
+  return (
+    <div
+      ref={ref}
+      className={`overflow-x-auto select-none ${className || ''}`}
+      style={{ cursor: 'grab', scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+      onMouseDown={onMouseDown}
+      onMouseUp={onMouseUp}
+      onMouseLeave={onMouseLeave}
+      onMouseMove={onMouseMove}
+    >
+      {children}
+    </div>
+  )
+}
 
 function ViewAllBtn() {
   return (
@@ -210,11 +257,11 @@ export default function Dashboard() {
               </p>
               <ViewAllBtn />
             </div>
-            <div className="flex gap-0.5 items-stretch flex-1 overflow-x-auto min-h-0">
+            <DragScroll className="flex gap-0.5 items-stretch flex-1 min-h-0">
               {LISTINGS.map((listing) => (
                 <Card key={listing.id} {...listing} />
               ))}
-            </div>
+            </DragScroll>
           </div>
         </div>
       </div>
