@@ -89,19 +89,19 @@ function SavedSearchCard({ city, country, img }) {
   return (
     <div className="border-[0.5px] border-border-gray flex flex-1 h-[77px] items-center justify-between overflow-clip pr-4 rounded-[4px]">
       <div className="flex gap-4 items-center shrink-0">
-        <div className="relative rounded shrink-0 size-[77px]">
+        <div className="relative rounded-[4px] shrink-0 size-[77px]">
           <img
             alt={city}
-            className="absolute inset-0 max-w-none object-cover pointer-events-none rounded size-full"
+            className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[4px] size-full"
             src={img}
           />
         </div>
-        <div className="flex flex-col items-start tracking-[-0.14px]">
-          <p className="text-sm text-dark">{city}</p>
-          <p className="text-xs text-darkgray">{country}</p>
+        <div className="flex flex-col items-start tracking-[-0.14px] w-[39px]">
+          <p className="text-sm text-dark leading-normal">{city}</p>
+          <p className="text-xs text-darkgray leading-normal">{country}</p>
         </div>
       </div>
-      <div className="bg-limon flex h-11 items-center overflow-clip p-2.5 rounded-[10px] shrink-0">
+      <div className="bg-limon flex h-[44px] items-center overflow-clip p-[10px] rounded-[10px] shrink-0">
         <div className="overflow-clip relative shrink-0 size-4">
           <div className="absolute inset-[20.83%]">
             <div className="absolute inset-[-5.36%]">
