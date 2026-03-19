@@ -164,7 +164,7 @@ export default function DiscoverPage() {
             {LISTINGS_DATA.map((listing, i) => (
               <Card
                 key={i}
-                property1="Saved"
+                property1="Like_Share"
                 city={listing.city}
                 country={listing.country}
                 price={listing.price}
