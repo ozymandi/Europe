@@ -22,14 +22,7 @@ function NavIcon({ src, inset, extra }) {
 
 function NavItem({ label, src, inset, extra }) {
   return (
-    <div
-      style={{
-        width: '224px',
-        padding: '12px 16px',
-        gap: '10px',
-      }}
-      className="flex items-center"
-    >
+    <div className="flex items-center" style={{ width: '224px', padding: '12px 16px', gap: '10px' }}>
       <NavIcon src={src} inset={inset} extra={extra} />
       <span className="text-[14px] text-[#2e2e2e] tracking-[-0.14px] leading-[20px] whitespace-nowrap">
         {label}
