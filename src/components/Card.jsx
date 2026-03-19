@@ -34,9 +34,9 @@ export default function Card({ property1 = 'Insta', city, country, price, img, c
   const isSaved = property1 === 'Saved'
 
   return (
-    <div className={`group ${className || 'relative flex flex-col h-[320px] w-[230px] items-start justify-between overflow-clip p-1 rounded-2xl shrink-0'}`}>
+    <div className={`group/card ${className || 'relative flex flex-col h-[320px] w-[230px] items-start justify-between overflow-clip p-1 rounded-2xl shrink-0'}`}>
       {/* Background image */}
-      <img alt={city} className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-2xl size-full transition-transform duration-500 ease-in-out group-hover:scale-110" src={img} />
+      <img alt={city} className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-2xl size-full transition-transform duration-500 ease-in-out group-hover/card:scale-110" src={img} />
 
       {/* Top bar */}
       <div className="relative flex items-center p-[10px] shrink-0">
@@ -71,7 +71,7 @@ export default function Card({ property1 = 'Insta', city, country, price, img, c
       <Paginator variant={property1} />
 
       {/* Bottom info */}
-      <div className={`relative backdrop-blur-[5px] bg-white/90 flex items-start p-1 rounded-[12px] shrink-0 w-full origin-bottom transition-transform duration-300 ease-out group-hover:scale-y-[1.04] ${isSaved ? '' : 'gap-1.5'}`}>
+      <div className={`group/info relative backdrop-blur-[5px] bg-white/90 flex items-start pt-1 pb-1 px-1 rounded-[12px] shrink-0 w-full transition-all duration-300 ease-out group-hover/info:pt-3 ${isSaved ? '' : 'gap-1.5'}`}>
         <div className={`flex flex-1 gap-2.5 items-start min-w-0 py-1.5 relative ${isSaved ? 'flex-col px-2.5' : 'pl-2.5'}`}>
           {(isInsta || isLikeShare) && (
             <>
@@ -133,7 +133,7 @@ export default function Card({ property1 = 'Insta', city, country, price, img, c
 
         {(isInsta || isLikeShare) && (
           <div className="bg-limon flex items-center overflow-clip p-[10px] rounded-[10px] self-stretch shrink-0">
-            <div className="overflow-clip relative shrink-0 size-4 transition-transform duration-300 ease-out group-hover:scale-[1.03]">
+            <div className="overflow-clip relative shrink-0 size-4 transition-transform duration-300 ease-out group-hover/card:scale-[1.03]">
               <div className="absolute inset-[8.33%_12.5%]">
                 <div className="absolute inset-[-3.75%_-4.17%]">
                   <img alt="" className="block max-w-none size-full" src={imgArrow} />
