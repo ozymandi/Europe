@@ -32,7 +32,7 @@
 <feFuncA type="discrete" tableValues="0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 "/>
 </feComponentTransfer>
 <feComposite operator="in" in2="shape" in="coloredNoise1" result="noise1Clipped" />
-<feFlood flood-color="rgba(0, 0, 0, 0.25)" result="color1Flood" />
+<feFlood flood-color="rgba(0, 0, 0, 0.125)" result="color1Flood" />
 <feComposite operator="in" in2="noise1Clipped" in="color1Flood" result="color1" />
 <feMerge result="effect1_noise_135_475">
 <feMergeNode in="shape" />
