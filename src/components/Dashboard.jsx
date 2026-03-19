@@ -11,7 +11,9 @@ const imgArrowVec = 'https://www.figma.com/api/mcp/asset/1e8bf52b-8193-4760-af44
 const imgFrame36 = 'https://www.figma.com/api/mcp/asset/39792562-096a-463a-bfe9-099d2d6a93ce'
 const imgFrame37 = 'https://www.figma.com/api/mcp/asset/da8eefe6-152f-470a-8b99-e1eb92a18a5d'
 // Budget tool decorative ellipse
-const imgEllipse = 'https://www.figma.com/api/mcp/asset/710ac27e-d948-4253-86bb-a28e1f4b4310'
+const imgEllipse = 'https://www.figma.com/api/mcp/asset/477b8733-91c0-491f-ab49-43aa0b2ec1e9'
+// Budget tool icon (financial document)
+const imgBudgetIcon = 'https://www.figma.com/api/mcp/asset/856c10a3-3d0e-48f9-a7da-52b59f90cb4d'
 // Search icon
 const imgSearchIcon = 'https://www.figma.com/api/mcp/asset/c5e4425a-dc40-43bb-af85-6c57c09fb638'
 
@@ -194,21 +196,15 @@ function SavedSearchCard({ city, country, img }) {
 function BudgetTool() {
   return (
     <div className="flex-1 bg-white flex flex-col h-full items-start justify-between min-w-0 overflow-clip p-4 relative rounded-[8px]">
-      {/* Decorative ellipse */}
-      <div className="absolute right-[-140px] size-[226px] top-[-117px]">
-        <div className="absolute inset-[-88.5%]">
-          <img alt="" className="block max-w-none size-full" src={imgEllipse} />
-        </div>
-      </div>
       <p className="font-display text-lg text-dark tracking-[-0.2px] font-bold relative z-10">
         Budget Tool
       </p>
-      <div className="flex gap-[19px] items-center relative z-10 w-full">
-        <div className="flex gap-4 items-center shrink-0 w-[267px]">
+      <div className="flex gap-[19px] items-center justify-between relative z-10 w-full">
+        <div className="flex gap-4 items-center shrink-0">
           <div className="bg-limon h-[77px] overflow-clip relative rounded-[4px] shrink-0 w-[78px] flex items-center justify-center">
-            <Icons className="relative size-8" property1="lucide:calculator" />
+            <img alt="" className="size-8 object-contain" src={imgBudgetIcon} />
           </div>
-          <p className="text-sm text-dark tracking-[-0.4px] w-[136px] leading-snug">
+          <p className="text-sm text-dark tracking-[-0.4px] leading-snug max-w-[136px]">
             <span className="font-semibold">Calculate your budget</span>
             {' '}to see what you can afford
           </p>
