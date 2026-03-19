@@ -27,11 +27,6 @@ function NavItem({ label, src, inset, extra }) {
         width: '224px',
         padding: '12px 16px',
         gap: '10px',
-        borderRadius: '22px',
-        border: '1px solid #FFF',
-        background: 'rgba(255, 255, 255, 0.01)',
-        boxShadow: '0 4px 8.7px 0 rgba(0, 0, 0, 0.05) inset',
-        backdropFilter: 'blur(7px)',
       }}
       className="flex items-center"
     >
