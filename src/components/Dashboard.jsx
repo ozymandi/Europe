@@ -195,7 +195,7 @@ function BudgetTool() {
       <p className="font-display text-lg text-dark tracking-[-0.2px] font-bold relative z-10">
         Budget Tool
       </p>
-      <div className="flex gap-[19px] items-center justify-between relative z-10 w-full">
+      <div className="flex flex-wrap gap-[19px] items-center justify-between relative z-10 w-full">
         <div className="flex gap-4 items-center shrink-0">
           <div className="bg-limon h-[77px] overflow-clip relative rounded-[4px] shrink-0 w-[78px] flex items-center justify-center">
             <img alt="" className="block" src={imgCalculator} />
