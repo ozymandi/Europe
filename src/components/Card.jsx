@@ -110,7 +110,7 @@ export default function Card({ property1 = 'Insta', city, country, price, img, i
           </div>
         )}
         {isSaved && (
-          <div className="bg-black/0 flex items-center justify-center overflow-clip px-4 py-3 rounded-[8px] shrink-0 h-9">
+          <div className="bg-white/10 backdrop-blur-[8px] border border-white/15 flex items-center justify-center overflow-clip px-3 py-1.5 rounded-[8px] shrink-0" style={{ boxShadow: 'inset 0 2px 16px rgba(0,0,0,0.03), inset 0 0 0 1px rgba(0,0,0,0.01)' }}>
             <span className="text-[12px] text-white tracking-[-0.14px] leading-normal whitespace-nowrap">{country}</span>
           </div>
         )}
