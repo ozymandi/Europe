@@ -12,17 +12,16 @@ const imgBath = 'https://www.figma.com/api/mcp/asset/a955d34a-2f25-4f63-a8d5-ec6
 const imgSize = 'https://www.figma.com/api/mcp/asset/8458b0db-d482-4b14-802d-5bfb48bfe3d8'
 
 function Paginator({ variant }) {
-  if (variant === 'Like_Share') {
-    return (
-      <div className="-translate-x-1/2 absolute flex gap-[2px] items-center left-1/2 top-[250.5px]">
-        <div className="h-[3px] w-[20px] relative"><div className="absolute bg-white inset-0 rounded-[10px]" /></div>
-        <div className="h-[3px] w-[4px] relative"><div className="absolute bg-white inset-0 opacity-50 rounded-[10px]" /></div>
-        <div className="h-[3px] w-[4px] relative"><div className="absolute bg-white inset-0 opacity-50 rounded-[10px]" /></div>
-        <div className="h-[3px] w-[4px] relative"><div className="absolute bg-white inset-0 opacity-50 rounded-[10px]" /></div>
-      </div>
-    )
-  }
-  return null
+  if (variant === 'Saved') return null
+  const dimInactive = variant === 'Like_Share'
+  return (
+    <div className="-translate-x-1/2 absolute inline-flex gap-[2px] items-center left-1/2 top-[250.5px]">
+      <div className="h-[3px] w-[20px] relative"><div className="absolute bg-white inset-0 rounded-[10px]" /></div>
+      <div className="h-[3px] w-[4px] relative"><div className={`absolute bg-white inset-0 rounded-[10px] ${dimInactive ? 'opacity-50' : ''}`} /></div>
+      <div className="h-[3px] w-[4px] relative"><div className={`absolute bg-white inset-0 rounded-[10px] ${dimInactive ? 'opacity-50' : ''}`} /></div>
+      <div className="h-[3px] w-[4px] relative"><div className={`absolute bg-white inset-0 rounded-[10px] ${dimInactive ? 'opacity-50' : ''}`} /></div>
+    </div>
+  )
 }
 
 /**
