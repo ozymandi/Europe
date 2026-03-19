@@ -4,6 +4,9 @@ import Card from './Card'
 import Icons from './Icons'
 
 const imgSearchIcon = 'https://www.figma.com/api/mcp/asset/c5e4425a-dc40-43bb-af85-6c57c09fb638'
+const imgIconGrid = 'https://www.figma.com/api/mcp/asset/6da222d7-ac17-4329-b04b-bf41752af662'
+const imgIconList = 'https://www.figma.com/api/mcp/asset/d34aa2ef-f50c-4033-bb62-61e69477dee5'
+const imgIconChevron = 'https://www.figma.com/api/mcp/asset/dd41eef0-4ada-4677-9e02-172d5464ee49'
 
 const IMG_CARDS = [
   'https://www.figma.com/api/mcp/asset/28323000-3710-4618-b65e-63a09f79d88f',
@@ -158,31 +161,50 @@ export default function DiscoverPage() {
               {/* Sort by dropdown */}
               <div className="flex items-center gap-2 shrink-0">
                 <span className="text-[12px] text-dark tracking-[-0.14px] whitespace-nowrap">Sort by:</span>
-                <button className="bg-white border border-border-gray flex items-center gap-10 pl-3 pr-1 py-1 rounded-full shrink-0 hover:shadow-[0_2px_8px_rgba(0,0,0,0.08)] transition-shadow duration-150">
+                <motion.button
+                  className="bg-white border border-border-gray flex items-center gap-10 pl-3 pr-1 py-1 rounded-full shrink-0"
+                  style={{ boxShadow: '0px 2px 2px 0px rgba(138,56,245,0.03)' }}
+                  whileHover={{ boxShadow: '0px 4px 10px 0px rgba(138,56,245,0.1)' }}
+                  transition={{ duration: 0.2 }}
+                >
                   <span className="text-[12px] text-dark tracking-[-0.14px] whitespace-nowrap">Date</span>
                   <div className="flex items-center justify-center p-1 rounded-full shrink-0">
-                    <svg viewBox="0 0 12 12" fill="none" className="size-3" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M3 4.5L6 7.5L9 4.5" stroke="#2e2e2e" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
+                    <div className="overflow-clip relative shrink-0 size-3">
+                      <div className="absolute bottom-[37.5%] left-1/4 right-1/4 top-[37.5%]">
+                        <div className="absolute inset-[-16.67%_-8.33%]">
+                          <img alt="" className="block max-w-none size-full" src={imgIconChevron} />
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                </button>
+                </motion.button>
               </div>
               {/* View toggle */}
-              <div className="bg-white border border-border-gray flex items-center gap-1 p-1 rounded-full shrink-0">
+              <motion.div
+                className="bg-white border border-border-gray flex items-center gap-1 p-1 rounded-full shrink-0"
+                style={{ boxShadow: '0px 2px 2px 0px rgba(138,56,245,0.03)' }}
+                whileHover={{ boxShadow: '0px 4px 10px 0px rgba(138,56,245,0.1)' }}
+                transition={{ duration: 0.2 }}
+              >
                 <button className="bg-dark flex items-center justify-center p-1 rounded-full shrink-0">
-                  <svg viewBox="0 0 12 12" fill="none" className="size-3" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="1.5" y="1.5" width="3.5" height="3.5" rx="0.5" fill="white"/>
-                    <rect x="7" y="1.5" width="3.5" height="3.5" rx="0.5" fill="white"/>
-                    <rect x="1.5" y="7" width="3.5" height="3.5" rx="0.5" fill="white"/>
-                    <rect x="7" y="7" width="3.5" height="3.5" rx="0.5" fill="white"/>
-                  </svg>
+                  <div className="overflow-clip relative shrink-0 size-3">
+                    <div className="absolute inset-[12.5%]">
+                      <div className="absolute inset-[-5.56%]">
+                        <img alt="" className="block max-w-none size-full" src={imgIconGrid} style={{ filter: 'invert(1)' }} />
+                      </div>
+                    </div>
+                  </div>
                 </button>
-                <button className="flex items-center justify-center p-1 rounded-full shrink-0 hover:bg-white/50 transition-colors duration-150">
-                  <svg viewBox="0 0 12 12" fill="none" className="size-3" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M1.5 3H10.5M1.5 6H10.5M1.5 9H10.5" stroke="#2e2e2e" strokeWidth="1.2" strokeLinecap="round"/>
-                  </svg>
+                <button className="flex items-center justify-center p-1 rounded-full shrink-0">
+                  <div className="overflow-clip relative shrink-0 size-3">
+                    <div className="absolute inset-[13.48%_12.5%]">
+                      <div className="absolute inset-[-5.7%_-5.56%]">
+                        <img alt="" className="block max-w-none size-full" src={imgIconList} />
+                      </div>
+                    </div>
+                  </div>
                 </button>
-              </div>
+              </motion.div>
             </div>
           </div>
 
