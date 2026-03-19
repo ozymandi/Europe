@@ -44,28 +44,46 @@ const LISTINGS = IMG_CARDS.map((img, i) => ({
 function DragScroll({ className, children }) {
   const ref = useRef(null)
   const dragging = useRef(false)
-  const startX = useRef(0)
-  const scrollLeft = useRef(0)
+  const lastX = useRef(0)
+  const lastTime = useRef(0)
+  const velocity = useRef(0)
+  const rafId = useRef(null)
+
+  const cancelInertia = () => {
+    if (rafId.current) { cancelAnimationFrame(rafId.current); rafId.current = null }
+  }
+
+  const applyInertia = () => {
+    if (Math.abs(velocity.current) < 0.05) return
+    ref.current.scrollLeft += velocity.current * 16
+    velocity.current *= 0.93
+    rafId.current = requestAnimationFrame(applyInertia)
+  }
 
   const onMouseDown = (e) => {
+    cancelInertia()
     dragging.current = true
-    startX.current = e.pageX - ref.current.offsetLeft
-    scrollLeft.current = ref.current.scrollLeft
+    lastX.current = e.pageX
+    lastTime.current = Date.now()
+    velocity.current = 0
     ref.current.style.cursor = 'grabbing'
   }
-  const onMouseUp = () => {
+  const release = () => {
+    if (!dragging.current) return
     dragging.current = false
     ref.current.style.cursor = 'grab'
-  }
-  const onMouseLeave = () => {
-    dragging.current = false
-    ref.current.style.cursor = 'grab'
+    rafId.current = requestAnimationFrame(applyInertia)
   }
   const onMouseMove = (e) => {
     if (!dragging.current) return
     e.preventDefault()
-    const x = e.pageX - ref.current.offsetLeft
-    ref.current.scrollLeft = scrollLeft.current - (x - startX.current) * 1.2
+    const x = e.pageX
+    const now = Date.now()
+    const dt = now - lastTime.current
+    if (dt > 0) velocity.current = (lastX.current - x) / dt
+    ref.current.scrollLeft += lastX.current - x
+    lastX.current = x
+    lastTime.current = now
   }
 
   return (
@@ -74,8 +92,8 @@ function DragScroll({ className, children }) {
       className={`overflow-x-auto select-none ${className || ''}`}
       style={{ cursor: 'grab', scrollbarWidth: 'none', msOverflowStyle: 'none' }}
       onMouseDown={onMouseDown}
-      onMouseUp={onMouseUp}
-      onMouseLeave={onMouseLeave}
+      onMouseUp={release}
+      onMouseLeave={release}
       onMouseMove={onMouseMove}
     >
       {children}
@@ -259,7 +277,14 @@ export default function Dashboard() {
             </div>
             <DragScroll className="flex gap-0.5 items-stretch flex-1 min-h-0">
               {LISTINGS.map((listing) => (
-                <Card key={listing.id} {...listing} />
+                <motion.div
+                  key={listing.id}
+                  className="shrink-0"
+                  whileHover={{ scale: 1.03, transition: { ease: 'easeIn', duration: 0.12 } }}
+                  transition={{ type: 'spring', stiffness: 320, damping: 26 }}
+                >
+                  <Card {...listing} />
+                </motion.div>
               ))}
             </DragScroll>
           </div>
