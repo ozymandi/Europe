@@ -35,8 +35,11 @@ export default function Card({ property1 = 'Insta', city, country, price, img, c
 
   return (
     <div className={`group/card ${className || 'relative flex flex-col h-[320px] w-[230px] items-start justify-between p-1 rounded-2xl shrink-0'}`}>
-      {/* Background image */}
-      <img alt={city} className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-2xl size-full transition-transform duration-500 ease-in-out group-hover/card:scale-110" src={img} />
+
+      {/* Image — own overflow-clip wrapper to contain the zoom */}
+      <div className="absolute inset-0 rounded-2xl overflow-clip pointer-events-none">
+        <img alt={city} className="size-full object-cover transition-transform duration-500 ease-in-out group-hover/card:scale-110" src={img} />
+      </div>
 
       {/* Top bar */}
       <div className="relative flex items-center p-[10px] shrink-0">
@@ -70,69 +73,59 @@ export default function Card({ property1 = 'Insta', city, country, price, img, c
       {/* Paginator */}
       <Paginator variant={property1} />
 
-      {/* Bottom info */}
-      <div className={`relative backdrop-blur-[5px] bg-white/90 flex items-start pt-1 pb-1 px-1 rounded-[12px] shrink-0 w-full transition-all duration-300 ease-out hover:pb-3 ${isSaved ? '' : 'gap-1.5'}`}>
-        <div className={`flex flex-1 gap-2.5 items-start min-w-0 py-1.5 relative ${isSaved ? 'flex-col px-2.5' : 'pl-2.5'}`}>
-          {(isInsta || isLikeShare) && (
-            <>
-              <div className="flex flex-1 flex-col items-start min-w-0">
+      {/* Bottom info — relative container, grows downward on hover */}
+      <div className={`relative backdrop-blur-[5px] bg-white/90 rounded-[12px] shrink-0 w-full transition-all duration-300 ease-out hover:pb-2 pt-1 pb-1 px-1 ${isSaved ? '' : ''}`}>
+
+        {/* Content + yellow button side-by-side via pr to leave room */}
+        {(isInsta || isLikeShare) && (
+          <div className="flex items-start gap-1.5 pr-[44px]">
+            <div className="flex flex-1 flex-col items-start min-w-0 pl-2.5 py-1.5">
+              <p className="text-sm text-dark tracking-[-0.14px] leading-normal">{city}</p>
+              <p className="text-xs text-darkgray tracking-[-0.14px] leading-normal">{country}</p>
+            </div>
+            <div className="flex flex-col items-start shrink-0 w-[63px] py-1.5">
+              <p className="text-sm font-semibold text-dark tracking-[-0.14px] leading-normal">{price}</p>
+            </div>
+          </div>
+        )}
+
+        {isSaved && (
+          <div className="flex flex-col gap-1.5 px-2.5 py-1.5">
+            <div className="flex items-start justify-between w-full">
+              <div className="flex flex-col items-start">
                 <p className="text-sm text-dark tracking-[-0.14px] leading-normal">{city}</p>
                 <p className="text-xs text-darkgray tracking-[-0.14px] leading-normal">{country}</p>
               </div>
               <div className="flex flex-col items-start shrink-0 w-[63px]">
                 <p className="text-sm font-semibold text-dark tracking-[-0.14px] leading-normal">{price}</p>
               </div>
-            </>
-          )}
-          {isSaved && (
-            <>
-              <div className="flex items-start justify-between w-full">
-                <div className="flex flex-col items-start">
-                  <p className="text-sm text-dark tracking-[-0.14px] leading-normal">{city}</p>
-                  <p className="text-xs text-darkgray tracking-[-0.14px] leading-normal">{country}</p>
+            </div>
+            <div className="flex gap-0.5 items-start">
+              <div className="bg-white flex gap-1 items-center p-1 rounded-[4px] shrink-0">
+                <div className="overflow-clip relative shrink-0 size-[10px]">
+                  <div className="absolute inset-[16.67%_8.33%]"><div className="absolute inset-[-7.5%_-6%]"><img alt="" className="block max-w-none size-full" src={imgBed} /></div></div>
                 </div>
-                <div className="flex flex-col items-start shrink-0 w-[63px]">
-                  <p className="text-sm font-semibold text-dark tracking-[-0.14px] leading-normal">{price}</p>
-                </div>
+                <span className="text-[10px] text-dark tracking-[-0.14px] leading-normal whitespace-nowrap">{beds} beds</span>
               </div>
-              <div className="flex gap-0.5 items-start">
-                <div className="bg-white flex gap-1 items-center p-1 rounded-[4px] shrink-0">
-                  <div className="overflow-clip relative shrink-0 size-[10px]">
-                    <div className="absolute inset-[16.67%_8.33%]">
-                      <div className="absolute inset-[-7.5%_-6%]">
-                        <img alt="" className="block max-w-none size-full" src={imgBed} />
-                      </div>
-                    </div>
-                  </div>
-                  <span className="text-[10px] text-dark tracking-[-0.14px] leading-normal whitespace-nowrap">{beds} beds</span>
+              <div className="bg-white flex gap-1 items-center p-1 rounded-[4px] shrink-0">
+                <div className="overflow-clip relative shrink-0 size-[10px]">
+                  <div className="absolute inset-[12.48%_8.33%_12.5%_8.33%]"><div className="absolute inset-[-6.67%_-6%]"><img alt="" className="block max-w-none size-full" src={imgBath} /></div></div>
                 </div>
-                <div className="bg-white flex gap-1 items-center p-1 rounded-[4px] shrink-0">
-                  <div className="overflow-clip relative shrink-0 size-[10px]">
-                    <div className="absolute inset-[12.48%_8.33%_12.5%_8.33%]">
-                      <div className="absolute inset-[-6.67%_-6%]">
-                        <img alt="" className="block max-w-none size-full" src={imgBath} />
-                      </div>
-                    </div>
-                  </div>
-                  <span className="text-[10px] text-dark tracking-[-0.14px] leading-normal whitespace-nowrap">{baths} baths</span>
-                </div>
-                <div className="bg-white flex gap-1 items-center p-1 rounded-[4px] shrink-0">
-                  <div className="overflow-clip relative shrink-0 size-[10px]">
-                    <div className="absolute inset-[16.35%_8.33%_16.67%_8.47%]">
-                      <div className="absolute inset-[-7.48%_-6.01%_-7.46%_-6.01%]">
-                        <img alt="" className="block max-w-none size-full" src={imgSize} />
-                      </div>
-                    </div>
-                  </div>
-                  <span className="text-[10px] text-dark tracking-[-0.14px] leading-normal whitespace-nowrap">{sqm} m²</span>
-                </div>
+                <span className="text-[10px] text-dark tracking-[-0.14px] leading-normal whitespace-nowrap">{baths} baths</span>
               </div>
-            </>
-          )}
-        </div>
+              <div className="bg-white flex gap-1 items-center p-1 rounded-[4px] shrink-0">
+                <div className="overflow-clip relative shrink-0 size-[10px]">
+                  <div className="absolute inset-[16.35%_8.33%_16.67%_8.47%]"><div className="absolute inset-[-7.48%_-6.01%_-7.46%_-6.01%]"><img alt="" className="block max-w-none size-full" src={imgSize} /></div></div>
+                </div>
+                <span className="text-[10px] text-dark tracking-[-0.14px] leading-normal whitespace-nowrap">{sqm} m²</span>
+              </div>
+            </div>
+          </div>
+        )}
 
+        {/* Yellow button — absolute, spans full height of info bar */}
         {(isInsta || isLikeShare) && (
-          <div className="bg-limon flex items-center overflow-clip p-[10px] rounded-[10px] self-stretch shrink-0">
+          <div className="absolute right-1 top-1 bottom-1 bg-limon flex items-center justify-center overflow-clip px-[10px] rounded-[10px]">
             <div className="overflow-clip relative shrink-0 size-4 transition-transform duration-300 ease-out group-hover/card:scale-[1.03]">
               <div className="absolute inset-[8.33%_12.5%]">
                 <div className="absolute inset-[-3.75%_-4.17%]">
