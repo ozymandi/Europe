@@ -1,3 +1,6 @@
+import pagenActive from '../assets/Pagen_Selec20t.svg'
+import pagenInactive from '../assets/Pagen_Select.svg'
+
 // Insta icon (top-left for Insta variant)
 const imgInsta = 'https://www.figma.com/api/mcp/asset/230c693a-62af-432a-ace3-9757200df7d3'
 // Arrow/share icon (yellow button)
@@ -16,10 +19,10 @@ function Paginator({ variant }) {
   const dimInactive = variant === 'Like_Share'
   return (
     <div className="-translate-x-1/2 absolute inline-flex gap-[2px] items-center left-1/2 top-[250.5px]">
-      <div className="h-[3px] w-[20px] relative"><div className="absolute bg-white inset-0 rounded-[10px]" /></div>
-      <div className="h-[3px] w-[4px] relative"><div className={`absolute bg-white inset-0 rounded-[10px] ${dimInactive ? 'opacity-50' : ''}`} /></div>
-      <div className="h-[3px] w-[4px] relative"><div className={`absolute bg-white inset-0 rounded-[10px] ${dimInactive ? 'opacity-50' : ''}`} /></div>
-      <div className="h-[3px] w-[4px] relative"><div className={`absolute bg-white inset-0 rounded-[10px] ${dimInactive ? 'opacity-50' : ''}`} /></div>
+      <img src={pagenActive} alt="" className="shrink-0" />
+      <img src={pagenInactive} alt="" className={`shrink-0 ${dimInactive ? 'opacity-50' : ''}`} />
+      <img src={pagenInactive} alt="" className={`shrink-0 ${dimInactive ? 'opacity-50' : ''}`} />
+      <img src={pagenInactive} alt="" className={`shrink-0 ${dimInactive ? 'opacity-50' : ''}`} />
     </div>
   )
 }
