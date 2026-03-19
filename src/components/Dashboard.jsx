@@ -117,7 +117,7 @@ function SearchBar() {
       whileHover={{ boxShadow: '0px 4px 10px 0px rgba(138,56,245,0.1)' }}
       transition={{ duration: 0.2 }}
     >
-      <div className="flex items-center gap-2.5 shrink-0">
+      <div className="flex items-center gap-2.5 flex-1 min-w-0">
         <div className="overflow-clip relative shrink-0 size-4">
           <div className="absolute inset-[12.5%]">
             <div className="absolute inset-[-4.17%]">
@@ -125,9 +125,11 @@ function SearchBar() {
             </div>
           </div>
         </div>
-        <span className="text-[14px] text-darkgray opacity-30 tracking-[-0.16px] whitespace-nowrap">
-          Search by location, property type, or keywords...
-        </span>
+        <input
+          type="text"
+          placeholder="Search by location, property type, or keywords..."
+          className="flex-1 min-w-0 bg-transparent text-[14px] text-dark tracking-[-0.16px] placeholder:text-darkgray placeholder:opacity-30 outline-none"
+        />
       </div>
       <motion.button
         className="group relative flex items-center justify-center h-[39px] px-4 py-3 rounded-[22px] shadow-[0px_2px_4px_0px_rgba(138,56,245,0.16)] w-[100px] shrink-0 border"
