@@ -98,7 +98,15 @@ export default function Sidebar() {
             <div style={{ gap: '16px' }} className="flex flex-col items-start">
               <div className="flex flex-col items-start">
                 <div
-                  style={{ width: '224px', padding: '12px 16px', gap: '10px' }}
+                  style={{
+                    width: '224px',
+                    padding: '12px 16px',
+                    gap: '10px',
+                    borderRadius: '22px',
+                    background: 'rgba(255, 255, 255, 0.45)',
+                    backdropFilter: 'blur(10px)',
+                    boxShadow: 'inset 0 1px 1px rgba(255,255,255,0.9)',
+                  }}
                   className="flex items-center"
                 >
                   <NavIcon
