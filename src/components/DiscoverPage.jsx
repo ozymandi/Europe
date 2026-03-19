@@ -159,8 +159,8 @@ export default function DiscoverPage() {
             ))}
           </div>
 
-          {/* Card grid 4×4 */}
-          <div className="grid grid-cols-4 gap-1">
+          {/* Card grid */}
+          <div className="grid gap-1" style={{ gridTemplateColumns: 'repeat(auto-fill, 230px)' }}>
             {LISTINGS_DATA.map((listing, i) => (
               <Card
                 key={i}
@@ -172,7 +172,6 @@ export default function DiscoverPage() {
                 beds={2}
                 baths={2}
                 sqm={120}
-                className="relative flex flex-col w-full h-[320px] items-start justify-between p-1 rounded-2xl"
               />
             ))}
           </div>
