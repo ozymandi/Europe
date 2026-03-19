@@ -2,17 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-  font-family: 'Open Runde';
-  src: local('Open Sans'), local('system-ui');
-  font-weight: 400;
-}
-
-@font-face {
-  font-family: 'Open Runde';
-  src: local('Open Sans'), local('system-ui');
-  font-weight: 600;
-}
 
 * {
   box-sizing: border-box;
@@ -28,7 +17,7 @@ body,
 }
 
 body {
-  font-family: 'Open Runde', 'Open Sans', ui-sans-serif, system-ui, sans-serif;
+  font-family: 'Open Sans', ui-sans-serif, system-ui, sans-serif;
   background: white;
   -webkit-font-smoothing: antialiased;
   overflow: hidden;

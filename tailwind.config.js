@@ -13,7 +13,7 @@ export default {
       },
       fontFamily: {
         display: ['"ivyora-display"', 'Georgia', 'serif'],
-        sans: ['"Open Runde"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        sans: ['"Open Sans"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
       },
     },
   },
