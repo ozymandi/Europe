@@ -25,27 +25,39 @@ function NavIcon({ src, inset, extra, invert }) {
   )
 }
 
-function NavItem({ label, src, inset, extra, dark, onClick }) {
-  const hoverBg = dark ? 'rgba(255,255,255,0.1)' : 'rgba(255,255,255,0.45)'
-  const textClass = dark
-    ? 'text-[14px] text-white/80 tracking-[-0.14px] leading-[20px] whitespace-nowrap transition-colors duration-300 group-hover:text-white'
-    : 'text-[14px] text-[#2e2e2e] tracking-[-0.14px] leading-[20px] whitespace-nowrap transition-colors duration-300 group-hover:text-purple'
+function SelectedItem({ label, src, inset, extra, onClick }) {
+  return (
+    <motion.div
+      style={{ width: '224px', padding: '12px 16px', gap: '10px', borderRadius: '22px', background: '#2e2e2e' }}
+      className="flex items-center cursor-pointer"
+      whileHover={{ scale: 1.05 }}
+      transition={{ type: 'spring', stiffness: 400, damping: 20 }}
+      onClick={onClick}
+    >
+      <NavIcon src={src} inset={inset} extra={extra} invert />
+      <span className="text-[14px] text-white tracking-[-0.14px] leading-[20px] whitespace-nowrap">
+        {label}
+      </span>
+    </motion.div>
+  )
+}
 
+function NavItem({ label, src, inset, extra, onClick }) {
   return (
     <motion.div
       className="group flex items-center rounded-[22px] cursor-pointer"
       style={{ width: '224px', padding: '12px 16px', gap: '10px', backgroundColor: 'rgba(255,255,255,0)' }}
       whileHover={{
         scale: 1.05,
-        backgroundColor: hoverBg,
-        backdropFilter: dark ? 'none' : 'blur(10px)',
-        boxShadow: dark ? 'none' : 'inset 0 1px 1px rgba(255,255,255,0.9)',
+        backgroundColor: 'rgba(255,255,255,0.45)',
+        backdropFilter: 'blur(10px)',
+        boxShadow: 'inset 0 1px 1px rgba(255,255,255,0.9)',
       }}
       transition={{ type: 'spring', stiffness: 400, damping: 20 }}
       onClick={onClick}
     >
-      <NavIcon src={src} inset={inset} extra={extra} invert={dark} />
-      <span className={textClass}>
+      <NavIcon src={src} inset={inset} extra={extra} />
+      <span className="text-[14px] text-[#2e2e2e] tracking-[-0.14px] leading-[20px] whitespace-nowrap transition-colors duration-300 group-hover:text-purple">
         {label}
       </span>
     </motion.div>
@@ -77,145 +89,75 @@ function MenuSection({ label, children }) {
 }
 
 export default function Sidebar({ page = 'dashboard', onNavigate }) {
-  const dark = page === 'discover'
-
   return (
     <div
       style={{ width: '260px', padding: '8px', gap: '10px', flexShrink: 0, alignSelf: 'stretch' }}
       className="flex items-center"
     >
-      {/* Inner menu frame */}
       <motion.div
-        style={{
-          padding: '10px',
-          gap: '32px',
-          flex: '1 0 0',
-          alignSelf: 'stretch',
-          boxShadow: dark
-            ? 'inset 0 2px 16px rgba(0,0,0,0.1), inset 0 0 0 1px rgba(255,255,255,0.04)'
-            : 'inset 0 2px 16px rgba(0,0,0,0.03), inset 0 0 0 1px rgba(0,0,0,0.01)',
-          transformPerspective: 800,
-          backgroundColor: dark ? '#2e2e2e' : undefined,
-        }}
-        className={`flex flex-col items-start rounded-[8px] overflow-clip border ${
-          dark ? 'border-white/10' : 'backdrop-blur-[8px] bg-white/10 border-white/15'
-        }`}
+        style={{ padding: '10px', gap: '32px', flex: '1 0 0', alignSelf: 'stretch', boxShadow: 'inset 0 2px 16px rgba(0,0,0,0.03), inset 0 0 0 1px rgba(0,0,0,0.01)', transformPerspective: 800 }}
+        className="flex flex-col items-start rounded-[8px] overflow-clip backdrop-blur-[8px] bg-white/10 border border-white/15"
         whileHover={{ rotateY: 4 }}
         transition={{ type: 'spring', stiffness: 200, damping: 22 }}
       >
-        {/* Logo block */}
-        <div
-          style={{ padding: '24px', gap: '10px', alignSelf: 'stretch' }}
-          className="flex flex-col items-start"
-        >
+        {/* Logo */}
+        <div style={{ padding: '24px', gap: '10px', alignSelf: 'stretch' }} className="flex flex-col items-start">
           <div className="h-[27.355px] overflow-clip relative shrink-0 w-[176px]">
             <div className="absolute contents inset-[0_0_-0.02%_0]">
               <div className="absolute inset-[0_42.07%_0.97%_0]">
-                <img
-                  alt=""
-                  className="absolute block max-w-none size-full"
-                  src={imgLogoLeft}
-                  style={dark ? { filter: 'invert(1)' } : undefined}
-                />
+                <img alt="" className="absolute block max-w-none size-full" src={imgLogoLeft} />
               </div>
               <div className="absolute inset-[0_0_-0.02%_58.61%]">
-                <img
-                  alt=""
-                  className="absolute block max-w-none size-full"
-                  src={imgLogoRight}
-                  style={dark ? { filter: 'invert(1)' } : undefined}
-                />
+                <img alt="" className="absolute block max-w-none size-full" src={imgLogoRight} />
               </div>
             </div>
           </div>
         </div>
 
-        {/* Menu block */}
-        <div
-          style={{ flex: '1 0 0' }}
-          className="flex flex-col justify-between items-start w-full min-h-0"
-        >
-          {/* Top */}
+        {/* Menu */}
+        <div style={{ flex: '1 0 0' }} className="flex flex-col justify-between items-start w-full min-h-0">
           <div style={{ gap: '32px' }} className="flex flex-col items-start">
 
-            {/* Dashboard item */}
+            {/* Dashboard */}
             <div style={{ gap: '16px' }} className="flex flex-col items-start">
               <div className="flex flex-col items-start">
-                {dark ? (
-                  /* Dark mode: Dashboard is a regular nav item */
+                {page === 'dashboard' ? (
+                  <SelectedItem
+                    label="Dashboard"
+                    src={imgDash}
+                    inset="inset-[12.5%]"
+                    extra="inset-[-4.17%]"
+                    onClick={() => onNavigate?.('dashboard')}
+                  />
+                ) : (
                   <NavItem
                     label="Dashboard"
                     src={imgDash}
                     inset="inset-[12.5%]"
                     extra="inset-[-4.17%]"
-                    dark={true}
-                    onClick={() => onNavigate && onNavigate('dashboard')}
+                    onClick={() => onNavigate?.('dashboard')}
                   />
-                ) : (
-                  /* Light mode: Dashboard is selected (dark pill) */
-                  <motion.div
-                    style={{
-                      width: '224px',
-                      padding: '12px 16px',
-                      gap: '10px',
-                      borderRadius: '22px',
-                      background: '#2e2e2e',
-                    }}
-                    className="flex items-center cursor-pointer"
-                    whileHover={{ scale: 1.05 }}
-                    transition={{ type: 'spring', stiffness: 400, damping: 20 }}
-                    onClick={() => onNavigate && onNavigate('dashboard')}
-                  >
-                    <NavIcon
-                      src={imgDash}
-                      inset="inset-[12.5%]"
-                      extra="inset-[-4.17%]"
-                      invert
-                    />
-                    <span className="text-[14px] text-white tracking-[-0.14px] leading-[20px] whitespace-nowrap">
-                      Dashboard
-                    </span>
-                  </motion.div>
                 )}
               </div>
             </div>
 
             {/* Find Listings */}
             <MenuSection label="find listings">
-              {dark ? (
-                /* Dark mode: Discover Listings is selected (white pill) */
-                <motion.div
-                  style={{
-                    width: '224px',
-                    padding: '12px 16px',
-                    gap: '10px',
-                    borderRadius: '22px',
-                    background: 'white',
-                  }}
-                  className="flex items-center cursor-pointer"
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ type: 'spring', stiffness: 400, damping: 20 }}
-                  onClick={() => onNavigate && onNavigate('discover')}
-                >
-                  <NavIcon
-                    src={imgDiscover}
-                    inset="inset-[8.33%]"
-                    extra="inset-[-3.75%]"
-                    invert={false}
-                  />
-                  <span className="text-[14px] text-dark tracking-[-0.14px] leading-[20px] whitespace-nowrap">
-                    Discover Listings
-                  </span>
-                </motion.div>
+              {page === 'discover' ? (
+                <SelectedItem
+                  label="Discover Listings"
+                  src={imgDiscover}
+                  inset="inset-[8.33%]"
+                  extra="inset-[-3.75%]"
+                  onClick={() => onNavigate?.('discover')}
+                />
               ) : (
-                /* Light mode: Discover Listings is a regular nav item */
                 <NavItem
                   label="Discover Listings"
                   src={imgDiscover}
                   inset="inset-[8.33%]"
                   extra="inset-[-3.75%]"
-                  dark={false}
-                  onClick={() => onNavigate && onNavigate('discover')}
+                  onClick={() => onNavigate?.('discover')}
                 />
               )}
               <NavItem
@@ -223,63 +165,33 @@ export default function Sidebar({ page = 'dashboard', onNavigate }) {
                 src={imgSave}
                 inset="inset-[12.5%_8.33%_8.33%_8.33%]"
                 extra="inset-[-3.95%_-3.75%]"
-                dark={dark}
               />
             </MenuSection>
 
             {/* Tools */}
             <MenuSection label="TOOLS">
-              <NavItem
-                label="Closing Costs"
-                src={imgCost}
-                inset="inset-[8.33%_8.22%_8.33%_8.33%]"
-                extra="inset-[-3.75%_-3.74%]"
-                dark={dark}
-              />
-              <NavItem
-                label="Marketplace"
-                src={imgMarket}
-                inset="inset-[8.33%_12.5%]"
-                extra="inset-[-3.75%_-4.17%]"
-                dark={dark}
-              />
-              <NavItem
-                label="Live Q&A Calls"
-                src={imgQa}
-                inset="inset-[8.33%]"
-                extra="inset-[-3.75%]"
-                dark={dark}
-              />
+              <NavItem label="Closing Costs" src={imgCost} inset="inset-[8.33%_8.22%_8.33%_8.33%]" extra="inset-[-3.75%_-3.74%]" />
+              <NavItem label="Marketplace" src={imgMarket} inset="inset-[8.33%_12.5%]" extra="inset-[-3.75%_-4.17%]" />
+              <NavItem label="Live Q&A Calls" src={imgQa} inset="inset-[8.33%]" extra="inset-[-3.75%]" />
             </MenuSection>
           </div>
 
-          {/* Bottom */}
+          {/* Bottom — James Peterson */}
           <div style={{ gap: '32px' }} className="flex flex-col items-start">
             <div style={{ gap: '16px' }} className="flex flex-col items-start">
               <div className="flex flex-col items-start">
                 <motion.div
                   style={{ width: '224px', padding: '12px 8px', gap: '10px', backgroundColor: 'rgba(255,255,255,0)' }}
                   className="group flex items-center h-[44px] rounded-[22px] cursor-pointer"
-                  whileHover={{
-                    scale: 1.05,
-                    backgroundColor: dark ? 'rgba(255,255,255,0.1)' : 'rgba(255,255,255,0.45)',
-                    backdropFilter: dark ? 'none' : 'blur(10px)',
-                    boxShadow: dark ? 'none' : 'inset 0 1px 1px rgba(255,255,255,0.9)',
-                  }}
+                  whileHover={{ scale: 1.05, backgroundColor: 'rgba(255,255,255,0.45)', backdropFilter: 'blur(10px)', boxShadow: 'inset 0 1px 1px rgba(255,255,255,0.9)' }}
                   transition={{ type: 'spring', stiffness: 400, damping: 20 }}
                 >
                   <div className="overflow-clip relative shrink-0 size-[32px]">
                     <div className="absolute inset-0 rounded-[34px] overflow-hidden">
-                      <img
-                        alt="James Peterson"
-                        className="absolute h-[163.68%] left-[-4.56%] max-w-none top-[-1.18%] w-[109.12%]"
-                        src={imgAvatar}
-                      />
+                      <img alt="James Peterson" className="absolute h-[163.68%] left-[-4.56%] max-w-none top-[-1.18%] w-[109.12%]" src={imgAvatar} />
                     </div>
                   </div>
-                  <span className={`text-[14px] tracking-[-0.14px] leading-[20px] whitespace-nowrap transition-colors duration-300 ${
-                    dark ? 'text-white/80 group-hover:text-white' : 'text-[#2e2e2e] group-hover:text-purple'
-                  }`}>
+                  <span className="text-[14px] text-[#2e2e2e] tracking-[-0.14px] leading-[20px] whitespace-nowrap transition-colors duration-300 group-hover:text-purple">
                     James Peterson
                   </span>
                 </motion.div>
@@ -287,7 +199,6 @@ export default function Sidebar({ page = 'dashboard', onNavigate }) {
             </div>
           </div>
         </div>
-
       </motion.div>
     </div>
   )
