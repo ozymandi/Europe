@@ -177,9 +177,16 @@ export default function Sidebar() {
           <div style={{ gap: '32px' }} className="flex flex-col items-start">
             <div style={{ gap: '16px' }} className="flex flex-col items-start">
               <div className="flex flex-col items-start">
-                <div
-                  style={{ width: '224px', padding: '12px 8px 12px 8px', gap: '10px' }}
-                  className="flex items-center h-[44px]"
+                <motion.div
+                  style={{ width: '224px', padding: '12px 8px', gap: '10px', backgroundColor: 'rgba(255,255,255,0)' }}
+                  className="flex items-center h-[44px] rounded-[22px] cursor-pointer"
+                  whileHover={{
+                    scale: 1.05,
+                    backgroundColor: 'rgba(255,255,255,0.45)',
+                    backdropFilter: 'blur(10px)',
+                    boxShadow: 'inset 0 1px 1px rgba(255,255,255,0.9)',
+                  }}
+                  transition={{ type: 'spring', stiffness: 400, damping: 20 }}
                 >
                   <div className="overflow-clip relative shrink-0 size-[32px]">
                     <div className="absolute inset-0 rounded-[34px] overflow-hidden">
@@ -193,7 +200,7 @@ export default function Sidebar() {
                   <span className="text-[14px] text-[#2e2e2e] tracking-[-0.14px] leading-[20px] whitespace-nowrap">
                     James Peterson
                   </span>
-                </div>
+                </motion.div>
               </div>
             </div>
           </div>
