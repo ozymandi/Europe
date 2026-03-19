@@ -28,7 +28,7 @@ function NavIcon({ src, inset, extra, invert }) {
 function NavItem({ label, src, inset, extra }) {
   return (
     <motion.div
-      className="flex items-center rounded-[22px] cursor-pointer"
+      className="group flex items-center rounded-[22px] cursor-pointer"
       style={{ width: '224px', padding: '12px 16px', gap: '10px', backgroundColor: 'rgba(255,255,255,0)' }}
       whileHover={{
         scale: 1.05,
@@ -39,7 +39,7 @@ function NavItem({ label, src, inset, extra }) {
       transition={{ type: 'spring', stiffness: 400, damping: 20 }}
     >
       <NavIcon src={src} inset={inset} extra={extra} />
-      <span className="text-[14px] text-[#2e2e2e] tracking-[-0.14px] leading-[20px] whitespace-nowrap">
+      <span className="text-[14px] text-[#2e2e2e] tracking-[-0.14px] leading-[20px] whitespace-nowrap transition-colors duration-300 group-hover:text-purple">
         {label}
       </span>
     </motion.div>
