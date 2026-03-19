@@ -5,10 +5,12 @@ import Icons from './Icons'
 // Background
 const imgBg = 'https://www.figma.com/api/mcp/asset/46b70ee9-415e-44e7-8a42-7072f552b103'
 // Arrow icon for saved searches
-const imgArrowVec = 'https://www.figma.com/api/mcp/asset/723f1857-7b64-4217-886e-ff6b2b124f3b'
+const imgArrowVec = 'https://www.figma.com/api/mcp/asset/45019745-ea07-4475-8d4d-13aec72e2379'
 // Saved search images
-const imgFrame36 = 'https://www.figma.com/api/mcp/asset/332da225-f401-4422-944e-6b9ed87b4764'
-const imgFrame37 = 'https://www.figma.com/api/mcp/asset/97770bff-893d-4f4a-840f-8863f814201d'
+const imgFrame36 = 'https://www.figma.com/api/mcp/asset/39792562-096a-463a-bfe9-099d2d6a93ce'
+const imgFrame37 = 'https://www.figma.com/api/mcp/asset/da8eefe6-152f-470a-8b99-e1eb92a18a5d'
+// Budget tool decorative ellipse
+const imgEllipse = 'https://www.figma.com/api/mcp/asset/710ac27e-d948-4253-86bb-a28e1f4b4310'
 // Search icon
 const imgSearchIcon = 'https://www.figma.com/api/mcp/asset/c5e4425a-dc40-43bb-af85-6c57c09fb638'
 
@@ -85,7 +87,7 @@ function SearchBar() {
 
 function SavedSearchCard({ city, country, img }) {
   return (
-    <div className="border-[0.5px] border-border-gray flex h-[77px] items-center justify-between overflow-clip pr-4 rounded shrink-0 w-[235px]">
+    <div className="border-[0.5px] border-border-gray flex h-[77px] items-center justify-between overflow-clip pr-4 rounded-[4px] shrink-0 w-[235.5px]">
       <div className="flex gap-4 items-center shrink-0">
         <div className="relative rounded shrink-0 size-[77px]">
           <img
@@ -114,17 +116,19 @@ function SavedSearchCard({ city, country, img }) {
 
 function BudgetTool() {
   return (
-    <div className="flex-1 bg-white flex flex-col h-full items-start justify-between min-w-0 overflow-clip p-4 relative rounded-2xl">
-      {/* Decorative circle */}
+    <div className="flex-1 bg-white flex flex-col h-full items-start justify-between min-w-0 overflow-clip p-4 relative rounded-[8px]">
+      {/* Decorative ellipse */}
       <div className="absolute right-[-140px] size-[226px] top-[-117px]">
-        <div className="absolute inset-[-88.5%] rounded-full bg-gradient-to-br from-purple/10 to-purple/30 opacity-20" />
+        <div className="absolute inset-[-88.5%]">
+          <img alt="" className="block max-w-none size-full" src={imgEllipse} />
+        </div>
       </div>
       <p className="font-display text-lg text-dark tracking-[-0.2px] font-bold relative z-10">
         Budget Tool
       </p>
-      <div className="flex gap-5 items-center relative z-10 w-full">
+      <div className="flex gap-[19px] items-center relative z-10 w-full">
         <div className="flex gap-4 items-center shrink-0 w-[267px]">
-          <div className="bg-limon h-[77px] overflow-clip relative rounded shrink-0 w-[78px] flex items-center justify-center">
+          <div className="bg-limon h-[77px] overflow-clip relative rounded-[4px] shrink-0 w-[78px] flex items-center justify-center">
             <Icons className="relative size-8" property1="lucide:calculator" />
           </div>
           <p className="text-sm text-dark tracking-[-0.4px] w-[136px] leading-snug">
@@ -132,7 +136,7 @@ function BudgetTool() {
             {' '}to see what you can afford
           </p>
         </div>
-        <button className="bg-dark flex items-center justify-center px-8 py-3 rounded-full shrink-0">
+        <button className="bg-dark flex items-center justify-center px-8 py-3 rounded-[22px] shrink-0">
           <span className="text-[10px] font-semibold text-white tracking-[-0.16px] uppercase whitespace-nowrap">
             Calculate budget
           </span>
@@ -171,10 +175,10 @@ export default function Dashboard() {
       {/* Content */}
       <div className="relative z-10 flex flex-col gap-2 flex-1 min-h-0">
         {/* Saved Searches + Budget Tool */}
-        <div className="bg-white/50 flex h-[188px] items-start overflow-clip p-3 rounded-[28px] shrink-0 w-full">
+        <div className="bg-[rgba(255,255,255,0.3)] flex h-[188px] items-start overflow-clip p-3 rounded-[16px] shrink-0 w-full">
           <div className="flex flex-1 gap-0.5 h-full items-center relative">
             {/* Saved Searches */}
-            <div className="bg-white flex flex-1 flex-col h-full items-start justify-between min-w-0 overflow-clip p-4 relative rounded-2xl">
+            <div className="bg-white flex flex-1 flex-col h-full items-start justify-between min-w-0 overflow-clip p-4 relative rounded-[8px]">
               <div className="flex items-start justify-between shrink-0 w-full">
                 <p className="font-display text-lg text-dark tracking-[-0.2px] font-bold whitespace-nowrap">
                   Saved Searches
