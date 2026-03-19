@@ -1,3 +1,4 @@
+import { useState, useRef } from 'react'
 import pagenActive from '../assets/Pagen_Selec20t.svg'
 import pagenInactive from '../assets/Pagen_Select.svg'
 
@@ -14,37 +15,80 @@ const imgBath = 'https://www.figma.com/api/mcp/asset/a955d34a-2f25-4f63-a8d5-ec6
 // Size icon (Saved variant)
 const imgSize = 'https://www.figma.com/api/mcp/asset/8458b0db-d482-4b14-802d-5bfb48bfe3d8'
 
-function Paginator({ variant }) {
-  if (variant === 'Saved') return null
+function Paginator({ variant, total = 1, current = 0 }) {
+  if (variant === 'Saved' || total <= 1) return null
   const dimInactive = variant === 'Like_Share'
   return (
-    <div className="-translate-x-1/2 absolute inline-flex gap-[2px] items-center left-1/2 top-[250.5px]">
-      <img src={pagenActive} alt="" className="shrink-0" />
-      <img src={pagenInactive} alt="" className={`shrink-0 ${dimInactive ? 'opacity-50' : ''}`} />
-      <img src={pagenInactive} alt="" className={`shrink-0 ${dimInactive ? 'opacity-50' : ''}`} />
-      <img src={pagenInactive} alt="" className={`shrink-0 ${dimInactive ? 'opacity-50' : ''}`} />
+    <div className="-translate-x-1/2 absolute inline-flex gap-[2px] items-center left-1/2 bottom-[70px] pointer-events-none">
+      {Array.from({ length: total }, (_, i) =>
+        i === current
+          ? <img key={i} src={pagenActive} alt="" className="shrink-0" />
+          : <img key={i} src={pagenInactive} alt="" className={`shrink-0 ${dimInactive ? 'opacity-50' : ''}`} />
+      )}
     </div>
   )
 }
 
 /**
- * @param {{ property1?: 'Insta' | 'Like_Share' | 'Saved', city: string, country: string, price: string, img: string, className?: string, beds?: number, baths?: number, sqm?: number }} props
+ * @param {{ property1?: 'Insta' | 'Like_Share' | 'Saved', city: string, country: string, price: string, img?: string, images?: string[], className?: string, beds?: number, baths?: number, sqm?: number }} props
  */
-export default function Card({ property1 = 'Insta', city, country, price, img, className, beds = 2, baths = 3, sqm = 165 }) {
+export default function Card({ property1 = 'Insta', city, country, price, img, images, className, beds = 2, baths = 3, sqm = 165 }) {
   const isInsta = property1 === 'Insta'
   const isLikeShare = property1 === 'Like_Share'
   const isSaved = property1 === 'Saved'
 
+  const imgs = images && images.length > 1 ? images : [img]
+  const hasMultiple = imgs.length > 1
+
+  const [idx, setIdx] = useState(0)
+  const startX = useRef(0)
+  const dragged = useRef(false)
+
+  const onPointerDown = (e) => {
+    if (!hasMultiple) return
+    e.currentTarget.setPointerCapture(e.pointerId)
+    startX.current = e.clientX
+    dragged.current = false
+  }
+  const onPointerMove = (e) => {
+    if (!hasMultiple) return
+    if (Math.abs(e.clientX - startX.current) > 5) dragged.current = true
+  }
+  const onPointerUp = (e) => {
+    if (!hasMultiple || !dragged.current) return
+    const dx = e.clientX - startX.current
+    if (dx < -40) setIdx(i => Math.min(i + 1, imgs.length - 1))
+    else if (dx > 40) setIdx(i => Math.max(i - 1, 0))
+  }
+
   return (
     <div className={`group/card ${className || 'relative flex flex-col h-[320px] w-[230px] items-start justify-between p-1 rounded-2xl shrink-0'}`}>
 
-      {/* Image — own overflow-clip wrapper to contain the zoom */}
-      <div className="absolute inset-0 rounded-2xl overflow-clip pointer-events-none">
-        <img alt={city} className="size-full object-cover transition-transform duration-500 ease-in-out group-hover/card:scale-110" src={img} />
+      {/* Image slider */}
+      <div
+        className={`absolute inset-0 rounded-2xl overflow-clip ${hasMultiple ? 'cursor-grab active:cursor-grabbing' : 'pointer-events-none'}`}
+        onPointerDown={onPointerDown}
+        onPointerMove={onPointerMove}
+        onPointerUp={onPointerUp}
+      >
+        <div
+          className="flex h-full transition-transform duration-300 ease-out"
+          style={{ width: `${imgs.length * 100}%`, transform: `translateX(-${idx * (100 / imgs.length)}%)` }}
+        >
+          {imgs.map((src, i) => (
+            <div key={i} className="relative h-full" style={{ width: `${100 / imgs.length}%` }}>
+              <img
+                alt=""
+                className={`absolute inset-0 size-full object-cover ${!hasMultiple ? 'transition-transform duration-500 ease-in-out group-hover/card:scale-110' : ''}`}
+                src={src}
+              />
+            </div>
+          ))}
+        </div>
       </div>
 
       {/* Top bar */}
-      <div className="relative flex items-center p-[10px] shrink-0">
+      <div className="relative flex items-center p-[10px] shrink-0 pointer-events-none">
         {(isInsta || isLikeShare) && (
           <div className="bg-white/10 backdrop-blur-[8px] border border-white/15 flex items-center justify-center overflow-clip px-4 py-3 rounded-[8px] shrink-0 size-9" style={{ boxShadow: 'inset 0 2px 16px rgba(0,0,0,0.03), inset 0 0 0 1px rgba(0,0,0,0.01)' }}>
             <div className="overflow-clip relative shrink-0 size-4">
@@ -73,12 +117,10 @@ export default function Card({ property1 = 'Insta', city, country, price, img, c
       </div>
 
       {/* Paginator */}
-      <Paginator variant={property1} />
+      <Paginator variant={property1} total={imgs.length} current={idx} />
 
-      {/* Bottom info — relative container, grows downward on hover */}
+      {/* Bottom info */}
       <div className={`relative backdrop-blur-[5px] bg-white/90 rounded-[12px] shrink-0 w-full transition-all duration-300 ease-out hover:pb-2 pt-1 pb-1 px-1 ${isSaved ? '' : ''}`}>
-
-        {/* Content + yellow button side-by-side via pr to leave room */}
         {(isInsta || isLikeShare) && (
           <div className="flex items-start gap-1.5 pr-[44px]">
             <div className="flex flex-1 flex-col items-start min-w-0 pl-2.5 py-1.5">
@@ -125,7 +167,6 @@ export default function Card({ property1 = 'Insta', city, country, price, img, c
           </div>
         )}
 
-        {/* Yellow button — absolute, spans full height of info bar */}
         {(isInsta || isLikeShare) && (
           <div className="absolute right-1 top-1 bottom-1 bg-limon flex items-center justify-center overflow-clip px-[10px] rounded-[10px]">
             <div className="overflow-clip relative shrink-0 size-4 transition-transform duration-300 ease-out group-hover/card:scale-[1.03]">
