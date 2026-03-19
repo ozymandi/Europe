@@ -8,9 +8,12 @@ const imgCost = 'https://www.figma.com/api/mcp/asset/03768e39-dc69-4633-ade1-84c
 const imgMarket = 'https://www.figma.com/api/mcp/asset/2756decb-8501-43f7-a8db-e795320e528e'
 const imgQa = 'https://www.figma.com/api/mcp/asset/5c458a12-58e0-4f21-9549-530a7c8a26f7'
 
-function NavIcon({ src, inset, extra }) {
+function NavIcon({ src, inset, extra, invert }) {
   return (
-    <div className="overflow-clip relative shrink-0 size-[16px]">
+    <div
+      className="overflow-clip relative shrink-0 size-[16px]"
+      style={invert ? { filter: 'invert(1)' } : undefined}
+    >
       <div className={`absolute ${inset}`}>
         <div className={`absolute ${extra}`}>
           <img alt="" className="block max-w-none size-full" src={src} />
@@ -22,7 +25,10 @@ function NavIcon({ src, inset, extra }) {
 
 function NavItem({ label, src, inset, extra }) {
   return (
-    <div className="flex items-center" style={{ width: '224px', padding: '12px 16px', gap: '10px' }}>
+    <div
+      className="flex items-center rounded-[22px] cursor-pointer transition-all duration-150 hover:bg-white/45 hover:backdrop-blur-[10px] hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.9)]"
+      style={{ width: '224px', padding: '12px 16px', gap: '10px' }}
+    >
       <NavIcon src={src} inset={inset} extra={extra} />
       <span className="text-[14px] text-[#2e2e2e] tracking-[-0.14px] leading-[20px] whitespace-nowrap">
         {label}
@@ -91,7 +97,7 @@ export default function Sidebar() {
           {/* Top */}
           <div style={{ gap: '32px' }} className="flex flex-col items-start">
 
-            {/* Dashboard */}
+            {/* Dashboard — selected */}
             <div style={{ gap: '16px' }} className="flex flex-col items-start">
               <div className="flex flex-col items-start">
                 <div
@@ -100,18 +106,17 @@ export default function Sidebar() {
                     padding: '12px 16px',
                     gap: '10px',
                     borderRadius: '22px',
-                    background: 'rgba(255, 255, 255, 0.45)',
-                    backdropFilter: 'blur(10px)',
-                    boxShadow: 'inset 0 1px 1px rgba(255,255,255,0.9)',
+                    background: '#2e2e2e',
                   }}
-                  className="flex items-center"
+                  className="flex items-center cursor-pointer"
                 >
                   <NavIcon
                     src={imgDash}
                     inset="inset-[12.5%]"
                     extra="inset-[-4.17%]"
+                    invert
                   />
-                  <span className="text-[14px] text-[#2e2e2e] tracking-[-0.14px] leading-[20px] whitespace-nowrap">
+                  <span className="text-[14px] text-white tracking-[-0.14px] leading-[20px] whitespace-nowrap">
                     Dashboard
                   </span>
                 </div>
