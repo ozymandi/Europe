@@ -201,8 +201,6 @@ export default function Dashboard() {
           </div>
         </div>
 
-        <div className="flex-1 min-h-0 w-full h-2" />
-
         {/* Listings from Instagram */}
         <div className="bg-white/50 flex-1 flex items-start overflow-clip p-3 rounded-[28px] w-full min-h-0">
           <div className="flex flex-col h-full w-full gap-6 p-4">
