@@ -172,7 +172,7 @@ function SavedSearchCard({ city, country, img }) {
         </div>
       </div>
       <div className="bg-limon flex h-[44px] items-center overflow-clip p-[10px] rounded-[10px] shrink-0">
-        <div className="overflow-clip relative shrink-0 size-4">
+        <div className="overflow-clip relative shrink-0 size-4 transition-transform duration-300 ease-out group-hover:scale-[1.15]">
           <div className="absolute inset-[20.83%]">
             <div className="absolute inset-[-5.36%]">
               <img alt="" className="block max-w-none size-full" src={imgArrowVec} />
