@@ -2,9 +2,16 @@ import './index.css'
 import Sidebar from './components/Sidebar'
 import Dashboard from './components/Dashboard'
 
+const imgBg = 'https://www.figma.com/api/mcp/asset/46b70ee9-415e-44e7-8a42-7072f552b103'
+
 function App() {
   return (
-    <div className="flex h-full min-w-[1440px] overflow-hidden bg-white">
+    <div className="relative flex h-full min-w-[1440px] overflow-hidden">
+      {/* Global background */}
+      <div className="absolute inset-0 pointer-events-none z-0">
+        <div className="absolute inset-0 bg-white" />
+        <img src={imgBg} alt="" className="absolute inset-0 w-full h-full object-cover opacity-60" />
+      </div>
       <Sidebar />
       <Dashboard />
     </div>

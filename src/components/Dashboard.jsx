@@ -130,16 +130,6 @@ function BudgetTool() {
 export default function Dashboard() {
   return (
     <main className="flex-1 flex flex-col gap-6 h-full overflow-y-auto p-[70px] relative min-w-0">
-      {/* Background */}
-      <div className="absolute inset-0 pointer-events-none z-0">
-        <div className="absolute inset-0 bg-white" />
-        <img
-          src={imgBg}
-          alt=""
-          className="absolute inset-0 w-full h-full object-cover opacity-60"
-        />
-      </div>
-
       {/* Top: Title + Search */}
       <div className="relative z-10 flex flex-col gap-12 items-start shrink-0">
         <div className="flex flex-col gap-1 items-start">
