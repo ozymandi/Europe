@@ -276,7 +276,7 @@ export default function Dashboard() {
             </div>
             <DragScroll className="flex gap-0.5 items-stretch flex-1 min-h-0 py-3 -my-3">
               {LISTINGS.map((listing) => (
-                <Card key={listing.id} {...listing} className="relative flex flex-col w-[230px] items-start justify-between p-1 rounded-2xl shrink-0 h-full" />
+                <Card key={listing.id} {...listing} className="relative flex flex-col w-[230px] items-start justify-between p-1 rounded-2xl shrink-0 h-[320px]" />
               ))}
             </DragScroll>
           </div>
