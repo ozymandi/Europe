@@ -283,7 +283,12 @@ export default function DiscoverPage() {
           {/* Filter chips + active filters — sticky with glass */}
           <div
             className="flex flex-col gap-3 sticky top-0 z-20 -mx-[70px] px-[70px] py-4 -my-4 transition-all duration-200"
-            style={isSticky ? { background: 'rgba(255,255,255,0.45)', backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)' } : {}}
+            style={isSticky ? {
+              background: 'linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0.55) 35%)',
+              backdropFilter: 'blur(20px)',
+              WebkitBackdropFilter: 'blur(20px)',
+              boxShadow: '0 6px 24px rgba(138,56,245,0.06)',
+            } : {}}
           >
             {/* Filter chips row */}
             <div className="flex items-center justify-between w-full">
