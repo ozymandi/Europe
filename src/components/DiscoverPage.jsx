@@ -182,6 +182,20 @@ export default function DiscoverPage() {
 
   const visibleListings = LISTINGS_DATA.slice(0, Math.floor(LISTINGS_DATA.length / cols) * cols)
 
+  const sentinelRef = useRef(null)
+  const [isSticky, setIsSticky] = useState(false)
+
+  useEffect(() => {
+    const sentinel = sentinelRef.current
+    if (!sentinel) return
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsSticky(!entry.isIntersecting),
+      { threshold: 0 }
+    )
+    observer.observe(sentinel)
+    return () => observer.disconnect()
+  }, [])
+
   return (
     <main className="flex-1 flex flex-col h-full overflow-y-auto relative min-w-0">
       <div className="w-full max-w-[1600px] mx-auto flex flex-col gap-12 p-[70px] flex-1">
@@ -263,9 +277,13 @@ export default function DiscoverPage() {
             </div>
           </div>
 
+          {/* Sentinel — triggers sticky detection */}
+          <div ref={sentinelRef} className="h-0 w-full" />
+
           {/* Filter chips + active filters — sticky with glass */}
-          <div className="flex flex-col gap-3 sticky top-0 z-20 -mx-[70px] px-[70px] py-4 -my-4"
-            style={{ background: 'rgba(255,255,255,0.35)', backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)' }}
+          <div
+            className="flex flex-col gap-3 sticky top-0 z-20 -mx-[70px] px-[70px] py-4 -my-4 transition-all duration-200"
+            style={isSticky ? { background: 'rgba(255,255,255,0.45)', backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)' } : {}}
           >
             {/* Filter chips row */}
             <div className="flex items-center justify-between w-full">
