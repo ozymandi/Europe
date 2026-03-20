@@ -263,8 +263,10 @@ export default function DiscoverPage() {
             </div>
           </div>
 
-          {/* Filter chips + active filters — 12px gap between them */}
-          <div className="flex flex-col gap-3">
+          {/* Filter chips + active filters — sticky with glass */}
+          <div className="flex flex-col gap-3 sticky top-0 z-20 -mx-[70px] px-[70px] py-4 -my-4"
+            style={{ background: 'rgba(255,255,255,0.35)', backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)' }}
+          >
             {/* Filter chips row */}
             <div className="flex items-center justify-between w-full">
               <div className="flex items-center gap-1 flex-wrap">
