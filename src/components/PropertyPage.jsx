@@ -329,7 +329,7 @@ export default function PropertyPage({ onNavigate }) {
             </div>
 
             {/* Right column — Total Budget */}
-            <div className="w-[320px] shrink-0 bg-white/50 rounded-[16px] flex flex-col justify-between pb-[30px] pt-[20px] px-[30px] self-stretch">
+            <div className="w-[320px] shrink-0 bg-white/50 rounded-[16px] flex flex-col pb-[30px] pt-[20px] px-[30px] self-stretch">
               <div className="flex flex-col gap-7">
                 <h2 className="font-display font-bold text-[18px] text-dark tracking-[-0.2px] leading-normal">Total Budget</h2>
 
@@ -347,7 +347,7 @@ export default function PropertyPage({ onNavigate }) {
               </div>
 
               {/* Donut chart */}
-              <div className="flex items-center justify-center -mx-[10px]">
+              <div className="flex-1 flex items-center justify-center -mx-[10px]">
                 <DonutChart currency={currency} />
               </div>
 
