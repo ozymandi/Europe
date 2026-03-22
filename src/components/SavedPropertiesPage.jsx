@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import Card from './Card'
+import PropertyPopup from './PropertyPopup'
 
 const imgSubtitleIcon = 'https://www.figma.com/api/mcp/asset/97b10d6a-9311-449e-a438-3c853f40a435'
 const imgSearchIcon = 'https://www.figma.com/api/mcp/asset/6950357f-8086-44f7-9927-2d56340ed095'
@@ -19,33 +20,33 @@ const SORT_OPTIONS = ['Default Sort', 'Price High to Low', 'Price Low to High']
 
 const SAVED_LISTINGS = [
   {
-    tag: 'Architectural Gem',
+    tag: 'Architectural Gem', features: ['Architectural Gem', 'Pool', 'Furnished'],
     city: 'Siena', country: 'Italy', price: '€320,000',
-    beds: 4, baths: 3, sqm: 210,
+    beds: 4, baths: 3, sqm: 210, land: 450,
     img: 'https://www.figma.com/api/mcp/asset/60b860d9-0cd9-4620-8fad-9d3022fe9694',
   },
   {
-    tag: 'Sea View',
+    tag: 'Sea View', features: ['Sea View', 'Income'],
     city: 'Santorini', country: 'Greece', price: '€245,000',
-    beds: 3, baths: 2, sqm: 140,
+    beds: 3, baths: 2, sqm: 140, land: 200,
     img: 'https://www.figma.com/api/mcp/asset/9cf083b9-cc88-4d7a-a7df-04806bbea76b',
   },
   {
-    tag: 'Sea View',
+    tag: 'Sea View', features: ['Sea View', 'Furnished'],
     city: 'Mallorca', country: 'Spain', price: '€275,000',
-    beds: 3, baths: 2, sqm: 160,
+    beds: 3, baths: 2, sqm: 160, land: 310,
     img: 'https://www.figma.com/api/mcp/asset/646a66de-b9d5-46d8-8329-e4460f0fd842',
   },
   {
-    tag: 'Sea View',
+    tag: 'Sea View', features: ['Sea View', 'Pool'],
     city: 'Amalfi', country: 'Italy', price: '€430,000',
-    beds: 3, baths: 2, sqm: 118,
+    beds: 3, baths: 2, sqm: 118, land: 180,
     img: 'https://www.figma.com/api/mcp/asset/4b88c9a7-a97a-4654-936e-8590f2656db6',
   },
   {
-    tag: 'Pool & Garden',
+    tag: 'Pool & Garden', features: ['Pool & Garden', 'Income'],
     city: 'Ibiza', country: 'Spain', price: '€385,000',
-    beds: 4, baths: 3, sqm: 220,
+    beds: 4, baths: 3, sqm: 220, land: 520,
     img: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=600&h=400',
   },
 ]
@@ -54,6 +55,7 @@ export default function SavedPropertiesPage({ onNavigate }) {
   const [activeTab, setActiveTab] = useState('Interest')
   const [activeSort, setActiveSort] = useState('Default Sort')
   const [searchQuery, setSearchQuery] = useState('')
+  const [selectedListing, setSelectedListing] = useState(null)
   const gridRef = useRef(null)
   const [cols, setCols] = useState(5)
 
@@ -241,7 +243,7 @@ export default function SavedPropertiesPage({ onNavigate }) {
               sqm={listing.sqm}
               tag={listing.tag}
               className="relative flex flex-col h-[360px] w-full items-start justify-between p-1 rounded-2xl"
-              onClick={() => onNavigate?.('property')}
+              onClick={() => setSelectedListing(listing)}
             />
           ))}
           {filtered.length === 0 && (
@@ -262,6 +264,7 @@ export default function SavedPropertiesPage({ onNavigate }) {
           <button className="text-xs text-dark tracking-[-0.14px] leading-normal whitespace-nowrap">Privacy Policy</button>
         </div>
       </div>
+      <PropertyPopup listing={selectedListing} onClose={() => setSelectedListing(null)} />
     </main>
   )
 }
