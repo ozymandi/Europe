@@ -85,25 +85,13 @@ export default function PropertyPopup({ listing, onClose }) {
                   {/* Share */}
                   <div className="bg-dark flex items-center overflow-clip p-[4px] rounded-[66px]">
                     <div className="flex items-center p-[4px] rounded-[34px]">
-                      <div className="overflow-clip relative shrink-0 size-[12px]">
-                        <div className="absolute inset-[8.33%_12.5%]">
-                          <div className="absolute inset-[-5%_-5.56%]">
-                            <img alt="" className="block max-w-none size-full" src={imgShareIcon} style={{ filter: 'brightness(0) invert(1)' }} />
-                          </div>
-                        </div>
-                      </div>
+                      <img alt="" src={imgShareIcon} style={{ width: '12px', height: '12px', display: 'block', filter: 'brightness(0) invert(1)' }} />
                     </div>
                   </div>
                   {/* Close */}
                   <button onClick={onClose} className="bg-white flex items-center overflow-clip p-[4px] rounded-[66px]">
                     <div className="flex items-center p-[4px] rounded-[34px]">
-                      <div className="overflow-clip relative shrink-0 size-[12px]">
-                        <div className="absolute inset-1/4">
-                          <div className="absolute inset-[-8.33%]">
-                            <img alt="" className="block max-w-none size-full" src={imgCloseIcon} />
-                          </div>
-                        </div>
-                      </div>
+                      <img alt="" src={imgCloseIcon} style={{ width: '12px', height: '12px', display: 'block' }} />
                     </div>
                   </button>
                 </div>
