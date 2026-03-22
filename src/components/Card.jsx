@@ -91,7 +91,7 @@ export default function Card({ property1 = 'Insta', city, country, price, img, i
               {isInsta && (
                 <div className="absolute inset-[8.33%]">
                   <div className="absolute inset-[-3.75%]">
-                    <img alt="" className="block max-w-none size-full" src={imgInsta} />
+                    <img alt="" className="block max-w-none size-full" src={imgInsta} style={{ filter: 'brightness(0) invert(1)' }} />
                   </div>
                 </div>
               )}
