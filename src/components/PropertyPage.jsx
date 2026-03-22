@@ -96,7 +96,7 @@ function DonutChart({ currency }) {
         </div>
       </div>
       {/* Center text */}
-      <div className="absolute flex flex-col items-center" style={{ left: '74px', top: '110px' }}>
+      <div className="absolute flex flex-col items-center" style={{ left: '130px', top: '124px', transform: 'translate(-50%, -50%)' }}>
         <span className="text-[12px] text-darkgray tracking-[-0.14px] leading-normal">Total</span>
         <span className="font-bold text-[16px] text-dark tracking-[-0.14px] leading-normal whitespace-nowrap">{total}</span>
       </div>
