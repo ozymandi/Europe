@@ -135,8 +135,8 @@ export default function PropertyPopup({ listing, onClose }) {
                       onClick={() => setActiveCurrency(c)}
                       className="flex gap-2.5 h-6 items-center overflow-clip px-3 py-0.5 rounded-[66px]"
                       style={{
-                        background: activeCurrency === c ? '#2e2e2e' : '#fff352',
-                        color: activeCurrency === c ? '#fff352' : '#2e2e2e',
+                        background: activeCurrency === c ? '#2e2e2e' : 'white',
+                        color: activeCurrency === c ? 'white' : '#2e2e2e',
                       }}
                     >
                       <span className="text-[10px] tracking-[-0.14px] leading-normal">{c}</span>
