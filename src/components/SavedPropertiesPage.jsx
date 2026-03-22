@@ -225,7 +225,7 @@ export default function SavedPropertiesPage({ onNavigate }) {
 
         {/* Card grid */}
         <div ref={gridRef} className="grid gap-1 pt-6" style={{ gridTemplateColumns: `repeat(${cols}, minmax(230px, 1fr))` }}>
-          {filtered.slice(0, Math.floor(filtered.length / cols) * cols).map((listing, i) => (
+          {filtered.slice(0, Math.floor(filtered.length / cols) * cols || filtered.length).map((listing, i) => (
             <Card
               key={i}
               property1="Saved"
