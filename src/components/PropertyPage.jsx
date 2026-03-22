@@ -1,6 +1,11 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { GoogleMap, useJsApiLoader, Marker } from '@react-google-maps/api'
+import chartE1 from '../assets/charts/ellipse1.svg'
+import chartE2 from '../assets/charts/ellipse2.svg'
+import chartE3 from '../assets/charts/ellipse3.svg'
+import chartE4 from '../assets/charts/ellipse4.svg'
+import chartE5 from '../assets/charts/ellipse5.svg'
 
 const MAPS_API_KEY = 'AIzaSyDHbEDhU9AdgZbBYaB97Z8ahhx2Uan_JxU'
 const MAP_CENTER = { lat: 44.4848, lng: 1.8422 }
@@ -60,38 +65,42 @@ const COSTS = [
   { img: imgDot4, label: 'Legal Fees',   pct: '1.8%',  amount: '€44,000' },
 ]
 
-const DONUT = [
-  { pct: 90.2, color: '#FFF352' },
-  { pct: 4.1,  color: '#2e2e2e' },
-  { pct: 3.2,  color: '#4a4a4a' },
-  { pct: 1.8,  color: '#6e6e6e' },
-  { pct: 0.5,  color: '#9e9e9e' },
-]
+const BASE_TOTAL_EUR = 1156000
 
-function DonutChart() {
-  const r = 80, C = 2 * Math.PI * r, cx = 130, cy = 130
-  let cumDeg = 0
+function DonutChart({ currency }) {
+  const total = formatPrice(BASE_TOTAL_EUR, currency)
   return (
-    <svg width="260" height="260" viewBox="0 0 260 260">
-      {/* Background track */}
-      <circle cx={cx} cy={cy} r={r} fill="none" stroke="#f2f2f2" strokeWidth={22} />
-      {DONUT.map((seg, i) => {
-        const dashLen = Math.max(0, (seg.pct / 100) * C - 2.5)
-        const rot = cumDeg - 90
-        cumDeg += (seg.pct / 100) * 360
-        return (
-          <circle key={i} cx={cx} cy={cy} r={r}
-            fill="none" stroke={seg.color} strokeWidth={22}
-            strokeDasharray={`${dashLen} ${C}`}
-            transform={`rotate(${rot}, ${cx}, ${cy})`}
-          />
-        )
-      })}
-      <text x={cx} y={cy - 6} textAnchor="middle" fill="#6e6e6e"
-        style={{ fontSize: 12, fontFamily: "'Open Runde', sans-serif" }}>Total</text>
-      <text x={cx} y={cy + 14} textAnchor="middle" fill="#2e2e2e"
-        style={{ fontSize: 16, fontWeight: 700, fontFamily: "'Open Runde', sans-serif" }}>$1,086,820</text>
-    </svg>
+    <div className="relative flex items-center justify-center w-full h-[275px]">
+      {/* Ellipse layers — positioned exactly as in Figma */}
+      <div className="absolute left-[26px] top-[20px] size-[208px]">
+        <img alt="" className="absolute block max-w-none size-full" src={chartE1} />
+      </div>
+      <div className="absolute left-[26px] top-[20px] size-[208px]">
+        <div className="absolute bottom-1/2 left-[38.61%] right-0 top-0">
+          <img alt="" className="block max-w-none size-full" src={chartE2} />
+        </div>
+      </div>
+      <div className="absolute left-[26px] top-[20px] size-[208px]">
+        <div className="absolute bottom-[25.62%] left-[80.21%] right-0 top-1/2">
+          <img alt="" className="block max-w-none size-full" src={chartE3} />
+        </div>
+      </div>
+      <div className="absolute left-[26px] top-[20px] size-[208px]">
+        <div className="absolute inset-[66.52%_6.07%_7.74%_68.49%]">
+          <img alt="" className="block max-w-none size-full" src={chartE4} />
+        </div>
+      </div>
+      <div className="absolute left-[26px] top-[20px] size-[208px]">
+        <div className="absolute inset-[1.25%_57.69%_69.8%_9%]">
+          <img alt="" className="block max-w-none size-full" src={chartE5} />
+        </div>
+      </div>
+      {/* Center text */}
+      <div className="absolute flex flex-col items-center" style={{ left: '74px', top: '110px' }}>
+        <span className="text-[12px] text-darkgray tracking-[-0.14px] leading-normal">Total</span>
+        <span className="font-bold text-[16px] text-dark tracking-[-0.14px] leading-normal whitespace-nowrap">{total}</span>
+      </div>
+    </div>
   )
 }
 
@@ -284,7 +293,7 @@ export default function PropertyPage({ onNavigate }) {
 
               {/* Donut chart */}
               <div className="flex items-center justify-center -mx-[10px]">
-                <DonutChart />
+                <DonutChart currency={currency} />
               </div>
 
               {/* Cost table */}

@@ -1,0 +1,17 @@
+<svg preserveAspectRatio="none" width="100%" height="100%" overflow="visible" style="display: block;" viewBox="0 0 69.291 60.2134" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="Ellipse 4">
+<mask id="path-1-inside-1_0_4" fill="white">
+<path d="M62.1716 -8.49281e-08C36.9628 5.74534 14.798 20.6747 -3.96521e-07 41.8764L26.2721 60.2134C36.5114 45.5431 51.8481 35.2129 69.291 31.2375L62.1716 -8.49281e-08Z"/>
+</mask>
+<path d="M62.1716 -8.49281e-08C36.9628 5.74534 14.798 20.6747 -3.96521e-07 41.8764L26.2721 60.2134C36.5114 45.5431 51.8481 35.2129 69.291 31.2375L62.1716 -8.49281e-08Z" fill="url(#pattern0_0_4)" stroke="var(--stroke-0, #2E2E2E)" mask="url(#path-1-inside-1_0_4)"/>
+</g>
+<defs>
+<pattern id="pattern0_0_4" patternUnits="userSpaceOnUse" patternTransform="matrix(4 0 0 6.92822 -18.8915 -2.70017)" preserveAspectRatio="none" viewBox="-0.216507 -0.125 5 8.66028" width="1" height="1">
+<use xlink:href="#pattern0_0_4_inner" transform="translate(-5 -8.66028)"/>
+<use xlink:href="#pattern0_0_4_inner" transform="translate(0 -8.66028)"/>
+<use xlink:href="#pattern0_0_4_inner" transform="translate(-5 0)"/>
+<g id="pattern0_0_4_inner">
+<path id="Vector 1" d="M5 0L0 8.66028" stroke="var(--stroke-0, #6E6E6E)" stroke-width="0.5"/>
+</g>
+</pattern></defs>
+</svg>
