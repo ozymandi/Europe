@@ -4,7 +4,7 @@ import Card from './Card'
 
 const imgSearchIcon = 'https://www.figma.com/api/mcp/asset/6950357f-8086-44f7-9927-2d56340ed095'
 const imgSearchBtn  = 'https://www.figma.com/api/mcp/asset/99bd1335-a6d5-435c-8648-1b2e6addd8a5'
-const imgPinIcon    = 'https://www.figma.com/api/mcp/asset/669a3ad8-8234-42eb-92e6-496cd1a9828b'
+const imgSubtitleIcon = 'https://www.figma.com/api/mcp/asset/97b10d6a-9311-449e-a438-3c853f40a435'
 const imgFilterIcon = 'https://www.figma.com/api/mcp/asset/06c65372-51d2-4706-8123-8950602548ed'
 
 const STATUS_TABS = [
@@ -86,13 +86,16 @@ export default function SavedPropertiesPage({ onNavigate }) {
             <div className="flex items-start justify-between w-full">
               <div className="flex flex-col gap-1 items-start">
                 <div className="flex flex-col justify-center leading-none text-dark tracking-[-1px]">
-                  <p className="text-[42px] tracking-[-1px]">
-                    <span className="font-display">Saved </span>
-                    <span className="font-display-italic text-purple">Listings.</span>
-                  </p>
+                  <p className="text-[42px] tracking-[-1px] font-display">Saved Listings</p>
                 </div>
                 <div className="flex items-center gap-2 shrink-0">
-                  <img alt="" src={imgPinIcon} className="shrink-0 w-[12px] h-[16px] object-contain" />
+                  <div className="h-[24px] overflow-clip relative shrink-0 w-[12px]">
+                    <div className="absolute inset-[8.33%_12.5%_12.5%_12.5%]">
+                      <div className="absolute inset-[-5.26%_-5.56%]">
+                        <img alt="" className="block max-w-none size-full" src={imgSubtitleIcon} />
+                      </div>
+                    </div>
+                  </div>
                   <p className="text-xs text-darkgray text-center tracking-[-0.2px] leading-5 whitespace-nowrap">
                     Your collection of {SAVED_LISTINGS.length} properties
                   </p>
