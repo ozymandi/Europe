@@ -1,5 +1,25 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
+import { GoogleMap, useJsApiLoader, Marker } from '@react-google-maps/api'
+
+const MAPS_API_KEY = 'AIzaSyDHbEDhU9AdgZbBYaB97Z8ahhx2Uan_JxU'
+const MAP_CENTER = { lat: 44.4848, lng: 1.8422 }
+const MAP_STYLES = [{"featureType":"water","elementType":"geometry","stylers":[{"color":"#e9e9e9"},{"lightness":17}]},{"featureType":"landscape","elementType":"geometry","stylers":[{"color":"#f5f5f5"},{"lightness":20}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#ffffff"},{"lightness":17}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"color":"#ffffff"},{"lightness":29},{"weight":0.2}]},{"featureType":"road.arterial","elementType":"geometry","stylers":[{"color":"#ffffff"},{"lightness":18}]},{"featureType":"road.local","elementType":"geometry","stylers":[{"color":"#ffffff"},{"lightness":16}]},{"featureType":"poi","elementType":"geometry","stylers":[{"color":"#f5f5f5"},{"lightness":21}]},{"featureType":"poi.park","elementType":"geometry","stylers":[{"color":"#dedede"},{"lightness":21}]},{"elementType":"labels.text.stroke","stylers":[{"visibility":"on"},{"color":"#ffffff"},{"lightness":16}]},{"elementType":"labels.text.fill","stylers":[{"saturation":36},{"color":"#333333"},{"lightness":40}]},{"elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"geometry","stylers":[{"color":"#f2f2f2"},{"lightness":19}]},{"featureType":"administrative","elementType":"geometry.fill","stylers":[{"color":"#fefefe"},{"lightness":20}]},{"featureType":"administrative","elementType":"geometry.stroke","stylers":[{"color":"#fefefe"},{"lightness":17},{"weight":1.2}]}]
+
+function PropertyMap() {
+  const { isLoaded } = useJsApiLoader({ googleMapsApiKey: MAPS_API_KEY })
+  if (!isLoaded) return <div className="w-full h-full bg-[#f5f5f5] rounded-[16px]" />
+  return (
+    <GoogleMap
+      mapContainerStyle={{ width: '100%', height: '100%', borderRadius: '16px' }}
+      center={MAP_CENTER}
+      zoom={13}
+      options={{ styles: MAP_STYLES, disableDefaultUI: true, zoomControl: false }}
+    >
+      <Marker position={MAP_CENTER} />
+    </GoogleMap>
+  )
+}
 
 const imgHero   = 'https://www.figma.com/api/mcp/asset/816c5f6c-a049-480c-aa64-aab9ff60b470'
 const imgMapPic = 'https://www.figma.com/api/mcp/asset/83ac5f82-236c-4463-83ed-59188c21a1dc'
@@ -226,7 +246,7 @@ export default function PropertyPage({ onNavigate }) {
               <div className="border border-white/50 rounded-[16px] p-5 flex flex-col gap-2.5">
                 <h2 className="font-display font-bold text-[18px] text-dark tracking-[-0.2px] leading-normal mb-3">Location</h2>
                 <div className="h-[153px] rounded-[16px] overflow-hidden shadow-[0px_2px_2px_0px_rgba(0,0,0,0.04)]">
-                  <img src={imgMapPic} alt="" className="w-full h-full object-cover" />
+                  <PropertyMap />
                 </div>
                 <div className="flex gap-2 items-center mt-1">
                   <img alt="" src={imgPinLoc} className="shrink-0 w-[12px] h-[16px] object-contain" />
