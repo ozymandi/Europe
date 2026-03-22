@@ -84,11 +84,18 @@ export default function SavedPropertiesPage({ onNavigate }) {
 
             {/* Title row */}
             <div className="flex items-start justify-between w-full">
-              <div className="flex flex-col gap-1">
-                <p className="font-display text-[42px] text-dark tracking-[-1px] leading-none">Saved Listing</p>
-                <div className="flex items-center gap-2">
+              <div className="flex flex-col gap-1 items-start">
+                <div className="flex flex-col justify-center leading-none text-dark tracking-[-1px]">
+                  <p className="text-[42px] tracking-[-1px]">
+                    <span className="font-display">Saved </span>
+                    <span className="font-display-italic text-purple">Listings.</span>
+                  </p>
+                </div>
+                <div className="flex items-center gap-2 shrink-0">
                   <img alt="" src={imgPinIcon} className="shrink-0 w-[12px] h-[16px] object-contain" />
-                  <span className="text-[12px] text-darkgray tracking-[-0.2px] leading-[20px]">Your collection of {SAVED_LISTINGS.length} properties</span>
+                  <p className="text-xs text-darkgray text-center tracking-[-0.2px] leading-5 whitespace-nowrap">
+                    Your collection of {SAVED_LISTINGS.length} properties
+                  </p>
                 </div>
               </div>
 
@@ -245,12 +252,12 @@ export default function SavedPropertiesPage({ onNavigate }) {
       </div>
 
       {/* Footer */}
-      <div className="w-full max-w-[1600px] mx-auto relative flex items-center justify-between shrink-0 px-[70px] pb-[38px] pt-[38px]">
-        <p className="text-xs text-darkgray tracking-[-0.14px] leading-normal">© European Listings Ltd. 2026</p>
+      <div className="w-full max-w-[1600px] mx-auto relative z-10 flex items-center justify-between shrink-0 px-[70px] pb-[38px] pt-[8px]">
+        <p className="text-xs text-darkgray tracking-[-0.14px] leading-normal whitespace-nowrap">© European Listings Ltd. 2026</p>
         <div className="flex gap-2.5 items-center">
-          <button className="text-xs text-purple tracking-[-0.14px] leading-normal">Terms of Service</button>
-          <div className="size-[3px] rounded-full bg-border-gray" />
-          <button className="text-xs text-purple tracking-[-0.14px] leading-normal">Privacy Policy</button>
+          <button className="text-xs text-dark tracking-[-0.14px] leading-normal whitespace-nowrap">Terms of Service</button>
+          <div className="bg-border-gray rounded-full shrink-0 size-[3px]" />
+          <button className="text-xs text-dark tracking-[-0.14px] leading-normal whitespace-nowrap">Privacy Policy</button>
         </div>
       </div>
     </main>
