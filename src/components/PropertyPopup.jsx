@@ -164,7 +164,7 @@ export default function PropertyPopup({ listing, onClose }) {
 
             {/* Revenue forecast */}
             <div className="border border-[rgba(255,255,255,0.5)] flex flex-col gap-7 items-start justify-center p-5 rounded-[16px] shrink-0 w-full">
-              <span className="font-display text-[18px] text-dark tracking-[-0.2px] leading-normal">Revenue forecast</span>
+              <span className="font-display font-bold text-[18px] text-dark tracking-[-0.2px] leading-normal">Revenue forecast</span>
               <div className="w-full">
                 <div className="bg-white flex h-[122px] items-center justify-center overflow-clip p-2.5 rounded-[16px] w-full" style={{ boxShadow: '0px 2px 2px 0px rgba(0,0,0,0.04)' }}>
                   <div className="flex flex-col gap-1 items-center justify-center opacity-30">
@@ -186,9 +186,9 @@ export default function PropertyPopup({ listing, onClose }) {
                       </div>
                     </div>
                   </div>
-                  <span className="font-display text-[18px] text-dark tracking-[-0.2px] leading-normal">Due Diligence Checklist</span>
+                  <span className="font-display font-bold text-[18px] text-dark tracking-[-0.2px] leading-normal">Due Diligence Checklist</span>
                 </div>
-                <button className="border border-purple flex items-center justify-center px-3 py-2 rounded-[4px]">
+                <button className="border border-purple flex items-center justify-center gap-[10px] px-3 py-2 rounded-[4px]">
                   <span className="text-[9px] font-semibold text-purple tracking-[-0.16px] uppercase leading-normal">add item</span>
                 </button>
               </div>
@@ -205,9 +205,9 @@ export default function PropertyPopup({ listing, onClose }) {
                       </div>
                     </div>
                   </div>
-                  <span className="font-display text-[18px] text-dark tracking-[-0.2px] leading-normal">Personal notes</span>
+                  <span className="font-display font-bold text-[18px] text-dark tracking-[-0.2px] leading-normal">Personal notes</span>
                 </div>
-                <button className="border border-purple flex items-center justify-center px-3 py-2 rounded-[4px]">
+                <button className="border border-purple flex items-center justify-center gap-[10px] px-3 py-2 rounded-[4px]">
                   <span className="text-[9px] font-semibold text-purple tracking-[-0.16px] uppercase leading-normal">add item</span>
                 </button>
               </div>
