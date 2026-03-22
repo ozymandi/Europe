@@ -48,6 +48,12 @@ const SAVED_LISTINGS = [
     beds: 3, baths: 2, sqm: 118,
     img: 'https://www.figma.com/api/mcp/asset/4b88c9a7-a97a-4654-936e-8590f2656db6',
   },
+  {
+    tag: 'Pool & Garden',
+    city: 'Ibiza', country: 'Spain', price: '€385,000',
+    beds: 4, baths: 3, sqm: 220,
+    img: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=600&h=400',
+  },
 ]
 
 export default function SavedPropertiesPage({ onNavigate }) {
