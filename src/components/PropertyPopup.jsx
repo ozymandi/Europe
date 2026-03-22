@@ -88,7 +88,7 @@ export default function PropertyPopup({ listing, onClose }) {
                       <div className="overflow-clip relative shrink-0 size-[12px]">
                         <div className="absolute inset-[8.33%_12.5%]">
                           <div className="absolute inset-[-5%_-5.56%]">
-                            <img alt="" className="block max-w-none size-full" src={imgShareIcon} />
+                            <img alt="" className="block max-w-none size-full" src={imgShareIcon} style={{ filter: 'brightness(0) invert(1)' }} />
                           </div>
                         </div>
                       </div>
