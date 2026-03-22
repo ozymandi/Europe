@@ -116,7 +116,7 @@ export default function PropertyPopup({ listing, onClose }) {
                 <div className="flex flex-col gap-1">
                   <span className="text-[21px] font-semibold text-dark tracking-[-0.14px] leading-normal">{listing.price}</span>
                   <div className="flex gap-2 items-center">
-                    <img alt="" className="w-3 h-3 object-contain shrink-0" src={imgPinIcon} />
+                    <img alt="" src={imgPinIcon} style={{ width: '12px', height: '12px', objectFit: 'contain', flexShrink: 0 }} />
                     <span className="text-[12px] text-darkgray tracking-[-0.2px] leading-5 whitespace-nowrap">
                       {listing.city}, {listing.country}
                     </span>
