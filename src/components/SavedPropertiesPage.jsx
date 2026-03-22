@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import Card from './Card'
 
@@ -60,6 +60,18 @@ export default function SavedPropertiesPage({ onNavigate }) {
   const [activeTab, setActiveTab] = useState('Interest')
   const [activeSort, setActiveSort] = useState('Default Sort')
   const [searchQuery, setSearchQuery] = useState('')
+  const gridRef = useRef(null)
+  const [cols, setCols] = useState(5)
+
+  useEffect(() => {
+    const el = gridRef.current
+    if (!el) return
+    const update = () => setCols(Math.max(1, Math.floor((el.offsetWidth + 4) / 234)))
+    update()
+    const ro = new ResizeObserver(update)
+    ro.observe(el)
+    return () => ro.disconnect()
+  }, [])
 
   const filtered = searchQuery.trim()
     ? SAVED_LISTINGS.filter(l => {
@@ -218,8 +230,8 @@ export default function SavedPropertiesPage({ onNavigate }) {
         </div>
 
         {/* Card grid */}
-        <div className="grid gap-1 pt-6" style={{ gridTemplateColumns: 'repeat(5, 1fr)' }}>
-          {filtered.map((listing, i) => (
+        <div ref={gridRef} className="grid gap-1 pt-6" style={{ gridTemplateColumns: `repeat(${cols}, minmax(230px, 1fr))` }}>
+          {filtered.slice(0, Math.floor(filtered.length / cols) * cols).map((listing, i) => (
             <Card
               key={i}
               property1="Saved"
