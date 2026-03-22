@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 
 const imgShareIcon  = 'https://www.figma.com/api/mcp/asset/21c36446-5385-44c8-a442-bf6ee211039a'
@@ -20,8 +21,12 @@ const STATS = [
   { icon: imgLandIcon,   inset: 'inset-[16.67%_8.33%]',          extra: 'inset-[-4.69%_-3.75%]', key: 'land',  label: 'm² land' },
 ]
 
+const CURRENCIES = ['Eur', 'USD', 'GBP']
+
 export default function PropertyPopup({ listing, onClose }) {
   if (!listing) return null
+
+  const [activeCurrency, setActiveCurrency] = useState('Eur')
 
   const stats = {
     house: 1,
@@ -80,27 +85,12 @@ export default function PropertyPopup({ listing, onClose }) {
                 </div>
                 <div className="flex gap-1 items-center shrink-0">
                   {/* Share */}
-                  <div className="bg-dark flex items-center p-1 rounded-full">
-                    <div className="overflow-clip relative shrink-0 size-[12px]">
-                      <div className="absolute inset-[8.33%_12.5%]">
-                        <div className="absolute inset-[-5%_-5.56%]">
-                          <img alt="" className="block max-w-none size-full" src={imgShareIcon} />
-                        </div>
-                      </div>
-                    </div>
+                  <div className="bg-dark flex items-center p-[4px] rounded-full">
+                    <img alt="" className="w-3 h-3 object-contain" src={imgShareIcon} />
                   </div>
                   {/* Close */}
-                  <button
-                    onClick={onClose}
-                    className="bg-white flex items-center p-1 rounded-full"
-                  >
-                    <div className="overflow-clip relative shrink-0 size-[12px]">
-                      <div className="absolute inset-1/4">
-                        <div className="absolute inset-[-8.33%]">
-                          <img alt="" className="block max-w-none size-full" src={imgCloseIcon} />
-                        </div>
-                      </div>
-                    </div>
+                  <button onClick={onClose} className="bg-white flex items-center p-[4px] rounded-full">
+                    <img alt="" className="w-3 h-3 object-contain" src={imgCloseIcon} />
                   </button>
                 </div>
               </div>
@@ -110,28 +100,26 @@ export default function PropertyPopup({ listing, onClose }) {
                 <div className="flex flex-col gap-1">
                   <span className="text-[21px] font-semibold text-dark tracking-[-0.14px] leading-normal">{listing.price}</span>
                   <div className="flex gap-2 items-center">
-                    <div className="h-[24px] overflow-clip relative shrink-0 w-[12px]">
-                      <div className="absolute inset-[8.33%_16.67%]">
-                        <div className="absolute inset-[-5%_-6.25%]">
-                          <img alt="" className="block max-w-none size-full" src={imgPinIcon} style={{ filter: 'brightness(0) opacity(0.45)' }} />
-                        </div>
-                      </div>
-                    </div>
+                    <img alt="" className="w-3 h-3 object-contain shrink-0" src={imgPinIcon} style={{ filter: 'brightness(0) opacity(0.45)' }} />
                     <span className="text-[12px] text-darkgray tracking-[-0.2px] leading-5 whitespace-nowrap">
                       {listing.city}, {listing.country}
                     </span>
                   </div>
                 </div>
                 <div className="flex gap-1 items-center">
-                  <div className="bg-dark flex h-6 items-center px-3 py-0.5 rounded-full">
-                    <span className="text-[10px] text-[#fff352] tracking-[-0.14px] leading-normal">Eur</span>
-                  </div>
-                  <div className="bg-white flex h-6 items-center px-3 py-0.5 rounded-full">
-                    <span className="text-[10px] text-dark tracking-[-0.14px] leading-normal">USD</span>
-                  </div>
-                  <div className="bg-white flex h-6 items-center px-3 py-0.5 rounded-full">
-                    <span className="text-[10px] text-dark tracking-[-0.14px] leading-normal">GBP</span>
-                  </div>
+                  {CURRENCIES.map(c => (
+                    <button
+                      key={c}
+                      onClick={() => setActiveCurrency(c)}
+                      className="flex h-6 items-center px-3 py-0.5 rounded-full"
+                      style={{
+                        background: activeCurrency === c ? '#2e2e2e' : 'white',
+                        color: activeCurrency === c ? '#fff352' : '#2e2e2e',
+                      }}
+                    >
+                      <span className="text-[10px] tracking-[-0.14px] leading-normal">{c}</span>
+                    </button>
+                  ))}
                 </div>
               </div>
             </div>
