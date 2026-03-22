@@ -101,7 +101,7 @@ export default function Sidebar({ page = 'dashboard', onNavigate }) {
         transition={{ type: 'spring', stiffness: 200, damping: 22 }}
       >
         {/* Logo */}
-        <div style={{ padding: '24px', gap: '10px', alignSelf: 'stretch' }} className="flex flex-col items-start">
+        <div style={{ padding: '24px', gap: '10px', alignSelf: 'stretch' }} className="flex flex-col items-start cursor-pointer" onClick={() => onNavigate?.('dashboard')}>
           <div className="h-[27.355px] overflow-clip relative shrink-0 w-[176px]">
             <div className="absolute contents inset-[0_0_-0.02%_0]">
               <div className="absolute inset-[0_42.07%_0.97%_0]">
