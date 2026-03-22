@@ -117,7 +117,8 @@ export default function PropertyPopup({ listing, onClose }) {
                   <span className="text-[21px] font-semibold text-dark tracking-[-0.14px] leading-normal">{listing.price}</span>
                   <div className="flex gap-2 items-center">
                     <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ flexShrink: 0 }}>
-                      <path d="M6 1C3.79 1 2 2.79 2 5C2 8.25 6 11.5 6 11.5C6 11.5 10 8.25 10 5C10 2.79 8.21 1 6 1ZM6 6.5C5.17 6.5 4.5 5.83 4.5 5C4.5 4.17 5.17 3.5 6 3.5C6.83 3.5 7.5 4.17 7.5 5C7.5 5.83 6.83 6.5 6 6.5Z" fill="#6E6E6E"/>
+                      <path d="M10 5C10 7.5 6 11 6 11C6 11 2 7.5 2 5C2 2.79 3.79 1 6 1C8.21 1 10 2.79 10 5Z" stroke="#6E6E6E" strokeLinecap="round" strokeLinejoin="round"/>
+                      <path d="M6 6.5C6.83 6.5 7.5 5.83 7.5 5C7.5 4.17 6.83 3.5 6 3.5C5.17 3.5 4.5 4.17 4.5 5C4.5 5.83 5.17 6.5 6 6.5Z" stroke="#6E6E6E" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
                     <span className="text-[12px] text-darkgray tracking-[-0.2px] leading-5 whitespace-nowrap">
                       {listing.city}, {listing.country}
