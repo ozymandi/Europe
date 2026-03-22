@@ -8,6 +8,7 @@ const imgBaths  = 'https://www.figma.com/api/mcp/asset/26549594-7d97-477a-8aef-c
 const imgSqm    = 'https://www.figma.com/api/mcp/asset/3e87fe7c-5335-445b-8231-57b010e403e5'
 const imgLand   = 'https://www.figma.com/api/mcp/asset/78980b3b-3677-428e-86c3-b30c03cf6c44'
 const imgPin    = 'https://www.figma.com/api/mcp/asset/086e5593-3fff-4e97-9880-cb5147429719'
+const imgPinLoc = 'https://www.figma.com/api/mcp/asset/15ad889a-e93a-40f9-b85b-b1a8e66455c1'
 const imgCoastalIcon = 'https://www.figma.com/api/mcp/asset/9433d611-6276-4505-afa8-1307369bb9aa'
 const imgVillageIcon = 'https://www.figma.com/api/mcp/asset/cc6c20c3-fd4c-45a9-b52f-c2f1af1b9aee'
 const imgAirportIcon = 'https://www.figma.com/api/mcp/asset/e4062510-c5c3-4b0c-a8cc-fbaf35630b86'
@@ -228,13 +229,7 @@ export default function PropertyPage({ onNavigate }) {
                   <img src={imgMapPic} alt="" className="w-full h-full object-cover" />
                 </div>
                 <div className="flex gap-2 items-center mt-1">
-                  <div className="h-[24px] w-[12px] overflow-clip relative shrink-0">
-                    <div className="absolute inset-[8.33%_16.67%]">
-                      <div className="absolute inset-[-5%_-6.25%]">
-                        <img alt="" className="block max-w-none size-full" src={imgPin} />
-                      </div>
-                    </div>
-                  </div>
+                  <img alt="" src={imgPinLoc} className="shrink-0 w-[12px] h-[16px] object-contain" />
                   <span className="text-[12px] text-dark tracking-[-0.2px] leading-[20px]">Cajarc, Lot, France</span>
                 </div>
               </div>
