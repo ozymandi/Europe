@@ -146,7 +146,7 @@ export default function SavedPropertiesPage({ onNavigate }) {
                           <div className={`absolute ${tab.extra}`}>
                             <img
                               alt="" className="block max-w-none size-full" src={tab.icon}
-                              style={isActive ? { filter: 'brightness(0) invert(1)' } : {}}
+                              style={isActive ? { filter: 'brightness(0) invert(1)' } : { filter: 'brightness(0)' }}
                             />
                           </div>
                         </div>
