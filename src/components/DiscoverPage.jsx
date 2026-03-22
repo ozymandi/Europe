@@ -288,6 +288,8 @@ export default function DiscoverPage() {
               backdropFilter: 'blur(20px)',
               WebkitBackdropFilter: 'blur(20px)',
               boxShadow: '0 6px 24px rgba(138,56,245,0.06)',
+              borderBottomLeftRadius: '20px',
+              borderBottomRightRadius: '20px',
             } : {}}
           >
             {/* Filter chips row */}
