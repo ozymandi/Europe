@@ -4,6 +4,7 @@ import Sidebar from './components/Sidebar'
 import Dashboard from './components/Dashboard'
 import DiscoverPage from './components/DiscoverPage'
 import PropertyPage from './components/PropertyPage'
+import SavedPropertiesPage from './components/SavedPropertiesPage'
 import imgBg from './assets/Dash_bg.webp'
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
       {page === 'dashboard' && <Dashboard onNavigate={navigate} />}
       {page === 'discover' && <DiscoverPage onNavigate={navigate} />}
       {page === 'property' && <PropertyPage onNavigate={navigate} />}
+      {page === 'saved' && <SavedPropertiesPage onNavigate={navigate} />}
     </div>
   )
 }

@@ -32,7 +32,7 @@ function Paginator({ variant, total = 1, current = 0 }) {
 /**
  * @param {{ property1?: 'Insta' | 'Like_Share' | 'Saved', city: string, country: string, price: string, img?: string, images?: string[], className?: string, beds?: number, baths?: number, sqm?: number }} props
  */
-export default function Card({ property1 = 'Insta', city, country, price, img, images, className, beds = 2, baths = 3, sqm = 165, onClick }) {
+export default function Card({ property1 = 'Insta', city, country, price, img, images, className, beds = 2, baths = 3, sqm = 165, onClick, tag }) {
   const isInsta = property1 === 'Insta'
   const isLikeShare = property1 === 'Like_Share'
   const isSaved = property1 === 'Saved'
@@ -111,8 +111,8 @@ export default function Card({ property1 = 'Insta', city, country, price, img, i
           </div>
         )}
         {isSaved && (
-          <div className="bg-white/25 backdrop-blur-[8px] border border-white/40 flex items-center justify-center overflow-clip px-3 py-1.5 rounded-[8px] shrink-0">
-            <span className="text-[12px] text-white tracking-[-0.14px] leading-normal whitespace-nowrap">{country}</span>
+          <div className="flex items-center justify-center h-9 px-4 rounded-[8px] shrink-0">
+            <span className="text-[12px] text-white tracking-[-0.14px] leading-normal whitespace-nowrap">{tag || country}</span>
           </div>
         )}
       </div>
