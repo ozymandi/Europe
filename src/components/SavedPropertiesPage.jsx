@@ -212,7 +212,7 @@ export default function SavedPropertiesPage({ onNavigate }) {
         </div>
 
         {/* Card grid */}
-        <div className="flex gap-1 pt-6 flex-wrap">
+        <div className="grid gap-1 pt-6" style={{ gridTemplateColumns: 'repeat(5, 1fr)' }}>
           {filtered.map((listing, i) => (
             <Card
               key={i}
@@ -225,7 +225,7 @@ export default function SavedPropertiesPage({ onNavigate }) {
               baths={listing.baths}
               sqm={listing.sqm}
               tag={listing.tag}
-              className="relative flex flex-col h-[360px] flex-1 min-w-[220px] items-start justify-between p-1 rounded-2xl"
+              className="relative flex flex-col h-[360px] w-full items-start justify-between p-1 rounded-2xl"
               onClick={() => onNavigate?.('property')}
             />
           ))}
