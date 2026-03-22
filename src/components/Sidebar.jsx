@@ -160,23 +160,13 @@ export default function Sidebar({ page = 'dashboard', onNavigate }) {
                   onClick={() => onNavigate?.('discover')}
                 />
               )}
-              {page === 'property' ? (
-                <SelectedItem
-                  label="Saved Properties"
-                  src={imgSave}
-                  inset="inset-[12.5%_8.33%_8.33%_8.33%]"
-                  extra="inset-[-3.95%_-3.75%]"
-                  onClick={() => onNavigate?.('property')}
-                />
-              ) : (
-                <NavItem
-                  label="Saved Properties"
-                  src={imgSave}
-                  inset="inset-[12.5%_8.33%_8.33%_8.33%]"
-                  extra="inset-[-3.95%_-3.75%]"
-                  onClick={() => onNavigate?.('property')}
-                />
-              )}
+              <NavItem
+                label="Saved Properties"
+                src={imgSave}
+                inset="inset-[12.5%_8.33%_8.33%_8.33%]"
+                extra="inset-[-3.95%_-3.75%]"
+                onClick={() => onNavigate?.('property')}
+              />
             </MenuSection>
 
             {/* Tools */}
