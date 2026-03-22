@@ -2,7 +2,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 
 const imgShareIcon  = 'https://www.figma.com/api/mcp/asset/21c36446-5385-44c8-a442-bf6ee211039a'
 const imgCloseIcon  = 'https://www.figma.com/api/mcp/asset/2b64eb38-25f7-4cd5-bd42-fe26d41f9747'
-const imgPinIcon    = 'https://www.figma.com/api/mcp/asset/3011ed75-7813-493f-af37-f229a3130c32'
+const imgPinIcon    = 'https://www.figma.com/api/mcp/asset/28dc1bf7-c8c5-484a-b89f-97d618e77f90'
 const imgHouseIcon  = 'https://www.figma.com/api/mcp/asset/360c0581-db4d-4e76-8662-53f9f9dccb10'
 const imgBedIcon    = 'https://www.figma.com/api/mcp/asset/8f99db90-6985-46f3-ad09-f022c6ada37c'
 const imgBathIcon   = 'https://www.figma.com/api/mcp/asset/27b11cbc-3673-4afe-a55e-497e8b7a2486'
@@ -113,7 +113,7 @@ export default function PropertyPopup({ listing, onClose }) {
                     <div className="h-[24px] overflow-clip relative shrink-0 w-[12px]">
                       <div className="absolute inset-[8.33%_16.67%]">
                         <div className="absolute inset-[-5%_-6.25%]">
-                          <img alt="" className="block max-w-none size-full" src={imgPinIcon} />
+                          <img alt="" className="block max-w-none size-full" src={imgPinIcon} style={{ filter: 'brightness(0) opacity(0.45)' }} />
                         </div>
                       </div>
                     </div>
@@ -126,10 +126,10 @@ export default function PropertyPopup({ listing, onClose }) {
                   <div className="bg-dark flex h-6 items-center px-3 py-0.5 rounded-full">
                     <span className="text-[10px] text-[#fff352] tracking-[-0.14px] leading-normal">Eur</span>
                   </div>
-                  <div className="bg-[#fff352] flex h-6 items-center px-3 py-0.5 rounded-full">
+                  <div className="bg-white flex h-6 items-center px-3 py-0.5 rounded-full">
                     <span className="text-[10px] text-dark tracking-[-0.14px] leading-normal">USD</span>
                   </div>
-                  <div className="bg-[#fff352] flex h-6 items-center px-3 py-0.5 rounded-full">
+                  <div className="bg-white flex h-6 items-center px-3 py-0.5 rounded-full">
                     <span className="text-[10px] text-dark tracking-[-0.14px] leading-normal">GBP</span>
                   </div>
                 </div>
