@@ -78,7 +78,7 @@ export default function PropertyPage({ onNavigate }) {
   const [currency, setCurrency] = useState('EUR')
 
   return (
-    <main className="relative z-10 flex-1 min-w-0 overflow-y-auto scrollbar-hidden">
+    <main className="relative z-10 flex-1 min-w-0 overflow-y-auto scrollbar-hidden bg-border-gray">
       <div className="w-full max-w-[1600px] mx-auto flex flex-col gap-0 px-[70px] pt-[70px] pb-0">
 
         {/* Top controls */}
