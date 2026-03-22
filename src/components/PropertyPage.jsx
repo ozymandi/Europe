@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { GoogleMap, useJsApiLoader, Marker } from '@react-google-maps/api'
 import chartE1 from '../assets/charts/ellipse1.svg'
@@ -26,7 +26,10 @@ function PropertyMap() {
   )
 }
 
-const imgHero   = 'https://www.figma.com/api/mcp/asset/816c5f6c-a049-480c-aa64-aab9ff60b470'
+const imgHero1  = 'https://www.figma.com/api/mcp/asset/816c5f6c-a049-480c-aa64-aab9ff60b470'
+const imgHero2  = 'https://www.figma.com/api/mcp/asset/83ac5f82-236c-4463-83ed-59188c21a1dc'
+const HERO_IMAGES = [imgHero1, imgHero2, imgHero1, imgHero2]
+
 const imgMapPic = 'https://www.figma.com/api/mcp/asset/83ac5f82-236c-4463-83ed-59188c21a1dc'
 const imgBeds   = 'https://www.figma.com/api/mcp/asset/8a64bac5-7d08-4759-b1a0-65ff80de7682'
 const imgBaths  = 'https://www.figma.com/api/mcp/asset/26549594-7d97-477a-8aef-cc0c6a2e2ab0'
@@ -113,6 +116,57 @@ function formatPrice(eur, currency) {
   return SYMBOLS[currency] + converted.toLocaleString('en-US')
 }
 
+function HeroCarousel({ images }) {
+  const [index, setIndex] = useState(0)
+  const [width, setWidth] = useState(0)
+  const containerRef = useRef(null)
+
+  useEffect(() => {
+    const el = containerRef.current
+    if (!el) return
+    setWidth(el.offsetWidth)
+    const ro = new ResizeObserver(() => setWidth(el.offsetWidth))
+    ro.observe(el)
+    return () => ro.disconnect()
+  }, [])
+
+  const handleDragEnd = (e, { offset, velocity }) => {
+    if ((offset.x < -60 || velocity.x < -400) && index < images.length - 1) setIndex(i => i + 1)
+    else if ((offset.x > 60 || velocity.x > 400) && index > 0) setIndex(i => i - 1)
+  }
+
+  return (
+    <div ref={containerRef} className="relative h-[320px] w-full rounded-[16px] overflow-hidden shrink-0 cursor-grab active:cursor-grabbing select-none">
+      <motion.div
+        className="flex h-full"
+        animate={{ x: -index * width }}
+        transition={{ type: 'spring', stiffness: 350, damping: 35, mass: 0.8 }}
+        drag="x"
+        dragConstraints={{ left: -(images.length - 1) * width, right: 0 }}
+        dragElastic={0.12}
+        dragMomentum={false}
+        onDragEnd={handleDragEnd}
+      >
+        {images.map((src, i) => (
+          <div key={i} className="relative shrink-0 h-full overflow-hidden" style={{ width }}>
+            <motion.img
+              src={src} alt=""
+              className="absolute inset-0 w-full h-full object-cover pointer-events-none"
+              whileHover={{ scale: 1.06 }}
+              transition={{ type: 'spring', stiffness: 180, damping: 22 }}
+            />
+          </div>
+        ))}
+      </motion.div>
+      <div className="absolute bottom-5 left-1/2 -translate-x-1/2 flex gap-[2px] items-center pointer-events-none">
+        {images.map((_, i) => (
+          <div key={i} className={`h-[3px] rounded-[10px] bg-white transition-all duration-300 ${i === index ? 'w-[20px]' : 'w-[4px] opacity-60'}`} />
+        ))}
+      </div>
+    </div>
+  )
+}
+
 export default function PropertyPage({ onNavigate }) {
   const [currency, setCurrency] = useState('EUR')
 
@@ -162,17 +216,8 @@ export default function PropertyPage({ onNavigate }) {
 
         {/* Main content block */}
         <div className="flex flex-col gap-1">
-          {/* Hero image */}
-          <div className="relative h-[320px] w-full rounded-[16px] overflow-hidden shrink-0">
-            <img src={imgHero} alt="" className="absolute inset-0 w-full h-full object-cover" />
-            {/* Paginator */}
-            <div className="absolute bottom-5 left-1/2 -translate-x-1/2 flex gap-[2px] items-center pointer-events-none">
-              <div className="h-[3px] w-[20px] bg-white rounded-[10px]" />
-              <div className="h-[3px] w-[4px] bg-white rounded-[10px] opacity-60" />
-              <div className="h-[3px] w-[4px] bg-white rounded-[10px] opacity-60" />
-              <div className="h-[3px] w-[4px] bg-white rounded-[10px] opacity-60" />
-            </div>
-          </div>
+          {/* Hero carousel */}
+          <HeroCarousel images={HERO_IMAGES} />
 
           {/* Title bar */}
           <div className="flex items-center justify-between bg-white/50 rounded-[16px] px-[30px] py-[20px]">
