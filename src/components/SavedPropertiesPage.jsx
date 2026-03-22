@@ -2,23 +2,17 @@ import { useState, useRef, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import Card from './Card'
 
-// Status tab icons
-const imgInterestIcon  = 'https://www.figma.com/api/mcp/asset/3f59c5c9-5c6c-4a2c-94d4-bca1117c0acb'
-const imgContactedIcon = 'https://www.figma.com/api/mcp/asset/8047acb9-0338-44c4-ba13-f8443a7fb092'
-const imgDocumentIcon  = 'https://www.figma.com/api/mcp/asset/c7faf0bb-0520-4256-9254-feb15963be1b'
-const imgViewingIcon   = 'https://www.figma.com/api/mcp/asset/f989592d-4df3-455a-b37f-044efddd6065'
-const imgOfferIcon     = 'https://www.figma.com/api/mcp/asset/f735803e-1d1b-4c96-850d-29f210f10f58'
-const imgSearchIcon    = 'https://www.figma.com/api/mcp/asset/ea4c7650-f3a0-4bc6-95bb-64d425fa3cd2'
-const imgSearchBtn     = 'https://www.figma.com/api/mcp/asset/85c4454d-0960-48cf-8b17-55ed2b3cdb6b'
-const imgPinIcon       = 'https://www.figma.com/api/mcp/asset/669a3ad8-8234-42eb-92e6-496cd1a9828b'
-const imgFilterIcon    = 'https://www.figma.com/api/mcp/asset/06c65372-51d2-4706-8123-8950602548ed'
+const imgSearchIcon = 'https://www.figma.com/api/mcp/asset/ea4c7650-f3a0-4bc6-95bb-64d425fa3cd2'
+const imgSearchBtn  = 'https://www.figma.com/api/mcp/asset/85c4454d-0960-48cf-8b17-55ed2b3cdb6b'
+const imgPinIcon    = 'https://www.figma.com/api/mcp/asset/669a3ad8-8234-42eb-92e6-496cd1a9828b'
+const imgFilterIcon = 'https://www.figma.com/api/mcp/asset/06c65372-51d2-4706-8123-8950602548ed'
 
 const STATUS_TABS = [
-  { label: 'Interest',  count: 2, icon: imgInterestIcon,  inset: 'inset-[16.6%_8.33%_12.5%_8.33%]',    extra: 'inset-[-5.88%_-5%]' },
-  { label: 'Contacted', count: 2, icon: imgContactedIcon, inset: 'inset-[16.67%_8.33%]',                extra: 'inset-[-6.25%_-5%]' },
-  { label: 'Document',  count: 2, icon: imgDocumentIcon,  inset: 'inset-[8.33%_16.67%]',                extra: 'inset-[-5%_-6.25%]' },
-  { label: 'Viewing',   count: 2, icon: imgViewingIcon,   inset: 'inset-[12.5%]',                       extra: 'inset-[-5.56%]' },
-  { label: 'Offer',     count: 2, icon: imgOfferIcon,     inset: 'inset-[12.5%_8.33%_11.99%_8.33%]',   extra: 'inset-[-5.52%_-5%]' },
+  { label: 'Interest',  count: 2, icon: 'https://www.figma.com/api/mcp/asset/6acaa335-7dcb-4e11-b8db-f8d43de3173f', inset: 'inset-[16.6%_8.33%_12.5%_8.33%]',  extra: 'inset-[-5.88%_-5%]' },
+  { label: 'Contacted', count: 2, icon: 'https://www.figma.com/api/mcp/asset/01cd4644-ebb6-42ed-b564-b7ef4d2b4159', inset: 'inset-[16.67%_8.33%]',              extra: 'inset-[-6.25%_-5%]' },
+  { label: 'Document',  count: 2, icon: 'https://www.figma.com/api/mcp/asset/76b926a0-113b-4c09-aa95-298fb858b4b8', inset: 'inset-[8.33%_16.67%]',              extra: 'inset-[-5%_-6.25%]' },
+  { label: 'Viewing',   count: 2, icon: 'https://www.figma.com/api/mcp/asset/55a8797a-6aa5-466d-a1d6-841eb510cec4', inset: 'inset-[12.5%]',                     extra: 'inset-[-5.56%]' },
+  { label: 'Offer',     count: 2, icon: 'https://www.figma.com/api/mcp/asset/700fe775-6d95-41e4-a22c-4a040f6fbb01', inset: 'inset-[12.5%_8.33%_11.99%_8.33%]', extra: 'inset-[-5.52%_-5%]' },
 ]
 
 const SORT_OPTIONS = ['Default Sort', 'Price High to Low', 'Price Low to High']
@@ -130,7 +124,7 @@ export default function SavedPropertiesPage({ onNavigate }) {
                     <motion.button
                       key={tab.label}
                       onClick={() => setActiveTab(tab.label)}
-                      className="flex items-center gap-1 pl-[16px] pr-[16px] py-[12px] rounded-[22px] border shrink-0 h-[50px]"
+                      className="relative flex items-center gap-1 pl-[16px] pr-[16px] py-[12px] rounded-[22px] border shrink-0"
                       style={{
                         background: isActive
                           ? 'linear-gradient(to bottom, rgba(139,92,246,0.95), rgba(139,92,246,0.4))'
