@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 
-const imgShareIcon  = 'https://www.figma.com/api/mcp/asset/21c36446-5385-44c8-a442-bf6ee211039a'
-const imgCloseIcon  = 'https://www.figma.com/api/mcp/asset/2b64eb38-25f7-4cd5-bd42-fe26d41f9747'
-const imgPinIcon    = 'https://www.figma.com/api/mcp/asset/28dc1bf7-c8c5-484a-b89f-97d618e77f90'
+const imgShareIcon  = 'https://www.figma.com/api/mcp/asset/18bfbe70-553f-4b5c-9734-beb82d815c03'
+const imgCloseIcon  = 'https://www.figma.com/api/mcp/asset/2f7aa207-8b6c-4e6b-bf91-a171b446ffce'
+const imgPinIcon    = 'https://www.figma.com/api/mcp/asset/dea58b3c-4ff0-461d-bfaa-374edd3f2531'
 const imgHouseIcon  = 'https://www.figma.com/api/mcp/asset/360c0581-db4d-4e76-8662-53f9f9dccb10'
 const imgBedIcon    = 'https://www.figma.com/api/mcp/asset/8f99db90-6985-46f3-ad09-f022c6ada37c'
 const imgBathIcon   = 'https://www.figma.com/api/mcp/asset/27b11cbc-3673-4afe-a55e-497e8b7a2486'
@@ -85,12 +85,28 @@ export default function PropertyPopup({ listing, onClose }) {
                 </div>
                 <div className="flex gap-1 items-center shrink-0">
                   {/* Share */}
-                  <div className="bg-dark flex items-center p-[4px] rounded-full">
-                    <img alt="" className="w-3 h-3 object-contain" src={imgShareIcon} />
+                  <div className="bg-dark flex items-center overflow-clip p-[4px] rounded-[66px]">
+                    <div className="flex items-center p-[4px] rounded-[34px]">
+                      <div className="overflow-clip relative shrink-0 size-[12px]">
+                        <div className="absolute inset-[8.33%_12.5%]">
+                          <div className="absolute inset-[-5%_-5.56%]">
+                            <img alt="" className="block max-w-none size-full" src={imgShareIcon} />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                   {/* Close */}
-                  <button onClick={onClose} className="bg-white flex items-center p-[4px] rounded-full">
-                    <img alt="" className="w-3 h-3 object-contain" src={imgCloseIcon} />
+                  <button onClick={onClose} className="bg-white flex items-center overflow-clip p-[4px] rounded-[66px]">
+                    <div className="flex items-center p-[4px] rounded-[34px]">
+                      <div className="overflow-clip relative shrink-0 size-[12px]">
+                        <div className="absolute inset-1/4">
+                          <div className="absolute inset-[-8.33%]">
+                            <img alt="" className="block max-w-none size-full" src={imgCloseIcon} />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </button>
                 </div>
               </div>
@@ -100,7 +116,13 @@ export default function PropertyPopup({ listing, onClose }) {
                 <div className="flex flex-col gap-1">
                   <span className="text-[21px] font-semibold text-dark tracking-[-0.14px] leading-normal">{listing.price}</span>
                   <div className="flex gap-2 items-center">
-                    <img alt="" className="w-3 h-3 object-contain shrink-0" src={imgPinIcon} style={{ filter: 'brightness(0) opacity(0.45)' }} />
+                    <div className="h-[24px] overflow-clip relative shrink-0 w-[12px]">
+                      <div className="absolute inset-[8.33%_16.67%]">
+                        <div className="absolute inset-[-5%_-6.25%]">
+                          <img alt="" className="block max-w-none size-full" src={imgPinIcon} />
+                        </div>
+                      </div>
+                    </div>
                     <span className="text-[12px] text-darkgray tracking-[-0.2px] leading-5 whitespace-nowrap">
                       {listing.city}, {listing.country}
                     </span>
@@ -111,9 +133,9 @@ export default function PropertyPopup({ listing, onClose }) {
                     <button
                       key={c}
                       onClick={() => setActiveCurrency(c)}
-                      className="flex h-6 items-center px-3 py-0.5 rounded-full"
+                      className="flex gap-2.5 h-6 items-center overflow-clip px-3 py-0.5 rounded-[66px]"
                       style={{
-                        background: activeCurrency === c ? '#2e2e2e' : 'white',
+                        background: activeCurrency === c ? '#2e2e2e' : '#fff352',
                         color: activeCurrency === c ? '#fff352' : '#2e2e2e',
                       }}
                     >
