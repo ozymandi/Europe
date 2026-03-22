@@ -6,9 +6,8 @@ import imgCost     from '../assets/Icons/Property 1=Cost.svg'
 import imgMarket   from '../assets/Icons/Property 1=market.svg'
 import imgQa       from '../assets/Icons/Property 1=qa.svg'
 
-const imgLogoLeft  = 'https://www.figma.com/api/mcp/asset/37a85f0c-ae5c-4442-b8bc-c6796aa98120'
-const imgLogoRight = 'https://www.figma.com/api/mcp/asset/c2b86b58-5698-44a7-9e38-a9c36411ea52'
-const imgAvatar    = 'https://www.figma.com/api/mcp/asset/ff1d669f-ea60-4ade-842f-f96861c43e4a'
+import imgLogo   from '../assets/Logo/logo.svg'
+import imgAvatar from '../assets/Avatar/Avatar.png'
 
 function NavIcon({ src, inset, extra, invert }) {
   return (
@@ -102,16 +101,7 @@ export default function Sidebar({ page = 'dashboard', onNavigate }) {
       >
         {/* Logo */}
         <div style={{ padding: '24px', gap: '10px', alignSelf: 'stretch' }} className="flex flex-col items-start cursor-pointer" onClick={() => onNavigate?.('dashboard')}>
-          <div className="h-[27.355px] overflow-clip relative shrink-0 w-[176px]">
-            <div className="absolute contents inset-[0_0_-0.02%_0]">
-              <div className="absolute inset-[0_42.07%_0.97%_0]">
-                <img alt="" className="absolute block max-w-none size-full" src={imgLogoLeft} />
-              </div>
-              <div className="absolute inset-[0_0_-0.02%_58.61%]">
-                <img alt="" className="absolute block max-w-none size-full" src={imgLogoRight} />
-              </div>
-            </div>
-          </div>
+          <img src={imgLogo} alt="European Listings" className="h-[27px] w-auto" />
         </div>
 
         {/* Menu */}
