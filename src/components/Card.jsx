@@ -1,31 +1,12 @@
 import { useState, useRef } from 'react'
 import pagenActive from '../assets/Pagen_Selec20t.svg'
 import pagenInactive from '../assets/Pagen_Select.svg'
-
-// Insta icon (top-left for Insta variant)
-const imgInsta = 'https://www.figma.com/api/mcp/asset/230c693a-62af-432a-ace3-9757200df7d3'
-// Arrow/share icon (yellow button)
-const imgArrow = 'https://www.figma.com/api/mcp/asset/020a0903-a010-4f3e-926f-c6e870f1f1e3'
-// Heart icon (Like_Share variant)
-const imgHeart = 'https://www.figma.com/api/mcp/asset/527c5a2b-505e-4a28-9976-0e10b5b0f078'
-const BedIcon = () => (
-  <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg" style={{flexShrink:0}}>
-    <path d="M1 6.5V8M9 6.5V8M1 6.5H9M1 6.5V4.5C1 4.5 1 3.5 2 3.5H8C9 3.5 9 4.5 9 4.5V6.5M3 3.5V2.5H5V3.5" stroke="#2e2e2e" strokeWidth="0.8" strokeLinecap="round" strokeLinejoin="round"/>
-  </svg>
-)
-const BathIcon = () => (
-  <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg" style={{flexShrink:0}}>
-    <path d="M1.5 4.5H8.5V7C8.5 7.83 7.83 8.5 7 8.5H3C2.17 8.5 1.5 7.83 1.5 7V4.5Z" stroke="#2e2e2e" strokeWidth="0.8" strokeLinecap="round" strokeLinejoin="round"/>
-    <path d="M1.5 4.5V2.5C1.5 2.5 1.5 1.5 2.5 1.5V3" stroke="#2e2e2e" strokeWidth="0.8" strokeLinecap="round" strokeLinejoin="round"/>
-    <path d="M3.5 8.5L3 9.5M6.5 8.5L7 9.5" stroke="#2e2e2e" strokeWidth="0.8" strokeLinecap="round"/>
-  </svg>
-)
-const SizeIcon = () => (
-  <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg" style={{flexShrink:0}}>
-    <path d="M1 9L9 1M1 9H4M1 9V6" stroke="#2e2e2e" strokeWidth="0.8" strokeLinecap="round" strokeLinejoin="round"/>
-    <path d="M9 1H6M9 1V4" stroke="#2e2e2e" strokeWidth="0.8" strokeLinecap="round" strokeLinejoin="round"/>
-  </svg>
-)
+import imgInsta from '../assets/Icons/Property 1=insta.svg'
+import imgArrow from '../assets/Icons/Property 1=arrow.svg'
+import imgHeart from '../assets/Icons/Property 1=Heart.svg'
+import imgBed  from '../assets/Icons/Property 1=lucide_bed-double.svg'
+import imgBath from '../assets/Icons/Property 1=lucide_bath.svg'
+import imgSize from '../assets/Icons/Property 1=lucide_ruler.svg'
 
 function Paginator({ variant, total = 1, current = 0 }) {
   if (variant === 'Saved' || total <= 1) return null
@@ -159,15 +140,15 @@ export default function Card({ property1 = 'Insta', city, country, price, img, i
             </div>
             <div className="flex gap-0.5 items-start">
               <div className="bg-white flex gap-1 items-center p-1 rounded-[4px] shrink-0">
-                <BedIcon />
+                <img src={imgBed}  alt="" style={{width:'10px',height:'10px',objectFit:'contain',flexShrink:0}} />
                 <span className="text-[10px] text-dark tracking-[-0.14px] leading-normal whitespace-nowrap">{beds} beds</span>
               </div>
               <div className="bg-white flex gap-1 items-center p-1 rounded-[4px] shrink-0">
-                <BathIcon />
+                <img src={imgBath} alt="" style={{width:'10px',height:'10px',objectFit:'contain',flexShrink:0}} />
                 <span className="text-[10px] text-dark tracking-[-0.14px] leading-normal whitespace-nowrap">{baths} baths</span>
               </div>
               <div className="bg-white flex gap-1 items-center p-1 rounded-[4px] shrink-0">
-                <SizeIcon />
+                <img src={imgSize} alt="" style={{width:'10px',height:'10px',objectFit:'contain',flexShrink:0}} />
                 <span className="text-[10px] text-dark tracking-[-0.14px] leading-normal whitespace-nowrap">{sqm} m²</span>
               </div>
             </div>

@@ -1,14 +1,14 @@
 import { motion } from 'framer-motion'
+import imgDash     from '../assets/Icons/Property 1=Dash.svg'
+import imgDiscover from '../assets/Icons/Property 1=Discover.svg'
+import imgSave     from '../assets/Icons/Property 1=Save.svg'
+import imgCost     from '../assets/Icons/Property 1=Cost.svg'
+import imgMarket   from '../assets/Icons/Property 1=market.svg'
+import imgQa       from '../assets/Icons/Property 1=qa.svg'
 
-const imgLogoLeft = 'https://www.figma.com/api/mcp/asset/37a85f0c-ae5c-4442-b8bc-c6796aa98120'
+const imgLogoLeft  = 'https://www.figma.com/api/mcp/asset/37a85f0c-ae5c-4442-b8bc-c6796aa98120'
 const imgLogoRight = 'https://www.figma.com/api/mcp/asset/c2b86b58-5698-44a7-9e38-a9c36411ea52'
-const imgAvatar = 'https://www.figma.com/api/mcp/asset/ff1d669f-ea60-4ade-842f-f96861c43e4a'
-const imgDash = 'https://www.figma.com/api/mcp/asset/b60824d9-1ddc-4a18-b66a-6aec991d7f41'
-const imgDiscover = 'https://www.figma.com/api/mcp/asset/746f19d5-c138-4355-a665-3ee7cdaf78f8'
-const imgSave = 'https://www.figma.com/api/mcp/asset/cf6c11be-97ba-4c12-9815-5338f4ed2f9b'
-const imgCost = 'https://www.figma.com/api/mcp/asset/03768e39-dc69-4633-ade1-84c631059965'
-const imgMarket = 'https://www.figma.com/api/mcp/asset/2756decb-8501-43f7-a8db-e795320e528e'
-const imgQa = 'https://www.figma.com/api/mcp/asset/5c458a12-58e0-4f21-9549-530a7c8a26f7'
+const imgAvatar    = 'https://www.figma.com/api/mcp/asset/ff1d669f-ea60-4ade-842f-f96861c43e4a'
 
 function NavIcon({ src, inset, extra, invert }) {
   return (

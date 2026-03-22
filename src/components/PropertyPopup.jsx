@@ -1,17 +1,15 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-
-const imgShareIcon  = 'https://www.figma.com/api/mcp/asset/18bfbe70-553f-4b5c-9734-beb82d815c03'
-const imgCloseIcon  = 'https://www.figma.com/api/mcp/asset/2f7aa207-8b6c-4e6b-bf91-a171b446ffce'
-const imgPinIcon    = 'https://www.figma.com/api/mcp/asset/dea58b3c-4ff0-461d-bfaa-374edd3f2531'
-const imgHouseIcon  = 'https://www.figma.com/api/mcp/asset/360c0581-db4d-4e76-8662-53f9f9dccb10'
-const imgBedIcon    = 'https://www.figma.com/api/mcp/asset/8f99db90-6985-46f3-ad09-f022c6ada37c'
-const imgBathIcon   = 'https://www.figma.com/api/mcp/asset/27b11cbc-3673-4afe-a55e-497e8b7a2486'
-const imgSqmIcon    = 'https://www.figma.com/api/mcp/asset/68c6ea4e-29f2-4302-bd56-9e31cbaa69d4'
-const imgLandIcon   = 'https://www.figma.com/api/mcp/asset/16320eca-ae34-45b9-a20c-3b6db0b712e9'
-const imgCheckIcon  = 'https://www.figma.com/api/mcp/asset/d9304721-b375-46d6-9a82-e97539e74574'
-const imgNotesIcon  = 'https://www.figma.com/api/mcp/asset/70624eab-c14e-48e3-a743-b493ff730455'
-const imgBudgetIcon = 'https://www.figma.com/api/mcp/asset/705ccbb5-2533-4ba3-9cff-81e163a37ce8'
+import imgShareIcon  from '../assets/Icons/Property 1=Share.svg'
+import imgCloseIcon  from '../assets/Icons/Property 1=x.svg'
+import imgHouseIcon  from '../assets/Icons/Property 1=house.svg'
+import imgBedIcon    from '../assets/Icons/Property 1=lucide_bed-double.svg'
+import imgBathIcon   from '../assets/Icons/Property 1=lucide_bath.svg'
+import imgSqmIcon    from '../assets/Icons/Property 1=lucide_ruler.svg'
+import imgLandIcon   from '../assets/Icons/Property 1=lucide_ruler-dimension-line.svg'
+import imgCheckIcon  from '../assets/Icons/Property 1=lucide_book-open-check.svg'
+import imgNotesIcon  from '../assets/Icons/Property 1=lucide_file-text.svg'
+import imgBudgetIcon from '../assets/Icons/Property 1=lucide_calculator.svg'
 
 const STATS = [
   { icon: imgHouseIcon,  inset: 'inset-[12.5%_8.33%]',           extra: 'inset-[-4.17%_-3.75%]', key: 'house', label: 'House' },
