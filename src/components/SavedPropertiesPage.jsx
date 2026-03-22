@@ -2,8 +2,8 @@ import { useState, useRef, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import Card from './Card'
 
-const imgSearchIcon = 'https://www.figma.com/api/mcp/asset/ea4c7650-f3a0-4bc6-95bb-64d425fa3cd2'
-const imgSearchBtn  = 'https://www.figma.com/api/mcp/asset/85c4454d-0960-48cf-8b17-55ed2b3cdb6b'
+const imgSearchIcon = 'https://www.figma.com/api/mcp/asset/6950357f-8086-44f7-9927-2d56340ed095'
+const imgSearchBtn  = 'https://www.figma.com/api/mcp/asset/99bd1335-a6d5-435c-8648-1b2e6addd8a5'
 const imgPinIcon    = 'https://www.figma.com/api/mcp/asset/669a3ad8-8234-42eb-92e6-496cd1a9828b'
 const imgFilterIcon = 'https://www.figma.com/api/mcp/asset/06c65372-51d2-4706-8123-8950602548ed'
 
@@ -155,12 +155,12 @@ export default function SavedPropertiesPage({ onNavigate }) {
 
               {/* Short search */}
               <motion.div
-                className="flex items-center justify-between bg-white h-[50px] rounded-[50px] pl-6 pr-[7px] py-4 shrink-0 w-[280px]"
+                className="flex items-center justify-between bg-white h-[50px] rounded-[50px] pl-6 pr-[7px] gap-[80px] shrink-0"
                 style={{ boxShadow: '0px 2px 2px 0px rgba(138,56,245,0.03)' }}
                 whileHover={{ boxShadow: '0px 4px 10px 0px rgba(138,56,245,0.1)' }}
                 transition={{ duration: 0.2 }}
               >
-                <div className="flex items-center gap-2.5 flex-1 min-w-0">
+                <div className="flex items-center gap-2.5 shrink-0">
                   <div className="overflow-clip relative shrink-0 size-4">
                     <div className="absolute inset-[12.5%]">
                       <div className="absolute inset-[-4.17%]">
@@ -173,11 +173,11 @@ export default function SavedPropertiesPage({ onNavigate }) {
                     value={searchQuery}
                     onChange={e => setSearchQuery(e.target.value)}
                     placeholder="Search by location, property type..."
-                    className="flex-1 min-w-0 bg-transparent text-[14px] text-dark tracking-[-0.16px] placeholder:text-darkgray placeholder:opacity-30 outline-none"
+                    className="bg-transparent text-[14px] text-dark tracking-[-0.16px] placeholder:text-darkgray placeholder:opacity-30 outline-none w-[220px]"
                   />
                 </div>
                 <motion.button
-                  className="relative flex items-center justify-center rounded-full size-[39px] border shrink-0"
+                  className="relative flex items-center justify-center rounded-[22px] px-4 py-3 border shrink-0"
                   style={{
                     background: 'linear-gradient(to bottom, rgba(139,92,246,0.95), rgba(139,92,246,0.4))',
                     borderColor: '#8b5cf6',
@@ -189,7 +189,7 @@ export default function SavedPropertiesPage({ onNavigate }) {
                   <div className="overflow-clip relative shrink-0 size-4">
                     <div className="absolute inset-[12.5%]">
                       <div className="absolute inset-[-4.17%]">
-                        <img alt="" className="block max-w-none size-full" src={imgSearchBtn} style={{ filter: 'brightness(0) invert(1)' }} />
+                        <img alt="" className="block max-w-none size-full" src={imgSearchBtn} />
                       </div>
                     </div>
                   </div>
