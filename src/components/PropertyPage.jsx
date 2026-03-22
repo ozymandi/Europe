@@ -138,7 +138,7 @@ export default function PropertyPage({ onNavigate }) {
           {/* Title bar */}
           <div className="flex items-center justify-between bg-white/50 rounded-[16px] px-[30px] py-[20px]">
             <div className="flex flex-col gap-1">
-              <h1 className="font-['IvyOra_Display:Bold',serif] text-[28px] text-dark tracking-[-0.2px] leading-normal whitespace-nowrap">
+              <h1 className="font-display font-bold text-[28px] text-dark tracking-[-0.2px] leading-normal whitespace-nowrap">
                 Historic Village House With Flower Garden Escape
               </h1>
               <div className="flex gap-2 items-center">
@@ -162,7 +162,7 @@ export default function PropertyPage({ onNavigate }) {
                   </button>
                 ))}
               </div>
-              <span className="font-['Open_Runde:Semibold',sans-serif] text-[21px] text-dark tracking-[-0.14px] leading-normal">
+              <span className="font-semibold text-[21px] text-dark tracking-[-0.14px] leading-normal">
                 €119,000
               </span>
             </div>
@@ -185,7 +185,7 @@ export default function PropertyPage({ onNavigate }) {
                           </div>
                         </div>
                       </div>
-                      <span className="font-['Open_Runde:Bold',sans-serif] text-[20px] text-dark tracking-[-0.14px] leading-normal">{s.value}</span>
+                      <span className="font-bold text-[20px] text-dark tracking-[-0.14px] leading-normal">{s.value}</span>
                     </div>
                     <span className="text-[12px] text-darkgray tracking-[-0.2px] leading-[20px]">{s.label}</span>
                   </div>
@@ -194,7 +194,7 @@ export default function PropertyPage({ onNavigate }) {
 
               {/* About */}
               <div className="border border-white/50 rounded-[16px] p-5 flex flex-col gap-7">
-                <h2 className="font-['IvyOra_Display:Bold',serif] text-[18px] text-dark tracking-[-0.2px] leading-normal">About this place</h2>
+                <h2 className="font-display font-bold text-[18px] text-dark tracking-[-0.2px] leading-normal">About this place</h2>
                 <p className="text-[14px] text-darkgray tracking-[-0.14px] leading-[20px]">
                   This house with a bright flower garden and shaded terrace offers thoughtful renovations and period character. Set in the medieval center of Lot, France, near local shops and cafés. Ideal for those seeking a heritage home in a storied village setting.
                 </p>
@@ -202,7 +202,7 @@ export default function PropertyPage({ onNavigate }) {
 
               {/* Features */}
               <div className="border border-white/50 rounded-[16px] p-5 flex flex-col gap-7">
-                <h2 className="font-['IvyOra_Display:Bold',serif] text-[18px] text-dark tracking-[-0.2px] leading-normal">What this place offers</h2>
+                <h2 className="font-display font-bold text-[18px] text-dark tracking-[-0.2px] leading-normal">What this place offers</h2>
                 <div className="flex gap-1 flex-wrap">
                   {FEATURES.map(f => (
                     <div key={f.label} className="bg-white flex items-center gap-1 pl-1 pr-3 py-1 rounded-full">
@@ -223,7 +223,7 @@ export default function PropertyPage({ onNavigate }) {
 
               {/* Map / Location */}
               <div className="border border-white/50 rounded-[16px] p-5 flex flex-col gap-2.5">
-                <h2 className="font-['IvyOra_Display:Bold',serif] text-[18px] text-dark tracking-[-0.2px] leading-normal mb-3">Location</h2>
+                <h2 className="font-display font-bold text-[18px] text-dark tracking-[-0.2px] leading-normal mb-3">Location</h2>
                 <div className="h-[153px] rounded-[16px] overflow-hidden shadow-[0px_2px_2px_0px_rgba(0,0,0,0.04)]">
                   <img src={imgMapPic} alt="" className="w-full h-full object-cover" />
                 </div>
@@ -243,17 +243,17 @@ export default function PropertyPage({ onNavigate }) {
             {/* Right column — Total Budget */}
             <div className="w-[320px] shrink-0 bg-white/50 rounded-[16px] flex flex-col justify-between pb-[30px] pt-[20px] px-[30px] self-stretch">
               <div className="flex flex-col gap-7">
-                <h2 className="font-['IvyOra_Display:Bold',serif] text-[18px] text-dark tracking-[-0.2px] leading-normal">Total Budget</h2>
+                <h2 className="font-display font-bold text-[18px] text-dark tracking-[-0.2px] leading-normal">Total Budget</h2>
 
                 {/* Property price / Other costs tiles */}
                 <div className="flex gap-[2px]">
                   <div className="flex-1 bg-limon rounded-[10px] px-5 py-2.5 flex flex-col gap-2.5">
                     <span className="text-[12px] text-dark tracking-[-0.14px] leading-normal">Property price</span>
-                    <span className="font-['Open_Runde:Bold',sans-serif] text-[20px] text-dark tracking-[-0.14px] leading-normal">90.2%</span>
+                    <span className="font-bold text-[20px] text-dark tracking-[-0.14px] leading-normal">90.2%</span>
                   </div>
                   <div className="flex-1 bg-limon rounded-[10px] px-5 py-2.5 flex flex-col gap-2.5">
                     <span className="text-[12px] text-dark tracking-[-0.14px] leading-normal">Other costs</span>
-                    <span className="font-['Open_Runde:Bold',sans-serif] text-[20px] text-dark tracking-[-0.14px] leading-normal">9.8%</span>
+                    <span className="font-bold text-[20px] text-dark tracking-[-0.14px] leading-normal">9.8%</span>
                   </div>
                 </div>
               </div>
@@ -283,7 +283,7 @@ export default function PropertyPage({ onNavigate }) {
                       <span className="text-[12px] text-darkgray tracking-[-0.14px] leading-[20px]">{row.pct}</span>
                     </div>
                     <div className="w-[80px] flex items-center justify-center border-l border-border-gray self-stretch px-2">
-                      <span className="font-['Open_Runde:Semibold',sans-serif] text-[12px] text-dark tracking-[-0.14px] leading-[20px]">{row.amount}</span>
+                      <span className="font-semibold text-[12px] text-dark tracking-[-0.14px] leading-[20px]">{row.amount}</span>
                     </div>
                   </div>
                 ))}
