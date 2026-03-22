@@ -142,13 +142,7 @@ export default function PropertyPage({ onNavigate }) {
                 Historic Village House With Flower Garden Escape
               </h1>
               <div className="flex gap-2 items-center">
-                <div className="h-[24px] w-[12px] overflow-clip relative shrink-0">
-                  <div className="absolute inset-[8.33%_16.67%]">
-                    <div className="absolute inset-[-5%_-6.25%]">
-                      <img alt="" className="block max-w-none size-full" src={imgPin} />
-                    </div>
-                  </div>
-                </div>
+                <img alt="" src={imgPin} className="shrink-0 w-[12px] h-[16px] object-contain" />
                 <span className="text-[12px] text-darkgray tracking-[-0.2px] leading-[20px]">Cajarc, Lot, France</span>
               </div>
             </div>
