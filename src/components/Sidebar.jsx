@@ -9,22 +9,18 @@ import imgQa       from '../assets/Icons/Property 1=qa.svg'
 import imgLogo   from '../assets/Logo/logo.svg'
 import imgAvatar from '../assets/Avatar/Avatar.png'
 
-function NavIcon({ src, inset, extra, invert }) {
+function NavIcon({ src, invert }) {
   return (
-    <div
-      className="overflow-clip relative shrink-0 size-[16px]"
-      style={invert ? { filter: 'invert(1)' } : undefined}
-    >
-      <div className={`absolute ${inset}`}>
-        <div className={`absolute ${extra}`}>
-          <img alt="" className="block max-w-none size-full" src={src} />
-        </div>
-      </div>
-    </div>
+    <img
+      alt=""
+      className="shrink-0"
+      style={{ width: '16px', height: '16px', filter: invert ? 'invert(1)' : undefined }}
+      src={src}
+    />
   )
 }
 
-function SelectedItem({ label, src, inset, extra, onClick }) {
+function SelectedItem({ label, src, onClick }) {
   return (
     <motion.div
       style={{ width: '224px', padding: '12px 16px', gap: '10px', borderRadius: '22px', background: '#2e2e2e' }}
@@ -33,7 +29,7 @@ function SelectedItem({ label, src, inset, extra, onClick }) {
       transition={{ type: 'spring', stiffness: 400, damping: 20 }}
       onClick={onClick}
     >
-      <NavIcon src={src} inset={inset} extra={extra} invert />
+      <NavIcon src={src} invert />
       <span className="text-[14px] text-white tracking-[-0.14px] leading-[20px] whitespace-nowrap">
         {label}
       </span>
@@ -41,7 +37,7 @@ function SelectedItem({ label, src, inset, extra, onClick }) {
   )
 }
 
-function NavItem({ label, src, inset, extra, onClick }) {
+function NavItem({ label, src, onClick }) {
   return (
     <motion.div
       className="group flex items-center rounded-[22px] cursor-pointer"
@@ -55,7 +51,7 @@ function NavItem({ label, src, inset, extra, onClick }) {
       transition={{ type: 'spring', stiffness: 400, damping: 20 }}
       onClick={onClick}
     >
-      <NavIcon src={src} inset={inset} extra={extra} />
+      <NavIcon src={src} />
       <span className="text-[14px] text-[#2e2e2e] tracking-[-0.14px] leading-[20px] whitespace-nowrap transition-colors duration-300 group-hover:text-purple">
         {label}
       </span>
@@ -115,16 +111,12 @@ export default function Sidebar({ page = 'dashboard', onNavigate }) {
                   <SelectedItem
                     label="Dashboard"
                     src={imgDash}
-                    inset="inset-[12.5%]"
-                    extra="inset-[-4.17%]"
                     onClick={() => onNavigate?.('dashboard')}
                   />
                 ) : (
                   <NavItem
                     label="Dashboard"
                     src={imgDash}
-                    inset="inset-[12.5%]"
-                    extra="inset-[-4.17%]"
                     onClick={() => onNavigate?.('dashboard')}
                   />
                 )}
@@ -137,16 +129,12 @@ export default function Sidebar({ page = 'dashboard', onNavigate }) {
                 <SelectedItem
                   label="Discover Listings"
                   src={imgDiscover}
-                  inset="inset-[8.33%]"
-                  extra="inset-[-3.75%]"
                   onClick={() => onNavigate?.('discover')}
                 />
               ) : (
                 <NavItem
                   label="Discover Listings"
                   src={imgDiscover}
-                  inset="inset-[8.33%]"
-                  extra="inset-[-3.75%]"
                   onClick={() => onNavigate?.('discover')}
                 />
               )}
@@ -154,16 +142,12 @@ export default function Sidebar({ page = 'dashboard', onNavigate }) {
                 <SelectedItem
                   label="Saved Properties"
                   src={imgSave}
-                  inset="inset-[12.5%_8.33%_8.33%_8.33%]"
-                  extra="inset-[-3.95%_-3.75%]"
                   onClick={() => onNavigate?.('saved')}
                 />
               ) : (
                 <NavItem
                   label="Saved Properties"
                   src={imgSave}
-                  inset="inset-[12.5%_8.33%_8.33%_8.33%]"
-                  extra="inset-[-3.95%_-3.75%]"
                   onClick={() => onNavigate?.('saved')}
                 />
               )}
@@ -171,9 +155,9 @@ export default function Sidebar({ page = 'dashboard', onNavigate }) {
 
             {/* Tools */}
             <MenuSection label="TOOLS">
-              <NavItem label="Closing Costs" src={imgCost} inset="inset-[8.33%_8.22%_8.33%_8.33%]" extra="inset-[-3.75%_-3.74%]" />
-              <NavItem label="Marketplace" src={imgMarket} inset="inset-[8.33%_12.5%]" extra="inset-[-3.75%_-4.17%]" />
-              <NavItem label="Live Q&A Calls" src={imgQa} inset="inset-[8.33%]" extra="inset-[-3.75%]" />
+              <NavItem label="Closing Costs" src={imgCost} />
+              <NavItem label="Marketplace" src={imgMarket} />
+              <NavItem label="Live Q&A Calls" src={imgQa} />
             </MenuSection>
           </div>
 
@@ -187,11 +171,12 @@ export default function Sidebar({ page = 'dashboard', onNavigate }) {
                   whileHover={{ scale: 1.05, backgroundColor: 'rgba(255,255,255,0.45)', backdropFilter: 'blur(10px)', boxShadow: 'inset 0 1px 1px rgba(255,255,255,0.9)' }}
                   transition={{ type: 'spring', stiffness: 400, damping: 20 }}
                 >
-                  <div className="overflow-clip relative shrink-0 size-[32px]">
-                    <div className="absolute inset-0 rounded-[34px] overflow-hidden">
-                      <img alt="James Peterson" className="absolute h-[163.68%] left-[-4.56%] max-w-none top-[-1.18%] w-[109.12%]" src={imgAvatar} />
-                    </div>
-                  </div>
+                  <img
+                    alt="James Peterson"
+                    src={imgAvatar}
+                    className="shrink-0 rounded-full object-cover"
+                    style={{ width: '32px', height: '32px' }}
+                  />
                   <span className="text-[14px] text-[#2e2e2e] tracking-[-0.14px] leading-[20px] whitespace-nowrap transition-colors duration-300 group-hover:text-purple">
                     James Peterson
                   </span>
