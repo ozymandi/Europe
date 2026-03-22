@@ -95,6 +95,15 @@ function DonutChart() {
   )
 }
 
+const BASE_PRICE_EUR = 119000
+const RATES = { EUR: 1, USD: 1.08, GBP: 0.86 }
+const SYMBOLS = { EUR: '€', USD: '$', GBP: '£' }
+
+function formatPrice(eur, currency) {
+  const converted = Math.round(eur * RATES[currency])
+  return SYMBOLS[currency] + converted.toLocaleString('en-US')
+}
+
 export default function PropertyPage({ onNavigate }) {
   const [currency, setCurrency] = useState('EUR')
 
@@ -184,7 +193,7 @@ export default function PropertyPage({ onNavigate }) {
                 ))}
               </div>
               <span className="font-semibold text-[21px] text-dark tracking-[-0.14px] leading-normal">
-                €119,000
+                {formatPrice(BASE_PRICE_EUR, currency)}
               </span>
             </div>
           </div>
