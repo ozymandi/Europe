@@ -165,7 +165,7 @@ function ActiveFilterPill({ label, icon }) {
   )
 }
 
-export default function DiscoverPage() {
+export default function DiscoverPage({ onNavigate }) {
   const [activePage, setActivePage] = useState(1)
   const gridRef = useRef(null)
   const [cols, setCols] = useState(5)

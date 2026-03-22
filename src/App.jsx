@@ -3,6 +3,7 @@ import './index.css'
 import Sidebar from './components/Sidebar'
 import Dashboard from './components/Dashboard'
 import DiscoverPage from './components/DiscoverPage'
+import PropertyPage from './components/PropertyPage'
 import imgBg from './assets/Dash_bg.webp'
 
 function App() {
@@ -16,7 +17,9 @@ function App() {
         <div className="absolute inset-0" style={{ background: 'radial-gradient(circle at top right, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 70%)' }} />
       </div>
       <Sidebar page={page} onNavigate={setPage} />
-      {page === 'dashboard' ? <Dashboard /> : <DiscoverPage />}
+      {page === 'dashboard' && <Dashboard />}
+      {page === 'discover' && <DiscoverPage onNavigate={setPage} />}
+      {page === 'property' && <PropertyPage onNavigate={setPage} />}
     </div>
   )
 }
