@@ -7,7 +7,7 @@ const imgBeds   = 'https://www.figma.com/api/mcp/asset/8a64bac5-7d08-4759-b1a0-6
 const imgBaths  = 'https://www.figma.com/api/mcp/asset/26549594-7d97-477a-8aef-cc0c6a2e2ab0'
 const imgSqm    = 'https://www.figma.com/api/mcp/asset/3e87fe7c-5335-445b-8231-57b010e403e5'
 const imgLand   = 'https://www.figma.com/api/mcp/asset/78980b3b-3677-428e-86c3-b30c03cf6c44'
-const imgPin    = 'https://www.figma.com/api/mcp/asset/9b6117b2-0a1f-496f-8233-258cfcb48beb'
+const imgPin    = 'https://www.figma.com/api/mcp/asset/086e5593-3fff-4e97-9880-cb5147429719'
 const imgCoastalIcon = 'https://www.figma.com/api/mcp/asset/9433d611-6276-4505-afa8-1307369bb9aa'
 const imgVillageIcon = 'https://www.figma.com/api/mcp/asset/cc6c20c3-fd4c-45a9-b52f-c2f1af1b9aee'
 const imgAirportIcon = 'https://www.figma.com/api/mcp/asset/e4062510-c5c3-4b0c-a8cc-fbaf35630b86'
@@ -160,8 +160,8 @@ export default function PropertyPage({ onNavigate }) {
                     onClick={() => setCurrency(c)}
                     className="h-6 px-3 rounded-full text-[10px] tracking-[-0.14px] leading-normal"
                     style={{
-                      background: currency === c ? '#2e2e2e' : '#FFF352',
-                      color: currency === c ? '#FFF352' : '#2e2e2e',
+                      background: currency === c ? '#2e2e2e' : 'white',
+                      color: currency === c ? 'white' : '#2e2e2e',
                     }}
                   >
                     {c}
