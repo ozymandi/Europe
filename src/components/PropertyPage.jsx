@@ -26,9 +26,12 @@ function PropertyMap() {
   )
 }
 
-const imgHero1  = 'https://www.figma.com/api/mcp/asset/816c5f6c-a049-480c-aa64-aab9ff60b470'
-const imgHero2  = 'https://www.figma.com/api/mcp/asset/83ac5f82-236c-4463-83ed-59188c21a1dc'
-const HERO_IMAGES = [imgHero1, imgHero2, imgHero1, imgHero2]
+const HERO_IMAGES = [
+  'https://www.figma.com/api/mcp/asset/816c5f6c-a049-480c-aa64-aab9ff60b470',
+  'https://www.figma.com/api/mcp/asset/60b860d9-0cd9-4620-8fad-9d3022fe9694',
+  'https://www.figma.com/api/mcp/asset/9cf083b9-cc88-4d7a-a7df-04806bbea76b',
+  'https://www.figma.com/api/mcp/asset/646a66de-b9d5-46d8-8329-e4460f0fd842',
+]
 
 const imgMapPic = 'https://www.figma.com/api/mcp/asset/83ac5f82-236c-4463-83ed-59188c21a1dc'
 const imgBeds   = 'https://www.figma.com/api/mcp/asset/8a64bac5-7d08-4759-b1a0-65ff80de7682'
@@ -148,14 +151,21 @@ function HeroCarousel({ images }) {
         onDragEnd={handleDragEnd}
       >
         {images.map((src, i) => (
-          <div key={i} className="relative shrink-0 h-full overflow-hidden" style={{ width }}>
+          <motion.div
+            key={i}
+            className="relative shrink-0 h-full overflow-hidden"
+            style={{ width }}
+            initial="rest"
+            whileHover="hover"
+            animate="rest"
+          >
             <motion.img
               src={src} alt=""
               className="absolute inset-0 w-full h-full object-cover pointer-events-none"
-              whileHover={{ scale: 1.06 }}
+              variants={{ rest: { scale: 1 }, hover: { scale: 1.08 } }}
               transition={{ type: 'spring', stiffness: 180, damping: 22 }}
             />
-          </div>
+          </motion.div>
         ))}
       </motion.div>
       <div className="absolute bottom-5 left-1/2 -translate-x-1/2 flex gap-[2px] items-center pointer-events-none">
