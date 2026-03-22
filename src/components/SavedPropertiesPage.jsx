@@ -87,13 +87,7 @@ export default function SavedPropertiesPage({ onNavigate }) {
               <div className="flex flex-col gap-1">
                 <p className="font-display text-[42px] text-dark tracking-[-1px] leading-none">Saved Listing</p>
                 <div className="flex items-center gap-2">
-                  <div className="h-[24px] overflow-clip relative shrink-0 w-[12px]">
-                    <div className="absolute inset-[8.33%_12.5%_12.5%_12.5%]">
-                      <div className="absolute inset-[-5.26%_-5.56%]">
-                        <img alt="" className="block max-w-none size-full" src={imgPinIcon} />
-                      </div>
-                    </div>
-                  </div>
+                  <img alt="" src={imgPinIcon} className="shrink-0 w-[12px] h-[16px] object-contain" />
                   <span className="text-[12px] text-darkgray tracking-[-0.2px] leading-[20px]">Your collection of {SAVED_LISTINGS.length} properties</span>
                 </div>
               </div>
