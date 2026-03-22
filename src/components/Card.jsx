@@ -32,7 +32,7 @@ function Paginator({ variant, total = 1, current = 0 }) {
 /**
  * @param {{ property1?: 'Insta' | 'Like_Share' | 'Saved', city: string, country: string, price: string, img?: string, images?: string[], className?: string, beds?: number, baths?: number, sqm?: number }} props
  */
-export default function Card({ property1 = 'Insta', city, country, price, img, images, className, beds = 2, baths = 3, sqm = 165 }) {
+export default function Card({ property1 = 'Insta', city, country, price, img, images, className, beds = 2, baths = 3, sqm = 165, onClick }) {
   const isInsta = property1 === 'Insta'
   const isLikeShare = property1 === 'Like_Share'
   const isSaved = property1 === 'Saved'
@@ -62,7 +62,10 @@ export default function Card({ property1 = 'Insta', city, country, price, img, i
   }
 
   return (
-    <div className={`group/card ${className || 'relative flex flex-col h-[320px] w-[230px] items-start justify-between p-1 rounded-2xl shrink-0'}`}>
+    <div
+      className={`group/card ${className || 'relative flex flex-col h-[320px] w-[230px] items-start justify-between p-1 rounded-2xl shrink-0'} ${onClick ? 'cursor-pointer' : ''}`}
+      onClick={() => { if (!dragged.current && onClick) onClick() }}
+    >
 
       {/* Image slider */}
       <div

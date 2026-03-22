@@ -215,7 +215,7 @@ function BudgetTool() {
   )
 }
 
-export default function Dashboard() {
+export default function Dashboard({ onNavigate }) {
   return (
     <main className="flex-1 flex flex-col h-full overflow-y-auto relative min-w-0">
       <div className="w-full max-w-[1600px] mx-auto flex flex-col gap-6 p-[70px] flex-1">
@@ -276,7 +276,7 @@ export default function Dashboard() {
             </div>
             <DragScroll className="flex gap-0.5 items-center py-3 -my-3">
               {LISTINGS.map((listing) => (
-                <Card key={listing.id} {...listing} className="relative flex flex-col w-[230px] items-start justify-between p-1 rounded-2xl shrink-0 h-[320px]" />
+                <Card key={listing.id} {...listing} className="relative flex flex-col w-[230px] items-start justify-between p-1 rounded-2xl shrink-0 h-[320px]" onClick={() => onNavigate?.('property')} />
               ))}
             </DragScroll>
           </div>

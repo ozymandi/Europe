@@ -17,7 +17,7 @@ function App() {
         <div className="absolute inset-0" style={{ background: 'radial-gradient(circle at top right, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 70%)' }} />
       </div>
       <Sidebar page={page} onNavigate={setPage} />
-      {page === 'dashboard' && <Dashboard />}
+      {page === 'dashboard' && <Dashboard onNavigate={setPage} />}
       {page === 'discover' && <DiscoverPage onNavigate={setPage} />}
       {page === 'property' && <PropertyPage onNavigate={setPage} />}
     </div>
