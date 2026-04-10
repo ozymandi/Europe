@@ -2,28 +2,25 @@ import { useRef } from 'react'
 import { motion } from 'framer-motion'
 import Card from './Card'
 import imgCalculator from '../assets/calculator.svg'
+import imgBg        from '../assets/Dash_bg.webp'
+import imgArrowVec  from '../assets/Icons/Property 1=arrow.svg'
+import imgSearchIcon from '../assets/Icons/Property 1=search.svg'
 
-// Background
-const imgBg = 'https://www.figma.com/api/mcp/asset/46b70ee9-415e-44e7-8a42-7072f552b103'
-// Arrow icon for saved searches
-const imgArrowVec = 'https://www.figma.com/api/mcp/asset/1e8bf52b-8193-4760-af44-4f21f23f86ba'
-// Saved search images
-const imgFrame36 = 'https://www.figma.com/api/mcp/asset/39792562-096a-463a-bfe9-099d2d6a93ce'
-const imgFrame37 = 'https://www.figma.com/api/mcp/asset/da8eefe6-152f-470a-8b99-e1eb92a18a5d'
-// Search icon
-const imgSearchIcon = 'https://www.figma.com/api/mcp/asset/c5e4425a-dc40-43bb-af85-6c57c09fb638'
+// Saved search thumbnails
+const imgFrame36 = 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=200&h=140&fit=crop&auto=format'
+const imgFrame37 = 'https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=200&h=140&fit=crop&auto=format'
 
 // Listing card images
 const IMG_CARDS = [
-  'https://www.figma.com/api/mcp/asset/28323000-3710-4618-b65e-63a09f79d88f',
-  'https://www.figma.com/api/mcp/asset/0f0c7035-9711-486a-b9e2-fb8607cf5cc2',
-  'https://www.figma.com/api/mcp/asset/4ea18c31-f97b-42bd-9853-fb88dfdcef57',
-  'https://www.figma.com/api/mcp/asset/41835e66-0d37-48ce-9617-5421d16aba68',
-  'https://www.figma.com/api/mcp/asset/7bede93e-8ff9-4a23-9440-8d882fe3ca1b',
-  'https://www.figma.com/api/mcp/asset/28323000-3710-4618-b65e-63a09f79d88f',
-  'https://www.figma.com/api/mcp/asset/4ea18c31-f97b-42bd-9853-fb88dfdcef57',
-  'https://www.figma.com/api/mcp/asset/0f0c7035-9711-486a-b9e2-fb8607cf5cc2',
-  'https://www.figma.com/api/mcp/asset/7bede93e-8ff9-4a23-9440-8d882fe3ca1b',
+  'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&h=400&fit=crop&auto=format',
+  'https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=600&h=400&fit=crop&auto=format',
+  'https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=600&h=400&fit=crop&auto=format',
+  'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600&h=400&fit=crop&auto=format',
+  'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=600&h=400&fit=crop&auto=format',
+  'https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?w=600&h=400&fit=crop&auto=format',
+  'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600&h=400&fit=crop&auto=format',
+  'https://images.unsplash.com/photo-1598228723793-52759bba239c?w=600&h=400&fit=crop&auto=format',
+  'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop&auto=format',
 ]
 
 const SAVED_SEARCHES = [

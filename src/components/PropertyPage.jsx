@@ -6,6 +6,15 @@ import chartE2 from '../assets/charts/ellipse2.svg'
 import chartE3 from '../assets/charts/ellipse3.svg'
 import chartE4 from '../assets/charts/ellipse4.svg'
 import chartE5 from '../assets/charts/ellipse5.svg'
+import imgBeds        from '../assets/Icons/Property 1=lucide_bed-double.svg'
+import imgBaths       from '../assets/Icons/Property 1=lucide_bath.svg'
+import imgSqm         from '../assets/Icons/Property 1=lucide_ruler.svg'
+import imgLand        from '../assets/Icons/Property 1=lucide_ruler-dimension-line.svg'
+import imgPin         from '../assets/Icons/Property 1=lucide_map-pin.svg'
+import imgPinLoc      from '../assets/Icons/Property 1=lucide_map-pin.svg'
+import imgCoastalIcon from '../assets/Icons/Property 1=lucide_sailboat.svg'
+import imgVillageIcon from '../assets/Icons/Property 1=lucide_building-2.svg'
+import imgAirportIcon from '../assets/Icons/Property 1=lucide_plane.svg'
 
 const MAPS_API_KEY = 'AIzaSyDHbEDhU9AdgZbBYaB97Z8ahhx2Uan_JxU'
 const MAP_CENTER = { lat: 44.4848, lng: 1.8422 }
@@ -27,28 +36,11 @@ function PropertyMap() {
 }
 
 const HERO_IMAGES = [
-  'https://www.figma.com/api/mcp/asset/816c5f6c-a049-480c-aa64-aab9ff60b470',
-  'https://www.figma.com/api/mcp/asset/60b860d9-0cd9-4620-8fad-9d3022fe9694',
-  'https://www.figma.com/api/mcp/asset/9cf083b9-cc88-4d7a-a7df-04806bbea76b',
-  'https://www.figma.com/api/mcp/asset/646a66de-b9d5-46d8-8329-e4460f0fd842',
+  'https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=800&h=560&fit=crop&auto=format',
+  'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&h=560&fit=crop&auto=format',
+  'https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=800&h=560&fit=crop&auto=format',
+  'https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?w=800&h=560&fit=crop&auto=format',
 ]
-
-const imgMapPic = 'https://www.figma.com/api/mcp/asset/83ac5f82-236c-4463-83ed-59188c21a1dc'
-const imgBeds   = 'https://www.figma.com/api/mcp/asset/8a64bac5-7d08-4759-b1a0-65ff80de7682'
-const imgBaths  = 'https://www.figma.com/api/mcp/asset/26549594-7d97-477a-8aef-cc0c6a2e2ab0'
-const imgSqm    = 'https://www.figma.com/api/mcp/asset/3e87fe7c-5335-445b-8231-57b010e403e5'
-const imgLand   = 'https://www.figma.com/api/mcp/asset/78980b3b-3677-428e-86c3-b30c03cf6c44'
-const imgPin    = 'https://www.figma.com/api/mcp/asset/086e5593-3fff-4e97-9880-cb5147429719'
-const imgPinLoc = 'https://www.figma.com/api/mcp/asset/15ad889a-e93a-40f9-b85b-b1a8e66455c1'
-const imgCoastalIcon = 'https://www.figma.com/api/mcp/asset/9433d611-6276-4505-afa8-1307369bb9aa'
-const imgVillageIcon = 'https://www.figma.com/api/mcp/asset/cc6c20c3-fd4c-45a9-b52f-c2f1af1b9aee'
-const imgAirportIcon = 'https://www.figma.com/api/mcp/asset/e4062510-c5c3-4b0c-a8cc-fbaf35630b86'
-
-const imgDot0 = 'https://www.figma.com/api/mcp/asset/4bed7b86-8c28-4eb3-92ee-a3b5a59b44ef'
-const imgDot1 = 'https://www.figma.com/api/mcp/asset/b9f3dd86-ff26-44a3-9637-35fcdd3a6804'
-const imgDot2 = 'https://www.figma.com/api/mcp/asset/4117d9f3-d5bc-4129-9d33-5881ab7f2821'
-const imgDot3 = 'https://www.figma.com/api/mcp/asset/13d8a5b6-1ed3-447b-98f3-d8c9530aa1a0'
-const imgDot4 = 'https://www.figma.com/api/mcp/asset/57bb6b68-75f8-4d1c-b7eb-6547a168eb82'
 
 const STATS = [
   { img: imgBeds,  inset: 'inset-[16.67%_8.33%]', extra: 'inset-[-4.69%_-3.75%]', value: '2',   label: 'Beds' },
@@ -64,11 +56,11 @@ const FEATURES = [
 ]
 
 const COSTS = [
-  { img: imgDot0, label: 'Property P..', pct: '90.2%', amount: '€980,000' },
-  { img: imgDot1, label: 'Purchase',     pct: '4.1%',  amount: '€44,000' },
-  { img: imgDot2, label: 'Notary Fees',  pct: '0.5%',  amount: '€44,000' },
-  { img: imgDot3, label: 'Agent Fees',   pct: '3.2%',  amount: '€44,000' },
-  { img: imgDot4, label: 'Legal Fees',   pct: '1.8%',  amount: '€44,000' },
+  { color: '#FFF352', label: 'Property P..', pct: '90.2%', amount: '€980,000' },
+  { color: '#2e2e2e', label: 'Purchase',     pct: '4.1%',  amount: '€44,000' },
+  { color: '#c0c0c0', label: 'Notary Fees',  pct: '0.5%',  amount: '€44,000' },
+  { color: '#888888', label: 'Agent Fees',   pct: '3.2%',  amount: '€44,000' },
+  { color: '#b0b0b0', label: 'Legal Fees',   pct: '1.8%',  amount: '€44,000' },
 ]
 
 const BASE_TOTAL_EUR = 1156000
@@ -364,7 +356,7 @@ export default function PropertyPage({ onNavigate }) {
                     }}
                   >
                     <div className="flex-1 flex gap-2.5 items-center h-[38px] px-4 py-[9px]">
-                      <img src={row.img} alt="" className="size-[13px]" />
+                      <div className="size-[13px] rounded-full shrink-0" style={{ background: row.color }} />
                       <span className="text-[12px] text-dark tracking-[-0.14px] leading-normal">{row.label}</span>
                     </div>
                     <div className="w-[60px] flex items-center justify-center border-l border-border-gray self-stretch px-2">

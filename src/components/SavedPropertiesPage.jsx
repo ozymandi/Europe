@@ -3,17 +3,21 @@ import { motion } from 'framer-motion'
 import Card from './Card'
 import PropertyPopup from './PropertyPopup'
 
-const imgSubtitleIcon = 'https://www.figma.com/api/mcp/asset/97b10d6a-9311-449e-a438-3c853f40a435'
-const imgSearchIcon = 'https://www.figma.com/api/mcp/asset/6950357f-8086-44f7-9927-2d56340ed095'
-const imgSearchBtn  = 'https://www.figma.com/api/mcp/asset/99bd1335-a6d5-435c-8648-1b2e6addd8a5'
-const imgFilterIcon = 'https://www.figma.com/api/mcp/asset/06c65372-51d2-4706-8123-8950602548ed'
+import imgSearchIcon from '../assets/Icons/Property 1=search.svg'
+import imgSearchBtn  from '../assets/Icons/Property 1=arrow.svg'
+import imgFilterIcon from '../assets/Icons/Property 1=lucide_list-filter.svg'
+import imgTabInterest  from '../assets/Icons/Property 1=Heart.svg'
+import imgTabContacted from '../assets/Icons/Property 1=lucide_mail.svg'
+import imgTabDocument  from '../assets/Icons/Property 1=lucide_file-text.svg'
+import imgTabViewing   from '../assets/Icons/Property 1=lucide_view.svg'
+import imgTabOffer     from '../assets/Icons/Property 1=lucide_handshake.svg'
 
 const STATUS_TABS = [
-  { label: 'Interest',  count: 2, icon: 'https://www.figma.com/api/mcp/asset/6acaa335-7dcb-4e11-b8db-f8d43de3173f', inset: 'inset-[16.6%_8.33%_12.5%_8.33%]',  extra: 'inset-[-5.88%_-5%]' },
-  { label: 'Contacted', count: 2, icon: 'https://www.figma.com/api/mcp/asset/01cd4644-ebb6-42ed-b564-b7ef4d2b4159', inset: 'inset-[16.67%_8.33%]',              extra: 'inset-[-6.25%_-5%]' },
-  { label: 'Document',  count: 2, icon: 'https://www.figma.com/api/mcp/asset/76b926a0-113b-4c09-aa95-298fb858b4b8', inset: 'inset-[8.33%_16.67%]',              extra: 'inset-[-5%_-6.25%]' },
-  { label: 'Viewing',   count: 2, icon: 'https://www.figma.com/api/mcp/asset/55a8797a-6aa5-466d-a1d6-841eb510cec4', inset: 'inset-[12.5%]',                     extra: 'inset-[-5.56%]' },
-  { label: 'Offer',     count: 2, icon: 'https://www.figma.com/api/mcp/asset/700fe775-6d95-41e4-a22c-4a040f6fbb01', inset: 'inset-[12.5%_8.33%_11.99%_8.33%]', extra: 'inset-[-5.52%_-5%]' },
+  { label: 'Interest',  count: 2, icon: imgTabInterest },
+  { label: 'Contacted', count: 2, icon: imgTabContacted },
+  { label: 'Document',  count: 2, icon: imgTabDocument },
+  { label: 'Viewing',   count: 2, icon: imgTabViewing },
+  { label: 'Offer',     count: 2, icon: imgTabOffer },
 ]
 
 const SORT_OPTIONS = ['Default Sort', 'Price High to Low', 'Price Low to High']
@@ -23,25 +27,25 @@ const SAVED_LISTINGS = [
     tag: 'Architectural Gem', features: ['Architectural Gem', 'Pool', 'Furnished'],
     city: 'Siena', country: 'Italy', price: '€320,000',
     beds: 4, baths: 3, sqm: 210, land: 450,
-    img: 'https://www.figma.com/api/mcp/asset/60b860d9-0cd9-4620-8fad-9d3022fe9694',
+    img: 'https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=600&h=400&fit=crop&auto=format',
   },
   {
     tag: 'Sea View', features: ['Sea View', 'Income'],
     city: 'Santorini', country: 'Greece', price: '€245,000',
     beds: 3, baths: 2, sqm: 140, land: 200,
-    img: 'https://www.figma.com/api/mcp/asset/9cf083b9-cc88-4d7a-a7df-04806bbea76b',
+    img: 'https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=600&h=400&fit=crop&auto=format',
   },
   {
     tag: 'Sea View', features: ['Sea View', 'Furnished'],
     city: 'Mallorca', country: 'Spain', price: '€275,000',
     beds: 3, baths: 2, sqm: 160, land: 310,
-    img: 'https://www.figma.com/api/mcp/asset/646a66de-b9d5-46d8-8329-e4460f0fd842',
+    img: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&h=400&fit=crop&auto=format',
   },
   {
     tag: 'Sea View', features: ['Sea View', 'Pool'],
     city: 'Amalfi', country: 'Italy', price: '€430,000',
     beds: 3, baths: 2, sqm: 118, land: 180,
-    img: 'https://www.figma.com/api/mcp/asset/4b88c9a7-a97a-4654-936e-8590f2656db6',
+    img: 'https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?w=600&h=400&fit=crop&auto=format',
   },
   {
     tag: 'Pool & Garden', features: ['Pool & Garden', 'Income'],
