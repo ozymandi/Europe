@@ -3,27 +3,27 @@ import { motion } from 'framer-motion'
 import Card from './Card'
 import Icons from './Icons'
 
-const imgSearchIcon = 'https://www.figma.com/api/mcp/asset/c5e4425a-dc40-43bb-af85-6c57c09fb638'
-const imgIconGrid = 'https://www.figma.com/api/mcp/asset/6da222d7-ac17-4329-b04b-bf41752af662'
-const imgIconList = 'https://www.figma.com/api/mcp/asset/d34aa2ef-f50c-4033-bb62-61e69477dee5'
-const imgIconChevron = 'https://www.figma.com/api/mcp/asset/dd41eef0-4ada-4677-9e02-172d5464ee49'
-const imgFilterChevron = 'https://www.figma.com/api/mcp/asset/cf3a9363-c3af-4912-89a0-b11f13c9b96f'
-const imgFilterCountry = 'https://www.figma.com/api/mcp/asset/a750c69d-6777-49ab-932e-04dcb851cac0'
-const imgFilterPrice = 'https://www.figma.com/api/mcp/asset/6352d1e2-4931-439d-80e8-132a46607552'
-const imgFilterType = 'https://www.figma.com/api/mcp/asset/ca25a68c-b5ec-4f3e-98cb-75610c1baeee'
-const imgFilterBedroom = 'https://www.figma.com/api/mcp/asset/18e5cd6d-96fb-49b4-910a-78e84e7c1a2c'
-const imgFilterPool = 'https://www.figma.com/api/mcp/asset/dbafde76-4f44-43ae-a60e-f06674a369df'
-const imgFilterSeaview = 'https://www.figma.com/api/mcp/asset/b57d37c9-e1e3-4dd8-88bd-85497d0ad98a'
-const imgFilterFilters = 'https://www.figma.com/api/mcp/asset/ed2160f4-18c4-4e80-8c48-d632bd605363'
-const imgActivePillIcon = 'https://www.figma.com/api/mcp/asset/a67ea20f-c34e-42f6-98e9-137ed6bc805d'
-const imgActivePillX = 'https://www.figma.com/api/mcp/asset/004b774c-c850-42af-a0c1-80434245380f'
+import imgSearchIcon    from '../assets/Icons/Property 1=search.svg'
+import imgIconGrid      from '../assets/Icons/Property 1=Dash.svg'
+import imgIconList      from '../assets/Icons/Property 1=list.svg'
+import imgIconChevron   from '../assets/Icons/Property 1=Down.svg'
+import imgFilterChevron from '../assets/Icons/Property 1=Down.svg'
+import imgFilterCountry from '../assets/Icons/Property 1=lucide_globe.svg'
+import imgFilterPrice   from '../assets/Icons/Property 1=lucide_receipt-euro.svg'
+import imgFilterType    from '../assets/Icons/Property 1=lucide_building-2.svg'
+import imgFilterBedroom from '../assets/Icons/Property 1=lucide_bed-double.svg'
+import imgFilterPool    from '../assets/Icons/Property 1=lucide_waves-ladder.svg'
+import imgFilterSeaview from '../assets/Icons/Property 1=sea.svg'
+import imgFilterFilters from '../assets/Icons/Property 1=lucide_list-filter.svg'
+import imgActivePillIcon from '../assets/Icons/Property 1=lucide_triangle-right.svg'
+import imgActivePillX   from '../assets/Icons/Property 1=x.svg'
 
 const IMG_CARDS = [
-  'https://www.figma.com/api/mcp/asset/28323000-3710-4618-b65e-63a09f79d88f',
-  'https://www.figma.com/api/mcp/asset/0f0c7035-9711-486a-b9e2-fb8607cf5cc2',
-  'https://www.figma.com/api/mcp/asset/4ea18c31-f97b-42bd-9853-fb88dfdcef57',
-  'https://www.figma.com/api/mcp/asset/41835e66-0d37-48ce-9617-5421d16aba68',
-  'https://www.figma.com/api/mcp/asset/7bede93e-8ff9-4a23-9440-8d882fe3ca1b',
+  'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&h=400&fit=crop&auto=format',
+  'https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=600&h=400&fit=crop&auto=format',
+  'https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=600&h=400&fit=crop&auto=format',
+  'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600&h=400&fit=crop&auto=format',
+  'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=600&h=400&fit=crop&auto=format',
 ]
 
 const LISTINGS_DATA = [
